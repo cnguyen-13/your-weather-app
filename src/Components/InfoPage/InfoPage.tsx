@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CardsContainer from "./Cards/CardsContainer";
 import { useParams } from "react-router-dom";
 const apiKey = `065cf514db0debfd884bf32efd0de162`;
 interface Props {
@@ -33,7 +34,14 @@ function InfoPage(props: Props) {
         getCityData();
     }, [city]);
 
-    return <div className="info-page">{city}</div>;
+    if (cityData) {
+        return (
+            <div className="info-page">
+                <CardsContainer cityData={cityData} />
+            </div>
+        );
+    }
+    return <div className="info-page">Loading</div>;
 }
 
 export default InfoPage;

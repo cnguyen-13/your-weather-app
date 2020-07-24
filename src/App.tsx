@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Intro from "./Components/Intro/Intro";
+import Navbar from "./Components/Navbar/Navbar";
 import InfoPage from "./Components/InfoPage/InfoPage";
 import { Switch, Link, Route } from "react-router-dom";
 import "./styles/styles.css";
@@ -20,8 +21,10 @@ function App() {
             <Switch>
                 <Route path="/:city">
                     {/* <InformationPage /> */}
-                    <Intro city={city} setLocalCity={setLocalCity} />
-                    <InfoPage units={units} />
+                    {/* <Intro city={city} setLocalCity={setLocalCity} /> */}
+                    {/* <InfoPage units={units} /> */}
+
+                    <Navbar />
                 </Route>
                 <Route path="/">
                     <Intro city={city} setLocalCity={setLocalCity} />

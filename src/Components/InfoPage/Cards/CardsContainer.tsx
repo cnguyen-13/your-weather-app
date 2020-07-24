@@ -1,11 +1,21 @@
 import React from "react";
+import Card from "./Card";
 
-interface Props {}
+interface Props {
+    cityData: any;
+}
 
 function CardsContainer(props: Props) {
-    const {} = props;
+    const { cityData } = props;
+    const dailyArr = cityData.daily;
 
-    return <div className="cards-container"></div>;
+    return (
+        <div className="cards-container">
+            {dailyArr.map((day: any) => {
+                return <Card data={day} />;
+            })}
+        </div>
+    );
 }
 
 export default CardsContainer;
