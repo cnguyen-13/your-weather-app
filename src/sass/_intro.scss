@@ -1,0 +1,88 @@
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+//Backgrounds
+.morning {
+    color: #eee;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../images/background/morning.jpg");
+}
+
+.afternoon {
+    color: #eee;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../images/background/afternoon.jpg");
+}
+
+.evening {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../images/background/evening.jpg");
+    color: #eee;
+}
+
+.intro-time {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.intro-welcome {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.intro-question {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.intro-btn {
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    color: #eee;
+    background-color: #e67e22;
+    border: none;
+}
+
+@media (min-width: 760px) {
+    .intro-time {
+        font-size: 64px;
+    }
+
+    .intro-welcome {
+        font-size: 30px;
+    }
+
+    .intro-question {
+        font-size: 24px;
+    }
+
+    .intro-btn {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .intro-time {
+        font-size: 100px;
+    }
+
+    .intro-welcome {
+        font-size: 30px;
+    }
+
+    .intro-question {
+        font-size: 24px;
+    }
+
+    .intro-btn {
+        font-size: 20px;
+    }
+}
