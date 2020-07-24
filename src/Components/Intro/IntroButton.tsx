@@ -1,11 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-interface Props {}
+interface Props {
+    slideFunc: any;
+    city: string | null;
+}
 
 function IntroButton(props: Props) {
-    const {} = props;
+    const { slideFunc, city } = props;
 
-    return <button className="intro-btn">CHECK WEATHER</button>;
+    return (
+        <Link to={`/${city}`}>
+            <button className="intro-btn" onClick={slideFunc}>
+                CHECK WEATHER
+            </button>
+        </Link>
+    );
 }
 
 export default IntroButton;

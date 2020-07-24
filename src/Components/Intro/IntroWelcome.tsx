@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
+interface Props {}
 const messages: { morning: string; afternoon: string; evening: string } = {
     morning: "Good Morning",
     afternoon: "Good Afternoon",
     evening: "Good Evening",
 };
-interface Props {}
 
 function IntroWelcome(props: Props) {
-    const {} = props;
     const [name, setName] = useState<string | null>(null);
     const [message, setMessage] = useState<string>("");
-    function setLocalName(e: any) {
-        const span = e.target;
-    }
 
     useEffect(() => {
         function updateMessage(): void {
@@ -43,10 +39,24 @@ function IntroWelcome(props: Props) {
         getLocalName();
     }, []);
 
+    function setLocalName(e: any) {
+        const span = e.target;
+        localStorage.setItem("name", span.textContent);
+    }
+
+    function clearField(e: any) {
+        if (e.target.textContent === "[ Your Name ]") {
+            e.target.textContent = "";
+        }
+    }
     return (
         <h2 className="intro-welcome">
             {message},{" "}
-            <span contentEditable="true" onInput={setLocalName}>
+            <span
+                contentEditable="true"
+                onInput={setLocalName}
+                onClick={clearField}
+            >
                 {name}
             </span>
         </h2>

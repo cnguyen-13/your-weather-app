@@ -3,32 +3,15 @@ import IntroTime from "./IntroTime";
 import IntroWelcome from "./IntroWelcome";
 import IntroQuestion from "./IntroQuestion";
 import IntroButton from "./IntroButton";
-
-interface Props {}
+interface Props {
+    city: string | null;
+    setLocalCity: any;
+}
 
 function Intro(props: Props) {
-    const [city, setCity] = useState<string | null>(null);
+    const { city, setLocalCity } = props;
     const [backgroundClass, setBackgroundClass] = useState<string>("");
-
-    //Local Storage CITY
-    function setLocalCity(e: React.FormEvent) {
-        console.log("hello");
-    }
-
-    useEffect(() => {
-        //Local Storage setup
-
-        function getLocalCity() {
-            if (localStorage.getItem("city")) {
-                setCity(localStorage.getItem("city"));
-            } else {
-                setCity("[ Your City ]");
-            }
-        }
-
-        getLocalCity();
-    }, []);
-
+    const [slideClass, setSlideClass] = useState<string>("");
     //Background
     useEffect(() => {
         function updateBackground(): void {
@@ -43,7 +26,6 @@ function Intro(props: Props) {
             }
         }
 
-        //First Time
         updateBackground();
 
         //Interval
@@ -55,12 +37,15 @@ function Intro(props: Props) {
         return () => clearInterval(timeUpdateInterval);
     }, []);
 
+    function slideFunc() {
+        setSlideClass("slide-away");
+    }
     return (
-        <div id="intro" className={`intro ${backgroundClass}`}>
+        <div id="intro" className={`intro ${backgroundClass} ${slideClass}`}>
             <IntroTime />
             <IntroWelcome />
             <IntroQuestion city={city} setLocalCity={setLocalCity} />
-            <IntroButton />
+            <IntroButton city={city} slideFunc={slideFunc} />
         </div>
     );
 }
