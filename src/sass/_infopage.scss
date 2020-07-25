@@ -1,1 +1,17 @@
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+}
 
+.card {
+    text-align: center;
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

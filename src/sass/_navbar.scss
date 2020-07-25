@@ -1,10 +1,12 @@
 .nav-bar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #34495e;
     color: white;
-    height: 100px;
+    text-align: center;
+    height: 150px;
 }
 
 .nav-bar-logo {
@@ -12,11 +14,16 @@
     align-items: center;
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 15px;
 }
-
+.nav-bar-search,
+.nav-bar-logo {
+    width: 300px;
+}
 .nav-bar-input {
     padding: 10px 20px;
     border: none;
+    width: 70%;
 }
 
 .nav-bar-btn {
@@ -25,4 +32,21 @@
     background-color: #d35400;
     padding: 10px 20px;
     cursor: pointer;
+    width: 30%;
+}
+
+@media (min-width: 700px) {
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #34495e;
+        color: white;
+        height: 100px;
+    }
+
+    .nav-bar-logo {
+        margin: 0;
+    }
 }

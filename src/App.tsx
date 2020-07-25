@@ -19,12 +19,12 @@ function App() {
     return (
         <div className="App">
             <Switch>
-                <Route path="/:city">
+                <Route path="/:cityParam">
                     {/* <InformationPage /> */}
                     {/* <Intro city={city} setLocalCity={setLocalCity} /> */}
-                    {/* <InfoPage units={units} /> */}
 
                     <Navbar />
+                    <InfoPage units={units} />
                 </Route>
                 <Route path="/">
                     <Intro city={city} setLocalCity={setLocalCity} />

@@ -10,11 +10,11 @@ function IntroQuestion(props: Props) {
 
     return (
         <p className="intro-question">
-            Want to Check{" "}
+            Want to Check the City of{" "}
             <span contentEditable="true" onInput={setLocalCity}>
                 {city}
-            </span>{" "}
-            Weather?
+            </span>
+            's Weather?
         </p>
     );
 }

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 interface Props {}
 
 function Searchbar(props: Props) {
-    const {} = props;
     const [input, setInput] = useState<string>("");
 
     function inputChange(e: any) {
@@ -13,7 +12,7 @@ function Searchbar(props: Props) {
         setInput(value);
     }
 
-    function clearInput(e: any) {
+    function inputClear(e: any) {
         const button = e.target;
         const navBar = button.parentElement.parentElement;
         const input = navBar.firstChild;
@@ -27,7 +26,7 @@ function Searchbar(props: Props) {
                 type="text"
             />
             <Link to={`/${input}`}>
-                <button onClick={clearInput} className="nav-bar-btn">
+                <button onClick={inputClear} className="nav-bar-btn">
                     Search
                 </button>
             </Link>
