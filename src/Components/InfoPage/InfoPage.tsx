@@ -50,11 +50,6 @@ function InfoPage(props: Props) {
         return (
             <div className="info-page">
                 <Switch>
-                    {/* <Route path={`${path}/:dayParam`}>
-                        <InfoHeader city={city} country={country} />
-                        <CardsContainer cityData={cityData} />
-                        awiojdaiowjdioawjdoawd
-                    </Route> */}
                     <Route path={`${path}`}>
                         <InfoHeader city={city} country={country} />
                         <CardsContainer city={city} cityData={cityData} />

@@ -42,7 +42,7 @@ function CardsContainer(props: Props) {
                     <DateInfo city={city} cityData={dailyArr[dailyIdx]} />
                 </Route>
             </Switch>
-            <div className="date-info"></div>
+        
         </>
     );
 }

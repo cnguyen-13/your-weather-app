@@ -9,7 +9,7 @@ function InfoHeader(props: Props) {
     const { city, country } = props;
 
     return (
-        <h2 className="info-page-header">
+        <h2 className="section-title">
             City of {city} in {country}
         </h2>
     );

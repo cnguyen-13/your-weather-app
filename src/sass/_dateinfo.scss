@@ -1,0 +1,63 @@
+.date-info {
+    //Group these two
+    // border: 1px solid red;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.date-info-temps {
+    display: flex;
+    justify-content: center;
+}
+
+.date-info-temps-item {
+    text-align: center;
+    padding: 5px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 3px solid teal;
+    &:last-child {
+        border: none;
+    }
+}
+.date-info-temps-item-label {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.date-info-temps-item-data {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.date-winds-weather-container {
+    display: flex;
+}
+.date-info-winds {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid red;
+    width: 50%;
+    margin-left: 0;
+}
+
+.date-info-weather {
+    margin: 10px;
+    margin-right: 0;
+    text-align: center;
+    border: 1px solid red;
+    width: 50%;
+}
+
+.date-info-subtitle {
+    text-align: left;
+    border: 1px solid red;
+    padding: 10px 10px;
+    background-color: #d35400;
+    color: white;
+    margin-bottom: 20px;
+}
