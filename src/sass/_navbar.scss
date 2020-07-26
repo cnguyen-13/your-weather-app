@@ -6,6 +6,7 @@
     background-color: #34495e;
     color: white;
     text-align: center;
+    padding: 20px;
     height: 150px;
 }
 
@@ -37,12 +38,8 @@
 
 @media (min-width: 700px) {
     .nav-bar {
-        display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        background-color: #34495e;
-        color: white;
         height: 100px;
     }
 

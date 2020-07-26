@@ -91,31 +91,33 @@ function DateInfo(props: Props) {
                     <div className="date-info-winds">
                         <h4 className="date-info-subtitle">Winds</h4>
                         <div>
-                            <h4>Degrees</h4>
-                            <p>{windDegree}°</p>
+                            <h4 className="subtitle">Degrees</h4>
+                            <p className="data">{windDegree}°</p>
                         </div>
                         <div>
-                            <h4>Speed</h4>
-                            <p>{windSpeed} mph</p>
+                            <h4 className="subtitle">Speed</h4>
+                            <p className="data">{windSpeed} mph</p>
                         </div>
                     </div>
                     <div className="date-info-weather">
                         <h4 className="date-info-subtitle">Basic Weather</h4>
                         <div>
-                            <h4>Humidity</h4>
-                            <p>{weatherHumidity} %</p>
+                            <h4 className="subtitle">Humidity</h4>
+                            <p className="data">{weatherHumidity} %</p>
                         </div>
                         <div>
-                            <h4>Chance of Precipitation</h4>
-                            <p>{weatherPop} %</p>
+                            <h4 className="subtitle">
+                                Chance of Precipitation
+                            </h4>
+                            <p className="data">{weatherPop} %</p>
                         </div>
                         <div>
-                            <h4>Cloudiness</h4>
-                            <p>{weatherClouds} %</p>
+                            <h4 className="subtitle">Cloudiness</h4>
+                            <p className="data">{weatherClouds} %</p>
                         </div>
                         <div>
-                            <h4>UV Index</h4>
-                            <p>{weatherUVI}</p>
+                            <h4 className="subtitle">UV Index</h4>
+                            <p className="data">{weatherUVI}</p>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,5 @@
+$color-border: #d35400;
+
 .date-info {
     //Group these two
     // border: 1px solid red;
@@ -8,9 +10,78 @@
 .date-info-temps {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    margin-bottom: 15px;
+}
+
+.date-info-temps-item-label {
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.date-info-temps-item-data {
+    font-size: 20px;
+    font-weight: bold;
+    // opacity: 0.6;
+    color: $color-border;
+}
+
+.date-winds-weather-container {
+    display: flex;
+    flex-direction: column;
+}
+.date-info-winds,
+.date-info-weather {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+.date-info-subtitle {
+    text-align: center;
+    padding: 10px 10px;
+    background-color: rgb(52, 73, 94);
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    @media (min-width: 768px) {
+        text-align: left;
+        padding-left: 30px;
+    }
+}
+
+.section-title {
+    font-size: 32px;
+    text-align: center;
+    margin: 30px 0;
+}
+.subtitle {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.date {
+    margin: 15px 0;
+}
+
+@media (min-width: 768px) {
+    .date-winds-weather-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .date-info-winds,
+    .date-info-weather {
+        width: 49%;
+    }
 }
 
 .date-info-temps-item {
+    //rgb(52, 73, 94)
+    $color-border: rgb(52, 73, 94);
     text-align: center;
     padding: 5px;
     width: 200px;
@@ -18,46 +89,66 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 3px solid teal;
+    border-bottom: 3px solid $color-border;
     &:last-child {
         border: none;
     }
-}
-.date-info-temps-item-label {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-.date-info-temps-item-data {
-    font-size: 18px;
-    font-weight: 600;
-}
+    @media (min-width: 417px) {
+        border-bottom: none;
+        border-right: 3px solid $color-border;
+        &:nth-child(even) {
+            border: none;
+        }
+    }
 
-.date-winds-weather-container {
-    display: flex;
-}
-.date-info-winds {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: 1px solid red;
-    width: 50%;
-    margin-left: 0;
-}
+    @media (min-width: 617px) {
+        &:nth-child(even) {
+            border-right: 3px solid $color-border;
+        }
+        &:nth-child(3n) {
+            border: none;
+        }
+    }
 
-.date-info-weather {
-    margin: 10px;
-    margin-right: 0;
-    text-align: center;
-    border: 1px solid red;
-    width: 50%;
-}
+    @media (min-width: 817px) {
+        &:nth-child(4n) {
+            border: none;
+        }
+        &:nth-child(1) {
+            border: none;
+        }
+        &:nth-child(2) {
+            border-left: 3px solid $color-border;
+        }
+        &:nth-child(3) {
+            border-right: 3px solid $color-border;
+        }
+        &:nth-child(5n) {
+            border-left: 3px solid $color-border;
+        }
+        &:nth-child(6n) {
+            border-right: 3px solid $color-border;
+        }
+    }
 
-.date-info-subtitle {
-    text-align: left;
-    border: 1px solid red;
-    padding: 10px 10px;
-    background-color: #d35400;
-    color: white;
-    margin-bottom: 20px;
+    @media (min-width: 1017px) {
+        &:nth-child(2) {
+            border-right: none;
+        }
+        &:nth-child(3) {
+            border-left: 3px solid $color-border;
+        }
+        &:nth-child(5) {
+            border-right: none;
+        }
+        &:nth-child(6) {
+            border-left: 3px solid $color-border;
+        }
+    }
+
+    @media (min-width: 1217px) {
+        &:nth-child(6) {
+            border-right: none;
+        }
+    }
 }
