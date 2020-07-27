@@ -16,11 +16,13 @@ function DateInfoWeather(props: Props) {
     return (
         <div className="date-info-section">
             <div className="date-graphic">
-                <img
-                    className="date-info-img"
-                    src={weather}
-                    alt="weather section"
-                />
+                <a href="https://dryicons.com/free-icons/weather-circle-icon">
+                    <img
+                        className="date-info-img"
+                        src={weather}
+                        alt="weather section"
+                    />
+                </a>
             </div>
             <div className="date-info-text">
                 <h4 className="date-info-label">Humidity</h4>

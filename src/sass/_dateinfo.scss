@@ -2,17 +2,10 @@ $color-border: #d35400;
 //General
 .date-info-section {
     text-align: center;
-    width: 33%;
-    //border: 1px solid red;
-    display: flex;
-    .date-graphic {
-        width: 40%;
-        background-color: $color-border;
-    }
-    .date-info-text {
-        width: 60%;
-        background-color: #333;
-        color: white;
+    margin: 10px;
+    padding: 20px;
+    @media (min-width: 768px) {
+        width: 33%;
     }
 }
 
@@ -26,9 +19,12 @@ $color-border: #d35400;
 }
 
 .date-info-img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-bottom: 20px;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .date-info-label {
@@ -49,5 +45,9 @@ $color-border: #d35400;
     padding: 5px;
     //border: 1px solid red;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 }

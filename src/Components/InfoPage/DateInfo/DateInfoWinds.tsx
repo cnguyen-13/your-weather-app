@@ -15,11 +15,13 @@ function DateInfoWinds(props: Props) {
     return (
         <div className="date-info-section">
             <div className="date-graphic">
-                <img
-                    className="date-info-img"
-                    src={winds}
-                    alt="winds section"
-                />
+                <a href="https://dryicons.com/free-icons/wind-circle-icon-icons">
+                    <img
+                        className="date-info-img"
+                        src={winds}
+                        alt="winds section"
+                    />
+                </a>
             </div>
 
             <div className="date-info-text">
