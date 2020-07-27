@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, match, useRouteMatch } from "react-router-dom";
+import React from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 const days = [
     "Sunday",
     "Monday",
@@ -18,7 +18,7 @@ interface Props {
 
 function Card(props: Props) {
     const { data, clickedOnCard, dataIdx } = props;
-    const { path, url } = useRouteMatch();
+    const { url } = useRouteMatch();
     const minTemp: number = Math.round(data.temp.min);
     const maxTemp: number = Math.round(data.temp.max);
     const weatherDescription: string = data.weather[0].description;

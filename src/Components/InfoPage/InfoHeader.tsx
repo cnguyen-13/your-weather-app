@@ -17,7 +17,6 @@ function InfoHeader(props: Props) {
             const arr = data.results;
             const randomImg = arr[Math.floor(Math.random() * arr.length)];
             const image = randomImg.urls.full;
-            console.log(image);
             setBgImage(image);
         }
 

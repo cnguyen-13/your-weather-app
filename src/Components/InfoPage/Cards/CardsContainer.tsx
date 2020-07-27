@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import DateInfo from "../DateInfo/DateInfo";
-import { Switch, Route, Link, match, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 interface Props {
     city: string | null;
     cityData: any;
 }
-
+//This components needs to render the DATA!!!!
 function CardsContainer(props: Props) {
     const { city, cityData } = props;
     const dailyArr = cityData.daily;
@@ -42,7 +42,6 @@ function CardsContainer(props: Props) {
                     <DateInfo city={city} cityData={dailyArr[dailyIdx]} />
                 </Route>
             </Switch>
-        
         </>
     );
 }

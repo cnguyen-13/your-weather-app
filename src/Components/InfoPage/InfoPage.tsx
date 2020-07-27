@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import CardsContainer from "./Cards/CardsContainer";
-import DateInfo from "./DateInfo/DateInfo";
 import { useParams, Switch, Route, useRouteMatch } from "react-router-dom";
 import InfoHeader from "./InfoHeader";
 const apiKey = `065cf514db0debfd884bf32efd0de162`;
@@ -15,7 +14,7 @@ function InfoPage(props: Props) {
     const [city, setCity] = useState<string | null>(null);
     const [country, setCountry] = useState<string | null>(null);
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
-    const { path, url } = useRouteMatch();
+    const { path } = useRouteMatch();
     useEffect(() => {
         async function getCityData() {
             //Reset cityData & invalidCity flag
@@ -42,9 +41,9 @@ function InfoPage(props: Props) {
                 setIsInvalidCity(true);
             }
         }
-        console.log(cityData);
+
         getCityData();
-    }, [cityParam]);
+    }, [cityParam, units]);
 
     if (cityData) {
         return (

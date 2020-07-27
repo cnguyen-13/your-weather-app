@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Intro from "./Components/Intro/Intro";
 import Navbar from "./Components/Navbar/Navbar";
 import InfoPage from "./Components/InfoPage/InfoPage";
-import { Switch, Link, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./styles/styles.css";
 
 function App() {
-    const [city, setCity] = useState<string>(
-        localStorage.getItem("city") || "[ Your City ]"
-    );
-    const [units, setUnits] = useState("imperial");
+    const city = localStorage.getItem("city") || "[ Your City ]";
+    const [units, setUnits] = useState<string>("imperial");
 
     function setLocalCity(e: any) {
         const span = e.target;
         localStorage.setItem("city", span.textContent);
     }
 
+    function changeUnitsFunc(): void {
+        if (units === "imperial") {
+            setUnits("metric");
+        } else {
+            setUnits("imperial");
+        }
+    }
+
     return (
         <div className="App">
             <Switch>
                 <Route path="/:cityParam">
-                    {/* <InformationPage /> */}
-                    {/* <Intro city={city} setLocalCity={setLocalCity} /> */}
-
-                    <Navbar />
+                    <Navbar units={units} changeUnitsFunc={changeUnitsFunc} />
                     <InfoPage units={units} />
                 </Route>
                 <Route path="/">
