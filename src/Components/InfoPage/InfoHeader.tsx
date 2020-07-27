@@ -15,8 +15,8 @@ function InfoHeader(props: Props) {
             );
             const data = await res.json();
             const arr = data.results;
-            const firstImg = arr[0];
-            const image = firstImg.urls.full;
+            const randomImg = arr[Math.floor(Math.random() * arr.length)];
+            const image = randomImg.urls.full;
             console.log(image);
             setBgImage(image);
         }
@@ -27,9 +27,10 @@ function InfoHeader(props: Props) {
     if (bgImage) {
         return (
             <section
-                className="city-bg mask"
+                className="city-bg"
                 style={{
                     backgroundSize: "cover",
+                    backgroundPosition: "center center",
                     backgroundRepeat: "no-repeat",
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgImage})`,
                 }}

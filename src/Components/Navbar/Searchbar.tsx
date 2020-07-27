@@ -24,6 +24,7 @@ function Searchbar(props: Props) {
                 onChange={inputChange}
                 className="nav-bar-input"
                 type="text"
+                placeholder="[city] or [city, country code]"
             />
             <Link to={`/${input}`}>
                 <button onClick={inputClear} className="nav-bar-btn">
