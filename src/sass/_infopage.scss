@@ -1,11 +1,14 @@
+$color-base: #34495e;
 .cards-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     //border: 1px solid red;
-    //Group these two
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+    bottom: 100px;
 }
 
 .card {
@@ -14,7 +17,8 @@
     padding: 10px;
     margin: 5px;
     text-align: center;
-    background-color: #ddd;
+    color: white;
+    background-color: #333;
     &:hover {
         transform: scale(1.05);
         transition: 0.3s;

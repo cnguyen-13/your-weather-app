@@ -1,0 +1,23 @@
+.city-bg {
+    min-height: 600px;
+    height: 70vh;
+    color: white;
+    background-color: #333;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    padding: 50px;
+    -webkit-box-shadow: 0px 10px 200px 10px rgba(51, 51, 51, 0.5);
+    -moz-box-shadow: 0px 10px 200px 10px rgba(51, 51, 51, 0.5);
+    box-shadow: 0px 10px 200px 10px rgba(51, 51, 51, 0.5);
+}
+
+.city-title {
+    font-size: 64px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.city-subtitle {
+    font-size: 32px;
+}
