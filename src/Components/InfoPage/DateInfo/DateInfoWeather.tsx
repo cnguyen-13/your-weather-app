@@ -15,16 +15,17 @@ function DateInfoWeather(props: Props) {
     const weatherUVI: number = cityData.uvi;
     return (
         <div className="date-info-section">
-            <div className="date-graphic">
-                <a href="https://dryicons.com/free-icons/weather-circle-icon">
-                    <img
-                        className="date-info-img"
-                        src={weather}
-                        alt="weather section"
-                    />
-                </a>
-            </div>
             <div className="date-info-text">
+                <h3 className="date-info-section-title">Weather</h3>
+                <div className="date-graphic">
+                    <a href="https://dryicons.com/free-icons/weather-circle-icon">
+                        <img
+                            className="date-info-img"
+                            src={weather}
+                            alt="weather section"
+                        />
+                    </a>
+                </div>
                 <h4 className="date-info-label">Humidity</h4>
                 <p className="date-info-data">{weatherHumidity} %</p>
 

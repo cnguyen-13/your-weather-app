@@ -17,16 +17,17 @@ function DateInfoTemps(props: Props) {
 
     return (
         <section className="date-info-section">
-            <div className="date-graphic">
-                <a href="https://dryicons.com/free-icons/temperature-circle-icon">
-                    <img
-                        className="date-info-img"
-                        src={temps}
-                        alt="temps section"
-                    />
-                </a>
-            </div>
             <div className="date-info-text">
+                <h3 className="date-info-section-title">Temperatures</h3>
+                <div className="date-graphic">
+                    <a href="https://dryicons.com/free-icons/temperature-circle-icon">
+                        <img
+                            className="date-info-img"
+                            src={temps}
+                            alt="temps section"
+                        />
+                    </a>
+                </div>
                 <h4 className="date-info-label">Min</h4>
                 <p className="date-info-data">{tempMin} °F</p>
 
