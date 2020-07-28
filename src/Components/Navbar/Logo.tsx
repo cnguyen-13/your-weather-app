@@ -1,11 +1,7 @@
 import React from "react";
 import logo from "../../images/misc/logo.png";
 
-interface Props {}
-
-function Logo(props: Props) {
-    const {} = props;
-
+function Logo() {
     return (
         <div className="nav-bar-logo">
             <img src={logo} alt="Your Weather App Logo" />{" "}

@@ -1,14 +1,15 @@
 import React from "react";
+import CardDate from "./CardDate";
+import CardDay from "./CardDay";
+import CardIcon from "./CardIcon";
+import CardDescription from "./CardDescription";
+import CardTemps from "./CardTemps";
 import { Link, useRouteMatch } from "react-router-dom";
-const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-];
+const { getMinMaxTemps } = require("../../../HelperFunctions/getMinMaxTemps");
+const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
+const {
+    getWeatherDetails,
+} = require("../../../HelperFunctions/getWeatherDetails");
 
 interface Props {
     data: any;
@@ -19,18 +20,14 @@ interface Props {
 function Card(props: Props) {
     const { data, clickedOnCard, dataIdx } = props;
     const { url } = useRouteMatch();
-    const minTemp: number = Math.round(data.temp.min);
-    const maxTemp: number = Math.round(data.temp.max);
-    const weatherDescription: string = data.weather[0].description;
-    const weatherIcon: string = data.weather[0].icon;
+    const temps = data.temp;
+    const weather = data.weather[0];
+    const time = data.dt;
 
-    //Getting Date
-    const milliseconds: number = data.dt * 1000;
-    const fullDate: Date = new Date(milliseconds);
-    const date: number = fullDate.getDate();
-    const month: number = fullDate.getMonth() + 1;
-    const dayIdx: number = fullDate.getDay();
-    const day: string = days[dayIdx];
+    //Parse Data
+    const { minTemp, maxTemp } = getMinMaxTemps(temps);
+    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    const { date, month, day } = getDateTimes(time);
 
     //Wierd propagation happening
     return (
@@ -40,19 +37,11 @@ function Card(props: Props) {
                 onClick={clickedOnCard}
                 id={dataIdx.toString()}
             >
-                <h3 className="card-date">
-                    {month}/{date}
-                </h3>
-                <p className="card-day">{day}</p>
-                <img
-                    className="card-icon"
-                    src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-                    alt="Weather Icon"
-                />
-                <p className="card-description">{weatherDescription}</p>
-                <p className="card-temps">
-                    <span>{minTemp}°F</span> | <span>{maxTemp}°F</span>
-                </p>
+                <CardDate month={month} date={date} />
+                <CardDay day={day} />
+                <CardIcon weatherIcon={weatherIcon} />
+                <CardDescription weatherDescription={weatherDescription} />
+                <CardTemps minTemp={minTemp} maxTemp={maxTemp} />
             </div>
         </Link>
     );

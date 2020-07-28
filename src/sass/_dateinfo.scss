@@ -14,21 +14,21 @@ $color-border: #d35400;
                 rgba(0, 0, 0, 0.3),
                 rgba(0, 0, 0, 0.3)
             ),
-            url("../images/background/temp.jpg");
+            url("../images/background/Temperatures.jpg");
     }
     &:nth-child(2) {
         background-image: linear-gradient(
                 rgba(0, 0, 0, 0.3),
                 rgba(0, 0, 0, 0.3)
             ),
-            url("../images/background/weather.jpg");
+            url("../images/background/Weather.jpg");
     }
     &:nth-child(3) {
         background-image: linear-gradient(
                 rgba(0, 0, 0, 0.3),
                 rgba(0, 0, 0, 0.3)
             ),
-            url("../images/background/wind.jpg");
+            url("../images/background/Winds.jpg");
     }
     @media (min-width: 800px) {
         width: 33%;

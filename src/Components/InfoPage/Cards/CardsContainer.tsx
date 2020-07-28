@@ -7,7 +7,7 @@ interface Props {
     city: string | null;
     cityData: any;
 }
-//This components needs to render the DATA!!!!
+//This components needs to fetch the DATA!!!!
 function CardsContainer(props: Props) {
     const { city, cityData } = props;
     const dailyArr = cityData.daily;

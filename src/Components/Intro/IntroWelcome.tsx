@@ -1,54 +1,39 @@
 import React, { useState, useEffect } from "react";
-interface Props {}
-const messages: { morning: string; afternoon: string; evening: string } = {
-    morning: "Good Morning",
-    afternoon: "Good Afternoon",
-    evening: "Good Evening",
-};
+const { getMessage } = require("../../HelperFunctions/getMessage");
 
-function IntroWelcome(props: Props) {
-    const [name, setName] = useState<string | null>(null);
+function IntroWelcome() {
+    const name: string = localStorage.getItem("name") || "[ Your Name ]";
     const [message, setMessage] = useState<string>("");
 
     useEffect(() => {
-        function updateMessage(): void {
-            const today = new Date();
-            const hours = today.getHours();
-            if (hours >= 0 && hours <= 11) {
-                setMessage(messages.morning);
-            } else if (hours >= 12 && hours <= 18) {
-                setMessage(messages.afternoon);
-            } else {
-                setMessage(messages.evening);
-            }
-        }
+        const updateMessage = (): void => {
+            const message: string = getMessage();
+            setMessage(message);
+        };
 
+        //First Moment
         updateMessage();
+
+        //Interval
+        const updateMessageInterval: NodeJS.Timeout = setInterval(() => {
+            updateMessage();
+        }, 3600000);
+
+        //Unmount
+        return (): void => clearInterval(updateMessageInterval);
     }, []);
 
-    useEffect(() => {
-        //Local Storage setup
-        function getLocalName() {
-            if (localStorage.getItem("name")) {
-                setName(localStorage.getItem("name"));
-            } else {
-                setName("[ Your Name ]");
-            }
-        }
-
-        getLocalName();
-    }, []);
-
-    function setLocalName(e: any) {
+    const setLocalName = (e: any): void => {
         const span = e.target;
         localStorage.setItem("name", span.textContent);
-    }
+    };
 
-    function clearField(e: any) {
+    const clearField = (e: any): void => {
         if (e.target.textContent === "[ Your Name ]") {
             e.target.textContent = "";
         }
-    }
+    };
+
     return (
         <h2 className="intro-welcome">
             {message},{" "}

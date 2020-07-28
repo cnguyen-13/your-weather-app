@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-interface Props {}
-
-function Searchbar(props: Props) {
+function Searchbar() {
     const [input, setInput] = useState<string>("");
 
-    function inputChange(e: any) {
+    const inputChange = (e: any): void => {
         const input = e.target;
         const value = input.value;
         setInput(value);
-    }
+    };
 
-    function inputClear(e: any) {
+    const inputClear = (e: any): void => {
         const button = e.target;
         const navBar = button.parentElement.parentElement;
         const input = navBar.firstChild;
         input.value = "";
-    }
+    };
     return (
         <div className="nav-bar-search">
             <input

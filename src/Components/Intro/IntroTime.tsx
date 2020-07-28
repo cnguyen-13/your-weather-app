@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from "react";
-const { formatTime } = require("../../HelperFunctions/formatTime");
-interface Props {}
+const { getFormattedTime } = require("../../HelperFunctions/getFormattedTime");
 
-function IntroTime(props: Props) {
-    const {} = props;
+function IntroTime() {
     const [time, setTime] = useState<string>("");
-    useEffect(() => {
-        function updateTime(): void {
-            const today = new Date();
-            const hours = formatTime(today.getHours(), "hours");
-            const minutes = formatTime(today.getMinutes(), "minutes");
-            const seconds = formatTime(today.getSeconds(), "seconds");
-            const amOrPm = today.getHours() < 12 ? "AM" : "PM";
-            setTime(`${hours}:${minutes}:${seconds} ${amOrPm}`);
-        }
 
-        //First Time
+    useEffect(() => {
+        const updateTime = (): void => {
+            const formattedTime: string = getFormattedTime();
+            setTime(formattedTime);
+        };
+
+        //First Tick
         updateTime();
 
         //Interval
-        const timeUpdateInterval = setInterval(() => {
+        const updateTimeInterval: NodeJS.Timeout = setInterval(() => {
             updateTime();
         }, 1000);
 
         //Unmount
-        return () => clearInterval(timeUpdateInterval);
+        return (): void => clearInterval(updateTimeInterval);
     }, []);
 
     return <h1 className="intro-time">{time}</h1>;

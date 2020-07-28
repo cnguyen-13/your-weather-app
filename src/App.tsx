@@ -7,26 +7,25 @@ import "./styles/styles.css";
 
 function App() {
     const city = localStorage.getItem("city") || "[ Your City ]";
-    const [units, setUnits] = useState<string>("imperial");
+    const [units, setUnits] = useState<string>("imperial"); //Move down in app
 
     function setLocalCity(e: any) {
         const span = e.target;
         localStorage.setItem("city", span.textContent);
     }
-
-    function changeUnitsFunc(): void {
-        if (units === "imperial") {
-            setUnits("metric");
-        } else {
-            setUnits("imperial");
-        }
-    }
+    // function changeUnitsFunc(): void {
+    //     if (units === "imperial") {
+    //         setUnits("metric");
+    //     } else {
+    //         setUnits("imperial");
+    //     }
+    // }
 
     return (
         <div className="App">
             <Switch>
                 <Route path="/:cityParam">
-                    <Navbar units={units} changeUnitsFunc={changeUnitsFunc} />
+                    <Navbar />
                     <InfoPage units={units} />
                 </Route>
                 <Route path="/">

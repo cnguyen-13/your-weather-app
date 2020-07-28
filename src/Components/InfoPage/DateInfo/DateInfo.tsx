@@ -1,7 +1,6 @@
 import React from "react";
-import DateInfoWeather from "./DateInfoWeather";
-import DateInfoWinds from "./DateInfoWinds";
-import DateInfoTemps from "./DateInfoTemps";
+import DateInfoColumn from "./DateInfoColumn";
+const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
 
 interface Props {
     city: string | null;
@@ -12,10 +11,8 @@ interface Props {
 function DateInfo(props: Props) {
     const { city, cityData } = props;
     //Getting Date
-    const milliseconds: number = cityData.dt * 1000;
-    const fullDate: Date = new Date(milliseconds);
-    const date: number = fullDate.getDate();
-    const month: number = fullDate.getMonth() + 1;
+    const time = cityData.dt;
+    const { date, month } = getDateTimes(time);
 
     return (
         <section>
@@ -23,9 +20,21 @@ function DateInfo(props: Props) {
                 {city}: {`${month} / ${date}`}
             </h2>
             <div className="date-info">
-                <DateInfoTemps cityData={cityData} />
-                <DateInfoWeather cityData={cityData} />
-                <DateInfoWinds cityData={cityData} />
+                <DateInfoColumn
+                    cityData={cityData}
+                    title="Temperatures"
+                    units="imperial"
+                />
+                <DateInfoColumn
+                    cityData={cityData}
+                    title="Weather"
+                    units="imperial"
+                />
+                <DateInfoColumn
+                    cityData={cityData}
+                    title="Winds"
+                    units="imperial"
+                />
             </div>
         </section>
     );

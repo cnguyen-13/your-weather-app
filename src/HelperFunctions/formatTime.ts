@@ -18,5 +18,4 @@ function formatTime(num: number, type: string): string {
     return formattedTime;
 }
 
-// module.exports = {formatTime};
 export { formatTime };
