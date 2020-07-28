@@ -1,6 +1,6 @@
 const { formatTime } = require("./formatTime");
 
-function getFormattedTime() {
+function getFormattedTime(): string {
     const today = new Date();
     const hours = formatTime(today.getHours(), "hours");
     const minutes = formatTime(today.getMinutes(), "minutes");

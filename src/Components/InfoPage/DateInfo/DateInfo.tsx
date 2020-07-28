@@ -11,7 +11,7 @@ interface Props {
 function DateInfo(props: Props) {
     const { city, cityData } = props;
     //Getting Date
-    const time = cityData.dt;
+    const time: number = cityData.dt;
     const { date, month } = getDateTimes(time);
 
     return (

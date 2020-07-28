@@ -1,7 +1,13 @@
-function getMinMaxTemps(dataTemps: {
+interface Temps {
     min: number;
     max: number;
-}): { minTemp: number; maxTemp: number } {
+}
+interface TempsReturnObject {
+    minTemp: number;
+    maxTemp: number;
+}
+
+function getMinMaxTemps(dataTemps: Temps): TempsReturnObject {
     const minTemp: number = Math.round(dataTemps.min);
     const maxTemp: number = Math.round(dataTemps.max);
     return { minTemp, maxTemp };

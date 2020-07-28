@@ -1,7 +1,9 @@
-function getAllTemps(
-    cityData: any,
-    measurementSys: string
-): { label: string; data: string }[] {
+interface dataArrayObject {
+    label: string;
+    data: string;
+}
+
+function getAllTemps(cityData: any, measurementSys: string): dataArrayObject[] {
     const units = measurementSys === "imperial" ? "°F" : "°C";
     const min: number = Math.round(cityData.temp.min);
     const max: number = Math.round(cityData.temp.max);

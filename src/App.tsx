@@ -13,19 +13,19 @@ function App() {
         const span = e.target;
         localStorage.setItem("city", span.textContent);
     }
-    // function changeUnitsFunc(): void {
-    //     if (units === "imperial") {
-    //         setUnits("metric");
-    //     } else {
-    //         setUnits("imperial");
-    //     }
-    // }
+    function changeUnitsFunc(): void {
+        if (units === "imperial") {
+            setUnits("metric");
+        } else {
+            setUnits("imperial");
+        }
+    }
 
     return (
         <div className="App">
             <Switch>
                 <Route path="/:cityParam">
-                    <Navbar />
+                    <Navbar units={units} changeUnitsFunc={changeUnitsFunc} />
                     <InfoPage units={units} />
                 </Route>
                 <Route path="/">

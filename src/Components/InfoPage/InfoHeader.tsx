@@ -9,7 +9,7 @@ function InfoHeader(props: Props) {
     const { city, country } = props;
     const [bgImage, setBgImage] = useState<string | null>(null);
     useEffect(() => {
-        async function getBgImage() {
+        const getBgImage = async () => {
             const res = await fetch(
                 `https://api.unsplash.com/search/photos?query=${city}&orientation=landscape&client_id=${apiKeyUnsplash}`
             );
@@ -17,8 +17,9 @@ function InfoHeader(props: Props) {
             const arr = data.results;
             const randomImg = arr[Math.floor(Math.random() * arr.length)];
             const image = randomImg.urls.full;
+            console.log("AOIWJDIOAWJDOIJWAIODIOAWDAWD");
             setBgImage(image);
-        }
+        };
 
         getBgImage();
     }, [city]);

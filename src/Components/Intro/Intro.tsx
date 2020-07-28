@@ -14,7 +14,7 @@ function Intro(props: Props) {
     const [slideClass, setSlideClass] = useState<string>("");
     //Background
     useEffect(() => {
-        function updateBackground(): void {
+        const updateBackground = async () => {
             const today = new Date();
             const hours = today.getHours();
             if (hours >= 0 && hours <= 11) {
@@ -24,7 +24,7 @@ function Intro(props: Props) {
             } else {
                 setBackgroundClass("evening");
             }
-        }
+        };
 
         updateBackground();
 

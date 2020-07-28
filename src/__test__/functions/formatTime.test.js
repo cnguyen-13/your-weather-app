@@ -1,4 +1,4 @@
-const formatTime = require("../../HelperFunctions/formatTime");
+const { formatTime } = require("../../HelperFunctions/formatTime");
 
 test("Testing formatTime Function: Hours", () => {
     expect(formatTime(0, "hours")).toBe("12");

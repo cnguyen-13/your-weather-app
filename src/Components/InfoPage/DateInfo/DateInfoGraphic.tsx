@@ -4,17 +4,19 @@ import Weather from "../../../images/misc/weather.svg";
 import Winds from "../../../images/misc/winds.svg";
 
 interface Props {
-    href: string;
-    src: string;
-    alt: string;
+    title: string;
 }
 
 function DateInfoGraphic(props: Props) {
-    const { href, src, alt } = props;
-    let graphic;
-    if (src === "Temperatures") {
+    const { title } = props;
+    const href: string = `https://dryicons.com/free-icons/${title}-circle-icon`;
+    const alt: string = `${title} section`;
+
+    //Graphic picture
+    let graphic: string = "";
+    if (title === "Temperatures") {
         graphic = Temperatures;
-    } else if (src === "Weather") {
+    } else if (title === "Weather") {
         graphic = Weather;
     } else {
         graphic = Winds;

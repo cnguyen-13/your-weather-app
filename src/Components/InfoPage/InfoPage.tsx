@@ -16,7 +16,7 @@ function InfoPage(props: Props) {
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
     const { path } = useRouteMatch();
     useEffect(() => {
-        async function getCityData() {
+        const getCityData = async () => {
             //Reset cityData & invalidCity flag
             setCityData(null);
             setIsInvalidCity(false);
@@ -40,7 +40,7 @@ function InfoPage(props: Props) {
             } catch (err) {
                 setIsInvalidCity(true);
             }
-        }
+        };
 
         getCityData();
     }, [cityParam, units]);

@@ -1,4 +1,9 @@
-function getAllWeather(cityData: any): { label: string; data: string }[] {
+interface dataArrayObject {
+    label: string;
+    data: string;
+}
+
+function getAllWeather(cityData: any): dataArrayObject[] {
     const humidity: number = cityData.humidity;
     const pop: number = cityData.pop * 100;
     const clouds: number = cityData.clouds;

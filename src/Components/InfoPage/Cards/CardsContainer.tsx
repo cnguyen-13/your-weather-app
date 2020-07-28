@@ -14,14 +14,14 @@ function CardsContainer(props: Props) {
     const { path, url } = useRouteMatch();
     const [dailyIdx, setDailyIdx] = useState<number>(0);
 
-    function clickedOnCard(e: any) {
+    const clickedOnCard = (e: any): void => {
         let element = e.target;
         if (!element.id) {
             element = element.parentElement;
         }
         const id = parseInt(element.id, 10);
         setDailyIdx(id);
-    }
+    };
 
     return (
         <>

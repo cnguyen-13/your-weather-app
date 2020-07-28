@@ -11,29 +11,27 @@ interface Props {
     units: string;
 }
 
+interface dataArrayObject {
+    label: string;
+    data: string;
+}
+
 function DateInfoColumn(props: Props) {
-    //Set up data and logo
     const { cityData, title, units } = props;
-    //Image
-    let href: string = `https://dryicons.com/free-icons/${title}-circle-icon`;
-    let src: string = `${title}`;
-    let alt: string = `${title} section`;
 
     //Data sets
-    let dataArr: { label: string; data: string }[];
-    if (title === "Temperatures") {
-        dataArr = getAllTemps(cityData, units);
-    } else if (title === "Weather") {
-        dataArr = getAllWeather(cityData);
-    } else {
-        dataArr = getAllWind(cityData, units);
-    }
+    const dataArr: dataArrayObject[] =
+        title === "Temperatures"
+            ? getAllTemps(cityData, units)
+            : title === "Winds"
+            ? getAllWind(cityData, units)
+            : getAllWeather(cityData);
 
     return (
         <section className="date-info-section">
             <div className="date-info-text">
                 <DateInfoTitle title={title} />
-                <DateInfoGraphic href={href} src={src} alt={alt} />
+                <DateInfoGraphic title={title} />
                 {dataArr.map((pair) => {
                     const label = pair.label;
                     const data = pair.data;
