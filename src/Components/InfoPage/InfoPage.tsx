@@ -34,8 +34,10 @@ function InfoPage(props: Props) {
 
                 //Get Large Data Set for City
                 const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}&units=${units}`;
+                console.log(oneCallUrl);
                 const res2 = await fetch(oneCallUrl);
                 const oneCallData = await res2.json();
+
                 setCityData(oneCallData);
             } catch (err) {
                 setIsInvalidCity(true);
