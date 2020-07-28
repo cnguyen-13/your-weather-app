@@ -72,12 +72,13 @@ $color-border: #d35400;
 }
 
 .date-info-section-title {
-    color: white;
+    color: black;
     font-size: 30px;
-    background-color: #333;
     padding: 15px;
+    background-color: white;
     padding-bottom: 50px;
-    text-align: left;
+    border-bottom: 5px solid #333;
+    text-align: center;
 }
 //Container
 .date-info {
