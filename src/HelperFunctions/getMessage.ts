@@ -9,7 +9,7 @@ function getMessage(time?: number | undefined): string {
 
 //Helper Function
 function messageFromHours(hours: number): string {
-    let message;
+    let message: string = "";
     if (hours >= 0 && hours <= 11) {
         message = messages.morning;
     } else if (hours >= 12 && hours <= 18) {
