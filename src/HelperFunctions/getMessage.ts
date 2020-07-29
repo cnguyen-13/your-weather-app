@@ -1,7 +1,7 @@
 const { messages } = require("../Data/messages");
 
-function getMessage(): string {
-    const today: Date = new Date();
+function getMessage(time?: number | undefined): string {
+    const today: Date = time ? new Date(time) : new Date();
     const hours: number = today.getHours();
     const message: string = messageFromHours(hours);
     return message;

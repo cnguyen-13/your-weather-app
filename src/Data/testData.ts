@@ -38,14 +38,7 @@ const testData2 = {
     dt: 1596160800,
     sunrise: 1596138498,
     sunset: 1596188807,
-    temp: {
-        day: 83.23,
-        min: 76.8,
-        max: 83.23,
-        night: 78.44,
-        eve: 79.29,
-        morn: 76.8,
-    },
+
     feels_like: {
         day: 81.9,
         night: 78.85,
