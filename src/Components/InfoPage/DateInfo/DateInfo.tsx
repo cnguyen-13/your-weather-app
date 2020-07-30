@@ -4,14 +4,14 @@ const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
 
 interface Props {
     city: string | null;
-    cityData: any;
-    tempUnits?: string;
+    dailyData: { dt: number };
+    units: string;
 }
 
 function DateInfo(props: Props) {
-    const { city, cityData } = props;
+    const { city, dailyData, units } = props;
     //Getting Date
-    const time: number = cityData.dt;
+    const time: number = dailyData.dt;
     const { date, month } = getDateTimes(time);
 
     return (
@@ -21,19 +21,19 @@ function DateInfo(props: Props) {
             </h2>
             <div className="date-info">
                 <DateInfoColumn
-                    cityData={cityData}
+                    cityData={dailyData}
                     title="Temperatures"
-                    units="imperial"
+                    units={units}
                 />
                 <DateInfoColumn
-                    cityData={cityData}
+                    cityData={dailyData}
                     title="Weather"
-                    units="imperial"
+                    units={units}
                 />
                 <DateInfoColumn
-                    cityData={cityData}
+                    cityData={dailyData}
                     title="Winds"
-                    units="imperial"
+                    units={units}
                 />
             </div>
         </section>

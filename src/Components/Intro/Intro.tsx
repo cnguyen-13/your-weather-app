@@ -3,6 +3,7 @@ import IntroTime from "./IntroTime";
 import IntroWelcome from "./IntroWelcome";
 import IntroQuestion from "./IntroQuestion";
 import IntroButton from "./IntroButton";
+import { getBackgroundClass } from "../../HelperFunctions/getBackgroundClass";
 interface Props {
     city: string | null;
     setLocalCity: any;
@@ -12,18 +13,14 @@ function Intro(props: Props) {
     const { city, setLocalCity } = props;
     const [backgroundClass, setBackgroundClass] = useState<string>("");
     const [slideClass, setSlideClass] = useState<string>("");
-    //Background
+
     useEffect(() => {
+        //Get Background
         const updateBackground = async () => {
             const today = new Date();
             const hours = today.getHours();
-            if (hours >= 0 && hours <= 11) {
-                setBackgroundClass("morning");
-            } else if (hours >= 12 && hours <= 18) {
-                setBackgroundClass("afternoon");
-            } else {
-                setBackgroundClass("evening");
-            }
+            const bgClass = getBackgroundClass(hours);
+            setBackgroundClass(bgClass);
         };
 
         updateBackground();

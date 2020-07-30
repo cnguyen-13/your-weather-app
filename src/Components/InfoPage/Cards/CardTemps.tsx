@@ -3,14 +3,16 @@ import React from "react";
 interface Props {
     minTemp: number;
     maxTemp: number;
+    units: string;
 }
 
 function CardTemps(props: Props) {
-    const { minTemp, maxTemp } = props;
+    const { minTemp, maxTemp, units } = props;
+    const tempUnit = units === "imperial" ? "°F" : "°C";
 
     return (
         <p className="card-temps">
-            {minTemp}°F | {maxTemp}°F
+            {minTemp} {tempUnit} | {maxTemp} {tempUnit}
         </p>
     );
 }

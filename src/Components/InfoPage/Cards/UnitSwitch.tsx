@@ -10,6 +10,7 @@ function UnitSwitch(props: Props) {
 
     return (
         <FormControlLabel
+            className="temp-switcher"
             data-testid="theme-checkbox"
             control={<Switch onChange={changeUnitsFunc} />}
             label={units}

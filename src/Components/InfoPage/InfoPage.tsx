@@ -1,67 +1,33 @@
 import React, { useState, useEffect } from "react";
-import CardsContainer from "./Cards/CardsContainer";
-import { useParams, Switch, Route, useRouteMatch } from "react-router-dom";
 import InfoHeader from "./InfoHeader";
-const apiKey = `065cf514db0debfd884bf32efd0de162`;
-interface Props {
-    units: string;
-}
+import { useParams } from "react-router-dom";
+import CardsContainer from "./Cards/CardsContainer";
+//Error function
 
-function InfoPage(props: Props) {
-    const { units } = props;
+function InfoPage() {
     const { cityParam } = useParams();
-    const [cityData, setCityData] = useState<any>(null);
-    const [city, setCity] = useState<string | null>(null);
-    const [country, setCountry] = useState<string | null>(null);
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
-    const { path } = useRouteMatch();
+
     useEffect(() => {
-        const getCityData = async () => {
-            //Reset cityData & invalidCity flag
-            setCityData(null);
-            setIsInvalidCity(false);
-            //Get Coordinates
-            try {
-                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKey}`;
-                const res = await fetch(url);
-                const data = await res.json();
-                const lat: number = data.coord.lat;
-                const lon: number = data.coord.lon;
-                const cityName: string = data.name;
-                const country: string = data.sys.country;
-                setCity(cityName);
-                setCountry(country);
+        setIsInvalidCity(false);
+    }, [cityParam]);
 
-                //Get Large Data Set for City
-                const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}&units=${units}`;
-                console.log(oneCallUrl);
-                const res2 = await fetch(oneCallUrl);
-                const oneCallData = await res2.json();
-
-                setCityData(oneCallData);
-            } catch (err) {
-                setIsInvalidCity(true);
-            }
-        };
-
-        getCityData();
-    }, [cityParam, units]);
-
-    if (cityData) {
+    if (isInvalidCity) {
         return (
-            <div className="info-page">
-                <Switch>
-                    <Route path={`${path}`}>
-                        <InfoHeader city={city} country={country} />
-                        <CardsContainer city={city} cityData={cityData} />
-                    </Route>
-                </Switch>
+            <div className="error-page">
+                <h2 className="city-title">
+                    {cityParam.toUpperCase()} is an{" "}
+                    <span className="error">invalid City!</span>
+                </h2>
             </div>
         );
-    } else if (isInvalidCity) {
-        return <div className="info-page">{cityParam} is an INVALID City!</div>;
     } else {
-        return <div className="info-page">Loading</div>;
+        return (
+            <div className="info-page">
+                <InfoHeader setIsInvalidCity={setIsInvalidCity} />
+                <CardsContainer />
+            </div>
+        );
     }
 }
 

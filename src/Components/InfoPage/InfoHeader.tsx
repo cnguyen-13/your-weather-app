@@ -1,30 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 const apiKeyUnsplash = "jY1QfhlpqNPs4wI8AywokF-l_LpooDq4HRauIfn7HZI";
+const apiKey = `065cf514db0debfd884bf32efd0de162`;
 interface Props {
-    city: string | null;
-    country: string | null;
+    setIsInvalidCity: any;
 }
-
 function InfoHeader(props: Props) {
-    const { city, country } = props;
-    const [bgImage, setBgImage] = useState<string | null>(null);
+    const { setIsInvalidCity } = props;
+    const { cityParam } = useParams();
+    const [bgImage, setBgImage] = useState<string>("");
+    const [countryName, setCountryName] = useState<string>("");
+
+    //Get Country Name & Background Image
     useEffect(() => {
-        const getBgImage = async () => {
-            const res = await fetch(
-                `https://api.unsplash.com/search/photos?query=${city}&orientation=landscape&client_id=${apiKeyUnsplash}`
-            );
-            const data = await res.json();
-            const arr = data.results;
-            const randomImg = arr[Math.floor(Math.random() * arr.length)];
-            const image = randomImg.urls.full;
-            console.log("AOIWJDIOAWJDOIJWAIODIOAWDAWD");
-            setBgImage(image);
+        const getCountryName = async () => {
+            try {
+                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKey}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                const country: string = data.sys.country;
+                setCountryName(country);
+            } catch (err) {
+                setIsInvalidCity(true);
+            }
         };
 
-        getBgImage();
-    }, [city]);
+        const getBgImage = async () => {
+            try {
+                const res = await fetch(
+                    `https://api.unsplash.com/search/photos?query=${cityParam}&orientation=landscape&client_id=${apiKeyUnsplash}`
+                );
+                const data = await res.json();
+                const arr = data.results;
+                const randomImg = arr[Math.floor(Math.random() * arr.length)];
+                const image = randomImg.urls.full;
+                setBgImage(image);
+            } catch (err) {
+                setIsInvalidCity(true);
+            }
+        };
 
-    if (bgImage) {
+        getCountryName();
+        getBgImage();
+    }, [cityParam]);
+
+    if (bgImage && countryName) {
         return (
             <section
                 className="city-bg"
@@ -36,18 +56,15 @@ function InfoHeader(props: Props) {
                 }}
             >
                 <h2 className="city-title">
-                    City of {city}
-                    <span className="city-subtitle">, {country}</span>
+                    City of {cityParam.split(",")[0].toUpperCase()}
+                    <span className="city-subtitle">, {countryName}</span>
                 </h2>
             </section>
         );
     } else {
         return (
             <section className="city-bg">
-                <h2 className="city-title">
-                    Loading...
-                    <span className="city-subtitle"></span>
-                </h2>
+                <h2 className="city-title">Loading...</h2>
             </section>
         );
     }
