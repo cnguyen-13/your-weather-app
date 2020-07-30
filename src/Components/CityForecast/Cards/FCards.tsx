@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 //Components
-import Card from "./Card/Card";
-import DateInfo from "../DateInfo/DateInfo";
-import UnitSwitch from "./measurementSwitch/UnitSwitch";
+import ForecastCard from "./ForecastCard/ForecastCard";
+import DayWeather from "../../DayWeather/DayWeather";
+import MSystemSwitch from "./MSystemSwitch/MSystemSwitch";
 //Helper Functions
 const { coordinatesUrl } = require("../../../HelperFunctions/coordinatesUrl");
 const { forecastUrl } = require("../../../HelperFunctions/forecastUrl");
@@ -13,7 +13,7 @@ interface Coordinates {
     lon: number;
 }
 
-function CardsContainer() {
+function FCards() {
     const { cityParam } = useParams();
     const [mSystem, setMSystem] = useState<string>("imperial");
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
@@ -41,17 +41,17 @@ function CardsContainer() {
             setIsInvalidCity(false);
             try {
                 //Get Coordinates
-                const url: string = coordinatesUrl(cityParam);
-                const res = await fetch(url);
-                const data = await res.json();
+                const coordUrl: string = coordinatesUrl(cityParam);
+                const coordRes = await fetch(coordUrl);
+                const data = await coordRes.json();
                 const { lat, lon }: Coordinates = data.coord;
 
                 //Get Large Data Set for City
-                const oneCallUrl: string = forecastUrl(lat, lon, mSystem);
-                const res2 = await fetch(oneCallUrl);
-                const oneCallData = await res2.json();
-                const oneCallDataDailyArr = oneCallData.daily;
-                setDailyArr(oneCallDataDailyArr);
+                const fcastUrl: string = forecastUrl(lat, lon, mSystem);
+                const fcastRes = await fetch(fcastUrl);
+                const fcastData = await fcastRes.json();
+                const fcsatDailies: [] = fcastData.daily;
+                setDailyArr(fcsatDailies);
             } catch (err) {
                 setIsInvalidCity(true);
             }
@@ -69,7 +69,7 @@ function CardsContainer() {
                 <div className="cards-container">
                     {dailyArr.map((day: any, idx: number) => {
                         return (
-                            <Card
+                            <ForecastCard
                                 clickedOnCard={clickedOnCard}
                                 data={day}
                                 dataIdx={idx}
@@ -79,13 +79,13 @@ function CardsContainer() {
                         );
                     })}
                 </div>
-                <UnitSwitch
+                <MSystemSwitch
                     mSystem={mSystem}
                     mSystemToggleFunc={mSystemToggleFunc}
                 />
             </div>
             {wasCardClicked ? (
-                <DateInfo
+                <DayWeather
                     city={cityParam}
                     dailyData={dailyArr[dailyIdx]}
                     mSystem={mSystem}
@@ -95,4 +95,4 @@ function CardsContainer() {
     );
 }
 
-export default CardsContainer;
+export default FCards;

@@ -1,6 +1,6 @@
 import React from "react";
-import DateInfoColumn from "./DateInfoColumn/DateInfoColumn";
-const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
+import DayColumn from "./DayColumn/DayColumn";
+const { getDateTimes } = require("../../HelperFunctions/getDateTimes");
 
 interface Props {
     city: string | null;
@@ -8,7 +8,7 @@ interface Props {
     mSystem: string;
 }
 
-function DateInfo(props: Props) {
+function DayWeather(props: Props) {
     const { city, dailyData, mSystem } = props;
     //Getting Date
     const time: number = dailyData.dt;
@@ -20,17 +20,17 @@ function DateInfo(props: Props) {
                 {city}: {`${month} / ${date}`}
             </h2>
             <div className="date-info">
-                <DateInfoColumn
+                <DayColumn
                     cityData={dailyData}
                     title="Temperatures"
                     mSystem={mSystem}
                 />
-                <DateInfoColumn
+                <DayColumn
                     cityData={dailyData}
                     title="Weather"
                     mSystem={mSystem}
                 />
-                <DateInfoColumn
+                <DayColumn
                     cityData={dailyData}
                     title="Winds"
                     mSystem={mSystem}
@@ -40,4 +40,4 @@ function DateInfo(props: Props) {
     );
 }
 
-export default DateInfo;
+export default DayWeather;

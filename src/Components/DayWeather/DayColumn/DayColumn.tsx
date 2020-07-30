@@ -1,6 +1,6 @@
 import React from "react";
-import DateInfoTitle from "./DateInfoTitle";
-import DateInfoGraphic from "./DateInfoGraphic";
+import DayTitle from "./DayTitle";
+import DayGraphic from "./DayGraphic";
 const { getAllTemps } = require("../../../HelperFunctions/getAllTemps");
 const { getAllWeather } = require("../../../HelperFunctions/getAllWeather");
 const { getAllWind } = require("../../../HelperFunctions/getAllWind");
@@ -16,7 +16,7 @@ interface dataArrayObject {
     data: string;
 }
 
-function DateInfoColumn(props: Props) {
+function DayColumn(props: Props) {
     const { cityData, title, mSystem } = props;
 
     //Obtain correct Data set
@@ -30,8 +30,8 @@ function DateInfoColumn(props: Props) {
     return (
         <section className="date-info-section">
             <div className="date-info-text">
-                <DateInfoTitle title={title} />
-                <DateInfoGraphic title={title} />
+                <DayTitle title={title} />
+                <DayGraphic title={title} />
                 {dataArr.map((pair) => {
                     return (
                         <div key={pair.label}>
@@ -45,4 +45,4 @@ function DateInfoColumn(props: Props) {
     );
 }
 
-export default DateInfoColumn;
+export default DayColumn;

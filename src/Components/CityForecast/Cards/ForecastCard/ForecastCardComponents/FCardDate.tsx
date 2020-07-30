@@ -5,7 +5,7 @@ interface Props {
     date: number;
 }
 
-function CardDate(props: Props) {
+function FCardDate(props: Props) {
     const { month, date } = props;
 
     return (
@@ -15,4 +15,4 @@ function CardDate(props: Props) {
     );
 }
 
-export default CardDate;
+export default FCardDate;

@@ -7,7 +7,7 @@ interface Props {
     title: string;
 }
 
-function DateInfoGraphic(props: Props) {
+function DayGraphic(props: Props) {
     const { title } = props;
     const href: string = `https://dryicons.com/free-icons/${title}-circle-icon`;
     const alt: string = `${title} section`;
@@ -31,4 +31,4 @@ function DateInfoGraphic(props: Props) {
     );
 }
 
-export default DateInfoGraphic;
+export default DayGraphic;

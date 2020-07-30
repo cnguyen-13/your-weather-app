@@ -16,6 +16,7 @@ function Searchbar() {
         const input = navBar.firstChild;
         input.value = "";
     };
+
     return (
         <div className="nav-bar-search">
             <input

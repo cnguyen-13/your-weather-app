@@ -5,7 +5,7 @@ interface Props {
     setLocalCity: any;
 }
 
-function IntroQuestion(props: Props) {
+function Question(props: Props) {
     const { city, setLocalCity } = props;
 
     return (
@@ -19,4 +19,4 @@ function IntroQuestion(props: Props) {
     );
 }
 
-export default IntroQuestion;
+export default Question;

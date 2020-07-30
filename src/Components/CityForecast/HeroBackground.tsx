@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-const apiKeyUnsplash = "jY1QfhlpqNPs4wI8AywokF-l_LpooDq4HRauIfn7HZI";
-const apiKeyWeather = `065cf514db0debfd884bf32efd0de162`;
+const { coordinatesUrl } = require("../../HelperFunctions/coordinatesUrl");
+const { imageUrl } = require("../../HelperFunctions/imageUrl");
 
 interface Props {
     setIsInvalidCity: any;
@@ -17,7 +17,7 @@ function HeroBackground(props: Props) {
     useEffect(() => {
         const getCountryName = async () => {
             try {
-                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKeyWeather}`;
+                const url: string = coordinatesUrl(cityParam);
                 const res = await fetch(url);
                 const data = await res.json();
                 const country: string = data.sys.country;
@@ -29,9 +29,8 @@ function HeroBackground(props: Props) {
 
         const getBgImage = async () => {
             try {
-                const res = await fetch(
-                    `https://api.unsplash.com/search/photos?query=${cityParam}&orientation=landscape&client_id=${apiKeyUnsplash}`
-                );
+                const imageEndpoint: string = imageUrl(cityParam);
+                const res = await fetch(imageEndpoint);
                 const data = await res.json();
                 const arr = data.results;
                 const randomImg = arr[Math.floor(Math.random() * arr.length)];

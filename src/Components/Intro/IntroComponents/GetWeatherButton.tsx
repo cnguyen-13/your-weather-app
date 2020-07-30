@@ -6,7 +6,7 @@ interface Props {
     city: string | null;
 }
 
-function IntroButton(props: Props) {
+function GetWeatherButton(props: Props) {
     const { slideFunc, city } = props;
 
     return (
@@ -18,4 +18,4 @@ function IntroButton(props: Props) {
     );
 }
 
-export default IntroButton;
+export default GetWeatherButton;

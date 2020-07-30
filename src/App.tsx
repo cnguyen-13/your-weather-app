@@ -1,9 +1,8 @@
 import React from "react";
 import Intro from "./Components/Intro/Intro";
 import Navbar from "./Components/Navbar/Navbar";
-import InfoPage from "./Components/InfoPage/InfoPage";
+import CityPage from "./Components/CityForecast/CityPage";
 import { Switch, Route } from "react-router-dom";
-import SearchPage from "./Components/SearchPage/SearchPage";
 import "./styles/styles.css";
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
             <Switch>
                 <Route path="/:cityParam">
                     <Navbar />
-                    <InfoPage />
+                    <CityPage />
                 </Route>
                 <Route path="/">
                     <Intro city={city} setLocalCity={setLocalCity} />

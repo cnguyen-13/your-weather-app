@@ -5,7 +5,7 @@ interface Props {
     weatherDescription: string;
 }
 
-function CardIcon(props: Props) {
+function FCardIcon(props: Props) {
     const { weatherIcon, weatherDescription } = props;
 
     return (
@@ -17,4 +17,4 @@ function CardIcon(props: Props) {
     );
 }
 
-export default CardIcon;
+export default FCardIcon;

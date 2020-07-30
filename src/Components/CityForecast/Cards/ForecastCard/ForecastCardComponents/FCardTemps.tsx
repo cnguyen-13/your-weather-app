@@ -5,7 +5,7 @@ interface Props {
     maxTemp: string;
 }
 
-function CardTemps(props: Props) {
+function FCardTemps(props: Props) {
     const { minTemp, maxTemp } = props;
 
     return (
@@ -15,4 +15,4 @@ function CardTemps(props: Props) {
     );
 }
 
-export default CardTemps;
+export default FCardTemps;

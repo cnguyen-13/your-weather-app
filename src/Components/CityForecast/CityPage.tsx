@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import HeroBackground from "./HeroBackground";
 import { useParams } from "react-router-dom";
-import CardsContainer from "./Cards/CardsContainer";
+import HeroBackground from "./HeroBackground";
+import FCards from "./Cards/FCards";
 import InvalidCityPage from "./InvalidCityPage";
 //Error function
 
-function InfoPage() {
+function CityPage() {
     const { cityParam } = useParams();
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
 
@@ -21,9 +21,9 @@ function InfoPage() {
     return (
         <div className="info-page">
             <HeroBackground setIsInvalidCity={setIsInvalidCity} />
-            <CardsContainer />
+            <FCards />
         </div>
     );
 }
 
-export default InfoPage;
+export default CityPage;

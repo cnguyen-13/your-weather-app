@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-const { getFormattedTime } = require("../../HelperFunctions/getFormattedTime");
+const {
+    getFormattedTime,
+} = require("../../../HelperFunctions/getFormattedTime");
 
-function IntroTime() {
+function Time() {
     const [time, setTime] = useState<string>("");
 
     useEffect(() => {
@@ -25,4 +27,4 @@ function IntroTime() {
     return <h1 className="intro-time">{time}</h1>;
 }
 
-export default IntroTime;
+export default Time;

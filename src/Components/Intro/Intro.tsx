@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import IntroTime from "./IntroTime";
-import IntroWelcome from "./IntroWelcome";
-import IntroQuestion from "./IntroQuestion";
-import IntroButton from "./IntroButton";
+import Time from "./IntroComponents/Time";
+import Welcome from "./IntroComponents/Welcome";
+import Question from "./IntroComponents/Question";
+import GetWeatherButton from "./IntroComponents/GetWeatherButton";
 import { getBackgroundClass } from "../../HelperFunctions/getBackgroundClass";
 interface Props {
     city: string | null;
@@ -13,6 +13,9 @@ function Intro(props: Props) {
     const { city, setLocalCity } = props;
     const [backgroundClass, setBackgroundClass] = useState<string>("");
     const [slideClass, setSlideClass] = useState<string>("");
+    const slideFunc = (): void => {
+        setSlideClass("slide-away");
+    };
 
     useEffect(() => {
         //Get Background
@@ -34,15 +37,12 @@ function Intro(props: Props) {
         return () => clearInterval(timeUpdateInterval);
     }, []);
 
-    function slideFunc() {
-        setSlideClass("slide-away");
-    }
     return (
         <div id="intro" className={`intro ${backgroundClass} ${slideClass}`}>
-            <IntroTime />
-            <IntroWelcome />
-            <IntroQuestion city={city} setLocalCity={setLocalCity} />
-            <IntroButton city={city} slideFunc={slideFunc} />
+            <Time />
+            <Welcome />
+            <Question city={city} setLocalCity={setLocalCity} />
+            <GetWeatherButton city={city} slideFunc={slideFunc} />
         </div>
     );
 }
