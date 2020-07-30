@@ -8,9 +8,9 @@ interface ReturnWeatherObject {
     weatherIcon: string;
 }
 
-function getWeatherDetails(dataWeather: DataWeather): ReturnWeatherObject {
+function getWeatherInfo(dataWeather: DataWeather): ReturnWeatherObject {
     const weatherDescription: string = dataWeather.description;
     const weatherIcon: string = dataWeather.icon;
     return { weatherDescription, weatherIcon };
 }
-export { getWeatherDetails };
+export { getWeatherInfo };

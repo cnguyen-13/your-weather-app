@@ -1,15 +1,15 @@
 import React from "react";
-import DateInfoColumn from "./DateInfoColumn";
+import DateInfoColumn from "./DateInfoColumn/DateInfoColumn";
 const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
 
 interface Props {
     city: string | null;
     dailyData: { dt: number };
-    units: string;
+    mSystem: string;
 }
 
 function DateInfo(props: Props) {
-    const { city, dailyData, units } = props;
+    const { city, dailyData, mSystem } = props;
     //Getting Date
     const time: number = dailyData.dt;
     const { date, month } = getDateTimes(time);
@@ -23,17 +23,17 @@ function DateInfo(props: Props) {
                 <DateInfoColumn
                     cityData={dailyData}
                     title="Temperatures"
-                    units={units}
+                    mSystem={mSystem}
                 />
                 <DateInfoColumn
                     cityData={dailyData}
                     title="Weather"
-                    units={units}
+                    mSystem={mSystem}
                 />
                 <DateInfoColumn
                     cityData={dailyData}
                     title="Winds"
-                    units={units}
+                    mSystem={mSystem}
                 />
             </div>
         </section>

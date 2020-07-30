@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
-import DateInfo from "../DateInfo/DateInfo";
-import UnitSwitch from "./UnitSwitch";
 import { useParams } from "react-router-dom";
-const apiKey = `065cf514db0debfd884bf32efd0de162`;
+//Components
+import Card from "./Card/Card";
+import DateInfo from "../DateInfo/DateInfo";
+import UnitSwitch from "./measurementSwitch/UnitSwitch";
+//Helper Functions
+const { coordinatesUrl } = require("../../../HelperFunctions/coordinatesUrl");
+const { forecastUrl } = require("../../../HelperFunctions/forecastUrl");
 
-//This components needs to fetch the DATA!!!!
+interface Coordinates {
+    lat: number;
+    lon: number;
+}
+
 function CardsContainer() {
-    //New
-
     const { cityParam } = useParams();
+    const [mSystem, setMSystem] = useState<string>("imperial");
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
-    const [dailyArr, setDailyArr] = useState<[]>([]);
-    const [units, setUnits] = useState<string>("imperial");
-    const [dailyIdx, setDailyIdx] = useState<number>(0);
     const [wasCardClicked, setWasCardClicked] = useState<boolean>(false);
+    const [dailyArr, setDailyArr] = useState<[]>([]);
+    const [dailyIdx, setDailyIdx] = useState<number>(0);
 
-    const changeUnitsFunc = (): void => {
-        if (units === "imperial") {
-            setUnits("metric");
-        } else {
-            setUnits("imperial");
-        }
+    const mSystemToggleFunc = (): void => {
+        mSystem === "imperial" ? setMSystem("metric") : setMSystem("imperial");
     };
 
     const clickedOnCard = (e: any): void => {
@@ -40,14 +41,13 @@ function CardsContainer() {
             setIsInvalidCity(false);
             try {
                 //Get Coordinates
-                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKey}`;
+                const url: string = coordinatesUrl(cityParam);
                 const res = await fetch(url);
                 const data = await res.json();
-                const lat: number = data.coord.lat;
-                const lon: number = data.coord.lon;
+                const { lat, lon }: Coordinates = data.coord;
 
                 //Get Large Data Set for City
-                const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}&units=${units}`;
+                const oneCallUrl: string = forecastUrl(lat, lon, mSystem);
                 const res2 = await fetch(oneCallUrl);
                 const oneCallData = await res2.json();
                 const oneCallDataDailyArr = oneCallData.daily;
@@ -58,37 +58,37 @@ function CardsContainer() {
         };
 
         getCityData();
-    }, [cityParam, units]);
+    }, [cityParam, mSystem]);
 
+    if (isInvalidCity) {
+        return null;
+    }
     return (
         <>
-            {" "}
-            {isInvalidCity ? null : (
-                <div className="cards-switch-container">
-                    <div className="cards-container">
-                        {dailyArr.map((day: any, idx: number) => {
-                            return (
-                                <Card
-                                    clickedOnCard={clickedOnCard}
-                                    data={day}
-                                    dataIdx={idx}
-                                    key={idx}
-                                    units={units}
-                                />
-                            );
-                        })}
-                    </div>
-                    <UnitSwitch
-                        units={units}
-                        changeUnitsFunc={changeUnitsFunc}
-                    />
+            <div className="cards-switch-container">
+                <div className="cards-container">
+                    {dailyArr.map((day: any, idx: number) => {
+                        return (
+                            <Card
+                                clickedOnCard={clickedOnCard}
+                                data={day}
+                                dataIdx={idx}
+                                key={idx}
+                                mSystem={mSystem}
+                            />
+                        );
+                    })}
                 </div>
-            )}
+                <UnitSwitch
+                    mSystem={mSystem}
+                    mSystemToggleFunc={mSystemToggleFunc}
+                />
+            </div>
             {wasCardClicked ? (
                 <DateInfo
                     city={cityParam}
                     dailyData={dailyArr[dailyIdx]}
-                    units={units}
+                    mSystem={mSystem}
                 />
             ) : null}
         </>

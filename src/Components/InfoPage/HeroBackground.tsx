@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 const apiKeyUnsplash = "jY1QfhlpqNPs4wI8AywokF-l_LpooDq4HRauIfn7HZI";
-const apiKey = `065cf514db0debfd884bf32efd0de162`;
+const apiKeyWeather = `065cf514db0debfd884bf32efd0de162`;
+
 interface Props {
     setIsInvalidCity: any;
 }
-function InfoHeader(props: Props) {
+
+function HeroBackground(props: Props) {
     const { setIsInvalidCity } = props;
     const { cityParam } = useParams();
     const [bgImage, setBgImage] = useState<string>("");
@@ -15,7 +17,7 @@ function InfoHeader(props: Props) {
     useEffect(() => {
         const getCountryName = async () => {
             try {
-                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKey}`;
+                const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityParam}&appid=${apiKeyWeather}`;
                 const res = await fetch(url);
                 const data = await res.json();
                 const country: string = data.sys.country;
@@ -61,13 +63,13 @@ function InfoHeader(props: Props) {
                 </h2>
             </section>
         );
-    } else {
-        return (
-            <section className="city-bg">
-                <h2 className="city-title">Loading...</h2>
-            </section>
-        );
     }
+
+    return (
+        <section className="city-bg">
+            <h2 className="city-title">Loading...</h2>
+        </section>
+    );
 }
 
-export default InfoHeader;
+export default HeroBackground;

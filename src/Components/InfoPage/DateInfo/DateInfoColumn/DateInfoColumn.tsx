@@ -8,7 +8,7 @@ const { getAllWind } = require("../../../HelperFunctions/getAllWind");
 interface Props {
     cityData: any;
     title: string;
-    units: string;
+    mSystem: string;
 }
 
 interface dataArrayObject {
@@ -17,14 +17,14 @@ interface dataArrayObject {
 }
 
 function DateInfoColumn(props: Props) {
-    const { cityData, title, units } = props;
+    const { cityData, title, mSystem } = props;
 
-    //Data sets
+    //Obtain correct Data set
     const dataArr: dataArrayObject[] =
         title === "Temperatures"
-            ? getAllTemps(cityData, units)
+            ? getAllTemps(cityData, mSystem)
             : title === "Winds"
-            ? getAllWind(cityData, units)
+            ? getAllWind(cityData, mSystem)
             : getAllWeather(cityData);
 
     return (
@@ -33,13 +33,11 @@ function DateInfoColumn(props: Props) {
                 <DateInfoTitle title={title} />
                 <DateInfoGraphic title={title} />
                 {dataArr.map((pair) => {
-                    const label = pair.label;
-                    const data = pair.data;
                     return (
-                        <>
-                            <h4 className="date-info-label">{label}</h4>
-                            <p className="date-info-data">{data}</p>
-                        </>
+                        <div key={pair.label}>
+                            <h4 className="date-info-label">{pair.label}</h4>
+                            <p className="date-info-data">{pair.data}</p>
+                        </div>
                     );
                 })}
             </div>

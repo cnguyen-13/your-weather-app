@@ -1,6 +1,4 @@
-const {
-    getWeatherDetails,
-} = require("../../HelperFunctions/getWeatherDetails");
+const { getWeatherInfo } = require("../../HelperFunctions/getWeatherInfo");
 const {
     testData1,
     testData2,
@@ -25,33 +23,33 @@ const expectedResultTest4 = {
     weatherIcon: "10d",
 };
 
-test("getWeatherDetails Test #1", () => {
+test("getWeatherInfo Test #1", () => {
     const weather = testData1.weather[0];
-    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const expectedResult = expectedResultTest1;
     expect(weatherDescription).toBe(expectedResult.weatherDescription);
     expect(weatherIcon).toBe(expectedResult.weatherIcon);
 });
 
-test("getWeatherDetails Test #2", () => {
+test("getWeatherInfo Test #2", () => {
     const weather = testData2.weather[0];
-    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const expectedResult = expectedResultTest2;
     expect(weatherDescription).toBe(expectedResult.weatherDescription);
     expect(weatherIcon).toBe(expectedResult.weatherIcon);
 });
 
-test("getWeatherDetails Test #3", () => {
+test("getWeatherInfo Test #3", () => {
     const weather = testData3.weather[0];
-    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const expectedResult = expectedResultTest3;
     expect(weatherDescription).toBe(expectedResult.weatherDescription);
     expect(weatherIcon).toBe(expectedResult.weatherIcon);
 });
 
-test("getWeatherDetails Test #4", () => {
+test("getWeatherInfo Test #4", () => {
     const weather = testData4.weather[0];
-    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const expectedResult = expectedResultTest4;
     expect(weatherDescription).toBe(expectedResult.weatherDescription);
     expect(weatherIcon).toBe(expectedResult.weatherIcon);

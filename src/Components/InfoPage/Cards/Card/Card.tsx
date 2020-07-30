@@ -1,40 +1,43 @@
 import React from "react";
+//Components
 import CardDate from "./CardDate";
 import CardDay from "./CardDay";
 import CardIcon from "./CardIcon";
 import CardDescription from "./CardDescription";
 import CardTemps from "./CardTemps";
+//Helper Functions
 const { getMinMaxTemps } = require("../../../HelperFunctions/getMinMaxTemps");
 const { getDateTimes } = require("../../../HelperFunctions/getDateTimes");
-const {
-    getWeatherDetails,
-} = require("../../../HelperFunctions/getWeatherDetails");
+const { getWeatherInfo } = require("../../../HelperFunctions/getWeatherInfo");
 
 interface Props {
     data: any;
     clickedOnCard: any;
     dataIdx: number;
-    units: string;
+    mSystem: string;
 }
 
 function Card(props: Props) {
-    const { data, clickedOnCard, dataIdx, units } = props;
+    const { data, clickedOnCard, dataIdx, mSystem } = props;
     const temps = data.temp;
     const weather = data.weather[0];
     const time = data.dt;
 
-    //Parse Data
-    const { minTemp, maxTemp } = getMinMaxTemps(temps);
-    const { weatherDescription, weatherIcon } = getWeatherDetails(weather);
+    //Parse Data with Helper Functions
+    const { minTemp, maxTemp } = getMinMaxTemps(temps, mSystem);
+    const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const { date, month, day } = getDateTimes(time);
 
     return (
         <div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
             <CardDate month={month} date={date} />
             <CardDay day={day} />
-            <CardIcon weatherIcon={weatherIcon} />
+            <CardIcon
+                weatherIcon={weatherIcon}
+                weatherDescription={weatherDescription}
+            />
             <CardDescription weatherDescription={weatherDescription} />
-            <CardTemps minTemp={minTemp} maxTemp={maxTemp} units={units} />
+            <CardTemps minTemp={minTemp} maxTemp={maxTemp} />
         </div>
     );
 }

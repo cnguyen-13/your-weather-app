@@ -3,8 +3,8 @@ interface dataArrayObject {
     data: string;
 }
 
-function getAllTemps(cityData: any, measurementSys: string): dataArrayObject[] {
-    const units = measurementSys === "imperial" ? "°F" : "°C";
+function getAllTemps(cityData: any, mSystem: string): dataArrayObject[] {
+    const units = mSystem === "imperial" ? "°F" : "°C";
     const min: number = Math.round(cityData.temp.min);
     const max: number = Math.round(cityData.temp.max);
     const morning: number = Math.round(cityData.temp.morn);
