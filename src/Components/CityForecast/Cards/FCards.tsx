@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-//Components
 import ForecastCard from "./ForecastCard/ForecastCard";
 import DayWeather from "../../DayWeather/DayWeather";
 import MSystemSwitch from "./MSystemSwitch/MSystemSwitch";
-//Helper Functions
 const { coordinatesUrl } = require("../../../HelperFunctions/coordinatesUrl");
 const { forecastUrl } = require("../../../HelperFunctions/forecastUrl");
 
@@ -43,8 +41,8 @@ function FCards() {
                 //Get Coordinates
                 const coordUrl: string = coordinatesUrl(cityParam);
                 const coordRes = await fetch(coordUrl);
-                const data = await coordRes.json();
-                const { lat, lon }: Coordinates = data.coord;
+                const resData = await coordRes.json();
+                const { lat, lon }: Coordinates = resData.coord;
 
                 //Get Large Data Set for City
                 const fcastUrl: string = forecastUrl(lat, lon, mSystem);
@@ -71,8 +69,8 @@ function FCards() {
                         return (
                             <ForecastCard
                                 clickedOnCard={clickedOnCard}
-                                data={day}
-                                dataIdx={idx}
+                                dayData={day}
+                                dayDataIdx={idx}
                                 key={idx}
                                 mSystem={mSystem}
                             />

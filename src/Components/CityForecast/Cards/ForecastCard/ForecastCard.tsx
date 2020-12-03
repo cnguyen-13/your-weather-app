@@ -15,17 +15,17 @@ const {
 } = require("../../../../HelperFunctions/getWeatherInfo");
 
 interface Props {
-    data: any;
+    dayData: any;
     clickedOnCard: any;
-    dataIdx: number;
+    dayDataIdx: number;
     mSystem: string;
 }
 
 function ForecastCard(props: Props) {
-    const { data, clickedOnCard, dataIdx, mSystem } = props;
-    const temps = data.temp;
-    const weather = data.weather[0];
-    const time = data.dt;
+    const { dayData, clickedOnCard, dayDataIdx, mSystem } = props;
+    const temps = dayData.temp;
+    const weather = dayData.weather[0];
+    const time = dayData.dt;
 
     //Parse Data with Helper Functions
     const { minTemp, maxTemp } = getMinMaxTemps(temps, mSystem);
@@ -33,7 +33,11 @@ function ForecastCard(props: Props) {
     const { date, month, day } = getDateTimes(time);
 
     return (
-        <div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
+        <div
+            className={`card card-${dayDataIdx}`}
+            onClick={clickedOnCard}
+            id={dayDataIdx.toString()}
+        >
             <FCardDate month={month} date={date} />
             <FCardDay day={day} />
             <FCardIcon
