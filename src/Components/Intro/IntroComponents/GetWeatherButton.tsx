@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
-    slideFunc: any;
     city: string | null;
 }
 
 function GetWeatherButton(props: Props) {
-    const { slideFunc, city } = props;
+    const { city } = props;
 
     return (
         <Link to={`/${city}`}>
-            <button className="intro-btn" onClick={slideFunc}>
+            <button className="intro-btn">
                 CHECK WEATHER
             </button>
         </Link>

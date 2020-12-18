@@ -10,7 +10,7 @@ function InvalidCityPage(props: Props) {
     return (
         <div className="error-page">
             <h2 className="city-title">
-                {invalidCityName} is an{" "}
+                {invalidCityName} is an
                 <span className="error">invalid City!</span>
             </h2>
         </div>

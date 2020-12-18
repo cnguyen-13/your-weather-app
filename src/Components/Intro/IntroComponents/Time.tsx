@@ -4,12 +4,12 @@ const {
 } = require("../../../HelperFunctions/getFormattedTime");
 
 function Time() {
-    const [time, setTime] = useState<string>("");
+    const [formattedTime, setFormattedTime] = useState<string>("");
 
     useEffect(() => {
         const updateTime = (): void => {
             const formattedTime: string = getFormattedTime();
-            setTime(formattedTime);
+            setFormattedTime(formattedTime);
         };
 
         //First Tick
@@ -24,7 +24,7 @@ function Time() {
         return (): void => clearInterval(updateTimeInterval);
     }, []);
 
-    return <h1 className="intro-time">{time}</h1>;
+    return <h1 className="intro-time">{formattedTime}</h1>;
 }
 
 export default Time;

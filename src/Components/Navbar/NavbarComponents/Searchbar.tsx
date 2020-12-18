@@ -1,35 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import SearchBtn from './SearchBtn';
 
 function Searchbar() {
-    const [input, setInput] = useState<string>("");
+    const [city, setCity] = useState<string>("");
 
     const inputChange = (e: any): void => {
-        const input = e.target;
-        const value = input.value;
-        setInput(value);
+        const { value } = e.target;
+        setCity(value);
     };
 
-    const inputClear = (e: any): void => {
-        const button = e.target;
-        const navBar = button.parentElement.parentElement;
-        const input = navBar.firstChild;
-        input.value = "";
+    const clearInput = (): void => {
+        setCity('');
     };
+
+    const onEnterPress = (e: any): void => {
+        if (e.key === 'Enter') {
+            const searchBtn = e.target.nextElementSibling;
+            searchBtn.click();
+            clearInput();
+        }
+    }
 
     return (
         <div className="nav-bar-search">
             <input
                 onChange={inputChange}
+                onKeyPress={onEnterPress}
                 className="nav-bar-input"
                 type="text"
+                value={city}
                 placeholder="[city] or [city, country code]"
             />
-            <Link to={`/${input}`}>
-                <button onClick={inputClear} className="nav-bar-btn">
-                    Search
-                </button>
-            </Link>
+            <SearchBtn city={city} clearInput={clearInput} />
         </div>
     );
 }

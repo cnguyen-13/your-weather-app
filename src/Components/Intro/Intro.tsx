@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from "react";
+import Logo from './IntroComponents/Logo';
 import Time from "./IntroComponents/Time";
 import Welcome from "./IntroComponents/Welcome";
 import Question from "./IntroComponents/Question";
 import GetWeatherButton from "./IntroComponents/GetWeatherButton";
 import { getBackgroundClass } from "../../HelperFunctions/getBackgroundClass";
-interface Props {
-    city: string | null;
-    setLocalCity: any;
-}
 
-function Intro(props: Props) {
-    const { city, setLocalCity } = props;
+function Intro() {
+    const [name, setName] = useState<string>(localStorage.getItem("name") || "")
+    const [city, setCity] = useState<string>(localStorage.getItem("city") || "")
     const [backgroundClass, setBackgroundClass] = useState<string>("");
-    const [slideClass, setSlideClass] = useState<string>("");
-    const slideFunc = (): void => {
-        setSlideClass("slide-away");
-    };
+
+    const onChangeHandleName = (e: any): void => {
+        const { value } = e.target;
+        localStorage.setItem("name", value);
+        setName(value);
+    }
+
+    const onChangeHandleCity = (e: any): void => {
+        const { value } = e.target;
+        localStorage.setItem("city", value);
+        setCity(value);
+    }
 
     useEffect(() => {
         //Get Background
-        const updateBackground = async () => {
+        const updateBackground = () => {
             const today = new Date();
             const hours = today.getHours();
             const bgClass = getBackgroundClass(hours);
@@ -29,20 +35,21 @@ function Intro(props: Props) {
         updateBackground();
 
         //Interval
-        const timeUpdateInterval = setInterval(() => {
+        const timeUpdateInterval: NodeJS.Timeout = setInterval(() => {
             updateBackground();
         }, 3600000);
 
         //Unmount
-        return () => clearInterval(timeUpdateInterval);
+        return (): void => clearInterval(timeUpdateInterval);
     }, []);
 
     return (
-        <div id="intro" className={`intro ${backgroundClass} ${slideClass}`}>
+        <div id="intro" className={`intro ${backgroundClass}`}>
+            <Logo />
             <Time />
-            <Welcome />
-            <Question city={city} setLocalCity={setLocalCity} />
-            <GetWeatherButton city={city} slideFunc={slideFunc} />
+            <Welcome name={name} onChangeHandleName={onChangeHandleName} />
+            <Question city={city} onChangeHandleCity={onChangeHandleCity} />
+            <GetWeatherButton city={city} />
         </div>
     );
 }

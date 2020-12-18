@@ -18,15 +18,21 @@
     font-size: 20px;
     margin-bottom: 15px;
 }
+
 .nav-bar-search,
 .nav-bar-logo {
     width: 300px;
     text-align: center;
 }
+
 .nav-bar-input {
     padding: 10px 20px;
     border: none;
     width: 70%;
+}
+
+.logo-img {
+    transform: scale(0.75);
 }
 
 .nav-bar-btn {
@@ -46,6 +52,7 @@
     }
 
     .nav-bar-logo {
+        height: 50%;
         margin: 0;
     }
 }

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 const { getMessage } = require("../../../HelperFunctions/getMessage");
 
-function Welcome() {
-    const name: string = localStorage.getItem("name") || "[ Your Name ]";
-    const [message, setMessage] = useState<string>("");
-    const setLocalName = (e: any): void => {
-        const span = e.target;
-        localStorage.setItem("name", span.textContent);
-    };
+interface Props {
+    name: string,
+    onChangeHandleName(e: any): void
+}
 
-    const clearField = (e: any): void => {
-        if (e.target.textContent === "[ Your Name ]") {
-            e.target.textContent = "";
-        }
-    };
+function Welcome(props: Props) {
+    const { name, onChangeHandleName } = props;
+    const [message, setMessage] = useState<string>("");
+
+    const styles = {
+        border: 'none',
+        backgroundColor: 'transparent',
+        color: 'white',
+        fontSize: '30px',
+
+    }
 
     useEffect(() => {
         const updateMessage = (): void => {
@@ -36,13 +39,13 @@ function Welcome() {
     return (
         <h2 className="intro-welcome">
             {message},{" "}
-            <span
-                contentEditable="true"
-                onInput={setLocalName}
-                onClick={clearField}
-            >
-                {name}
-            </span>
+            <input
+                style={styles}
+                type="text"
+                onChange={onChangeHandleName}
+                value={name}
+                placeholder={name === '' ? '[ Your Name ]' : ''}
+            />
         </h2>
     );
 }

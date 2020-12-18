@@ -1,43 +1,38 @@
-import React from "react";
-//Components
+import React, { useContext } from "react";
 import FCardDate from "./ForecastCardComponents/FCardDate";
 import FCardDay from "./ForecastCardComponents/FCardDay";
 import FCardIcon from "./ForecastCardComponents/FCardIcon";
 import FCardDescription from "./ForecastCardComponents/FCardDescription";
 import FCardTemps from "./ForecastCardComponents/FCardTemps";
-//Helper Functions
-const {
-    getMinMaxTemps,
-} = require("../../../../HelperFunctions/getMinMaxTemps");
+import MeasurementSystemContext from '../../../../MeasurementSystemContext';
 const { getDateTimes } = require("../../../../HelperFunctions/getDateTimes");
 const {
     getWeatherInfo,
 } = require("../../../../HelperFunctions/getWeatherInfo");
+const {
+    getMinMaxTemps,
+} = require("../../../../HelperFunctions/getMinMaxTemps");
 
 interface Props {
-    dayData: any;
+    data: any;
     clickedOnCard: any;
-    dayDataIdx: number;
-    mSystem: string;
+    dataIdx: number;
 }
 
 function ForecastCard(props: Props) {
-    const { dayData, clickedOnCard, dayDataIdx, mSystem } = props;
-    const temps = dayData.temp;
-    const weather = dayData.weather[0];
-    const time = dayData.dt;
+    const { measurementSystem } = useContext(MeasurementSystemContext);
+    const { data, clickedOnCard, dataIdx } = props;
+    const temps = data.temp;
+    const weather = data.weather[0];
+    const time = data.dt;
 
     //Parse Data with Helper Functions
-    const { minTemp, maxTemp } = getMinMaxTemps(temps, mSystem);
+    const { minTemp, maxTemp } = getMinMaxTemps(temps, measurementSystem);
     const { weatherDescription, weatherIcon } = getWeatherInfo(weather);
     const { date, month, day } = getDateTimes(time);
 
     return (
-        <div
-            className={`card card-${dayDataIdx}`}
-            onClick={clickedOnCard}
-            id={dayDataIdx.toString()}
-        >
+        <div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
             <FCardDate month={month} date={date} />
             <FCardDay day={day} />
             <FCardIcon

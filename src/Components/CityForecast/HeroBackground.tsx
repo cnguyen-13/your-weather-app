@@ -13,6 +13,14 @@ function HeroBackground(props: Props) {
     const [bgImage, setBgImage] = useState<string>("");
     const [countryName, setCountryName] = useState<string>("");
 
+    //Styles
+    const styles = {
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgImage})`,
+        backgroundAttachment: 'fixed'
+    }
     //Get Country Name & Background Image
     useEffect(() => {
         const getCountryName = async () => {
@@ -49,12 +57,7 @@ function HeroBackground(props: Props) {
         return (
             <section
                 className="city-bg"
-                style={{
-                    backgroundSize: "cover",
-                    backgroundPosition: "center center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgImage})`,
-                }}
+                style={styles}
             >
                 <h2 className="city-title">
                     City of {cityParam.split(",")[0].toUpperCase()}

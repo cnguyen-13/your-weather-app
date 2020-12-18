@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Intro from "./Components/Intro/Intro";
 import Navbar from "./Components/Navbar/Navbar";
 import CityPage from "./Components/CityForecast/CityPage";
 import { Switch, Route } from "react-router-dom";
-import "./styles/styles.css";
+import MeasurementSystemContext from './MeasurementSystemContext';
+import './styles/styles.css';
 
 function App() {
-    const city = localStorage.getItem("city") || "[ Your City ]";
+    const [measurementSystem, setMeasurementSystem] = useState<string>('metric');
 
-    const setLocalCity = (e: any): void => {
-        const span = e.target;
-        localStorage.setItem("city", span.textContent);
-    };
+    const toggleMeasurementSystem = (): void => {
+        measurementSystem === 'metric'
+            ? setMeasurementSystem('imperial')
+            : setMeasurementSystem('metric');
+    }
+
 
     return (
-        <div className="App">
+        <div className="app">
             <Switch>
                 <Route path="/:cityParam">
-                    <Navbar />
-                    <CityPage />
+                    <MeasurementSystemContext.Provider value={{ measurementSystem, toggleMeasurementSystem }} >
+                        <Navbar />
+                        <CityPage />
+                    </MeasurementSystemContext.Provider>
                 </Route>
                 <Route path="/">
-                    <Intro city={city} setLocalCity={setLocalCity} />
+                    <Intro />
                 </Route>
             </Switch>
         </div>
