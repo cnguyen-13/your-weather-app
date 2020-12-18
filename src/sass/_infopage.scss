@@ -1,22 +1,18 @@
-$color-base: #34495e;
-$color-border: #d35400;
 .cards-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-    padding: 0 20px;
+    gap: 10px;
 }
 
 .card {
-    //border: 1px solid red;
+    cursor: pointer;
     width: 150px;
     min-height: 230px;
     padding: 10px;
-    margin: 5px;
     text-align: center;
-    color: black;
     background-color: #ddd;
+
     &:hover {
         transform: scale(1.05);
         transition: 0.3s;
@@ -31,15 +27,6 @@ $color-border: #d35400;
     bottom: 115px;
     max-width: 1400px;
     margin: 0 auto;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-.full-vh {
-    height: 100vh;
 }
 
 .error {

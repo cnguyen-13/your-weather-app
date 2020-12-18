@@ -1,8 +1,6 @@
 .city-bg {
     min-height: 600px;
     height: 70vh;
-    color: #eee;
-    background-color: #333;
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
     padding: 50px;
@@ -12,15 +10,19 @@
 }
 
 .city-title {
+    color: #eee;
     font-size: 50px;
     max-width: 1300px;
     margin: 0 auto;
     text-align: left;
-    @media (min-width: 768px) {
-        font-size: 64px;
-    }
 }
 
 .city-subtitle {
     font-size: 32px;
+}
+
+@media (min-width: 768px) {
+    .city-title {
+        font-size: 64px;
+    }
 }

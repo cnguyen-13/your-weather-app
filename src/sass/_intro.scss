@@ -6,32 +6,22 @@
     justify-content: center;
     align-items: center;
     background-size: cover;
-}
-.slide-away {
-    transition: 2s;
-    position: fixed;
-    display: block;
-    transform: translate3d(-100vw, 0, 0);
-    animation: slideAway 2s forwards;
+    gap: 15px;
 }
 
-@keyframes slideAway {
-    from {
-        display: block;
-    }
-    to {
-        display: none;
-    }
-}
 //Backgrounds
-.morning {
+.morning,
+.afternoon,
+.evening {
     color: #eee;
+}
+
+.morning {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url("../images/background/morning.jpg");
 }
 
 .afternoon {
-    color: #eee;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url("../images/background/afternoon.jpg");
 }
@@ -39,17 +29,14 @@
 .evening {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url("../images/background/evening.jpg");
-    color: #eee;
 }
 
 .intro-time {
     font-size: 40px;
-    margin-bottom: 15px;
 }
 
 .intro-welcome {
     font-size: 25px;
-    margin-bottom: 15px;
 }
 
 .intro-question {
@@ -65,6 +52,7 @@
     color: #eee;
     background-color: #e67e22;
     border: none;
+
     &:hover {
         transform: scale(1.1);
         background-color: darken(#e67e22, 5);

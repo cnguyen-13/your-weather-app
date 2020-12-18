@@ -4,11 +4,18 @@ import Searchbar from "./NavbarComponents/Searchbar";
 import MeasurementSystemSwitch from './NavbarComponents/MSystemSwitch';
 
 function Navbar() {
+    const styles = {
+        display: 'flex',
+        flexWrap: 'wrap'
+    }
+
     return (
         <nav className="nav-bar">
             <Logo />
-            <MeasurementSystemSwitch />
-            <Searchbar />
+            <div className="search-settings">
+                <MeasurementSystemSwitch />
+                <Searchbar />
+            </div>
         </nav>
     );
 }

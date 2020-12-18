@@ -3,24 +3,14 @@
     color: white;
     text-align: center;
     padding: 20px;
-    height: 150px;
+    min-height: 125px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.nav-bar-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.nav-bar-search,
-.nav-bar-logo {
+.nav-bar-search {
     width: 300px;
     text-align: center;
 }
@@ -33,6 +23,14 @@
 
 .logo-img {
     transform: scale(0.75);
+}
+
+.search-settings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .nav-bar-btn {
@@ -49,10 +47,5 @@
         flex-direction: row;
         justify-content: space-between;
         height: 100px;
-    }
-
-    .nav-bar-logo {
-        height: 50%;
-        margin: 0;
     }
 }
