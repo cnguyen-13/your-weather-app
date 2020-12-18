@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Intro from "./Components/Intro/Intro";
 import Navbar from "./Components/Navbar/Navbar";
 import CityPage from "./Components/CityForecast/CityPage";
-import { Switch, Route } from "react-router-dom";
 import MeasurementSystemContext from './MeasurementSystemContext';
-import './styles/styles.css';
+import { Switch, Route } from "react-router-dom";
+import './styles/styles.min.css';
 
 function App() {
     const [measurementSystem, setMeasurementSystem] = useState<string>('metric');
@@ -14,7 +14,6 @@ function App() {
             ? setMeasurementSystem('imperial')
             : setMeasurementSystem('metric');
     }
-
 
     return (
         <div className="app">
