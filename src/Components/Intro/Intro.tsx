@@ -11,31 +11,30 @@ function Intro() {
     const [city, setCity] = useState<string>(localStorage.getItem("city") || "")
     const [backgroundClass, setBackgroundClass] = useState<string>("");
 
-    const onChangeHandleName = (e: any): void => {
-        const { value } = e.target;
-        localStorage.setItem("name", value);
-        setName(value);
-    }
-
-    const onChangeHandleCity = (e: any): void => {
-        const { value } = e.target;
-        localStorage.setItem("city", value);
-        setCity(value);
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const { id, value } = e.target;
+        if (id === 'name') {
+            localStorage.setItem("name", value);
+            setName(value);
+        } else {
+            localStorage.setItem("city", value);
+            setCity(value);
+        }
     }
 
     useEffect(() => {
         //Get Background
-        const updateBackground = () => {
-            const today = new Date();
-            const hours = today.getHours();
-            const bgClass = getBackgroundClass(hours);
+        const updateBackground = (): void => {
+            const today: Date = new Date();
+            const hours: number = today.getHours();
+            const bgClass: string = getBackgroundClass(hours);
             setBackgroundClass(bgClass);
         };
 
         updateBackground();
 
         //Interval
-        const timeUpdateInterval: NodeJS.Timeout = setInterval(() => {
+        const timeUpdateInterval: NodeJS.Timeout = setInterval((): void => {
             updateBackground();
         }, 3600000);
 
@@ -47,8 +46,8 @@ function Intro() {
         <div id="intro" className={`intro ${backgroundClass}`}>
             <Logo />
             <Time />
-            <Welcome name={name} onChangeHandleName={onChangeHandleName} />
-            <Question city={city} onChangeHandleCity={onChangeHandleCity} />
+            <Welcome topic="name" name={name} onChangeHandler={onChangeHandler} />
+            <Question topic="city" city={city} onChangeHandler={onChangeHandler} />
             <GetWeatherButton city={city} />
         </div>
     );

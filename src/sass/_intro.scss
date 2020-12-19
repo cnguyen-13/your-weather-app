@@ -1,6 +1,7 @@
 .intro {
     width: 100vw;
     height: 100vh;
+    color: #eee;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,27 +11,19 @@
 }
 
 //Backgrounds
-.morning,
-.afternoon,
-.evening {
-    color: #eee;
-}
-
 .morning {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("../images/background/morning.jpg");
+    background-image: $mask, url("../images/background/morning.jpg");
 }
 
 .afternoon {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("../images/background/afternoon.jpg");
+    background-image: $mask, url("../images/background/afternoon.jpg");
 }
 
 .evening {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("../images/background/evening.jpg");
+    background-image: $mask, url("../images/background/evening.jpg");
 }
 
+//Each component
 .intro-time {
     font-size: 40px;
 }
@@ -50,12 +43,12 @@
     margin-bottom: 15px;
     padding: 10px 20px;
     color: #eee;
-    background-color: #e67e22;
+    background-color: $color-primary;
     border: none;
 
     &:hover {
         transform: scale(1.1);
-        background-color: darken(#e67e22, 5);
+        background-color: darken($color-primary, 5);
         transition: 0.3s;
     }
 }

@@ -1,6 +1,6 @@
 .nav-bar {
     background-color: #333;
-    color: white;
+    color: $color-white;
     text-align: center;
     padding: 20px;
     min-height: 125px;
@@ -35,8 +35,8 @@
 
 .nav-bar-btn {
     border: none;
-    color: white;
-    background-color: #d35400;
+    color: $color-white;
+    background-color: $color-primary;
     padding: 10px 20px;
     cursor: pointer;
     width: 30%;

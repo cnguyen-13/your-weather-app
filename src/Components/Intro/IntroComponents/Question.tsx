@@ -1,29 +1,22 @@
 import React from "react";
+import TextInput from './TextInput';
 
 interface Props {
     city: string;
-    onChangeHandleCity(e: any): void;
+    topic: string,
+    onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 function Question(props: Props) {
-    const { city, onChangeHandleCity } = props;
-
-    const styles = {
-        border: 'none',
-        backgroundColor: 'transparent',
-        color: 'white',
-        fontSize: '24px'
-    }
+    const { city, topic, onChangeHandler } = props;
 
     return (
         <p className="intro-question">
             Want to Check the City of{" "}
-            <input style={styles}
-                type="text"
-                onChange={onChangeHandleCity}
+            <TextInput
                 value={city}
-                placeholder={city === '' ? '[ Your City ]' : ''}
-            />
+                topic={topic}
+                onChangeHandle={onChangeHandler} />
             's Weather?
         </p>
     );
