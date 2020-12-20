@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface Props {
     value: string,
@@ -16,20 +16,24 @@ function TextInput(props: Props) {
         fontSize: 'inherit',
     }
 
-    const changeWidthAndUpdateValues = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        onChangeHandle(e)
-        // const parent: any | null = e.target.parentElement;
-        // console.log(parent.style.fontSize)
-        // console.log(e.target.parentElement)
-        // e.target.style.width = `${e.target.value}`
-    }
+    //Changes the width of the input field to only hold letters
+    useEffect(() => {
+        const inputElement: any = document.querySelector(`#${topic}`);
+        const parent: any | null = inputElement.parentElement;
+        const parentFontSize: number = parseFloat(window.getComputedStyle(parent, null).getPropertyValue('font-size'));
+        if (inputElement.value.length === 0) {
+            inputElement.style.width = `${((inputElement.placeholder.length - 1) * parentFontSize) / 2}px`;
+        } else {
+            inputElement.style.width = `${(inputElement.value.length * parentFontSize) / 2}px`;
+        }
+    }, [value])
 
     return (
         <input
             id={topic}
             style={styles}
             type="text"
-            onChange={changeWidthAndUpdateValues}
+            onChange={onChangeHandle}
             value={value}
             placeholder={placeholder}
         />
