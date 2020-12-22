@@ -5,7 +5,7 @@ import TextInput from './TextInput';
 interface Props {
     name: string,
     topic: string,
-    onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
+    onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function Welcome(props: Props) {
@@ -17,7 +17,7 @@ function Welcome(props: Props) {
             <TextInput
                 value={name}
                 topic={topic}
-                onChangeHandle={onChangeHandler}
+                onChangeHandler={onChangeHandler}
             />
         </h2>
     );

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import HeroBackground from "./HeroBackground";
 import FCards from "./Cards/FCards";
 import InvalidCityPage from "./InvalidCityPage";
-//Error function
 
 function CityPage() {
     const { cityParam } = useParams();

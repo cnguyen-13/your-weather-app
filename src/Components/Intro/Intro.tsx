@@ -9,8 +9,17 @@ import { getBackgroundClass } from "../../HelperFunctions/getBackgroundClass";
 function Intro() {
     const [name, setName] = useState<string>(localStorage.getItem("name") || "")
     const [city, setCity] = useState<string>(localStorage.getItem("city") || "")
-    const [backgroundClass, setBackgroundClass] = useState<string>("");
+    const [bgClass, setBgClass] = useState<string>("");
 
+    //Gets background image to use
+    const updateBg = (): void => {
+        const today: Date = new Date();
+        const hours: number = today.getHours();
+        const className: string = getBackgroundClass(hours);
+        setBgClass(className);
+    };
+
+    //Update local storage variables
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { id, value } = e.target;
         if (id === 'name') {
@@ -23,27 +32,18 @@ function Intro() {
     }
 
     useEffect(() => {
-        //Get Background
-        const updateBackground = (): void => {
-            const today: Date = new Date();
-            const hours: number = today.getHours();
-            const bgClass: string = getBackgroundClass(hours);
-            setBackgroundClass(bgClass);
-        };
+        //Initial Background image
+        updateBg();
 
-        updateBackground();
-
-        //Interval
         const timeUpdateInterval: NodeJS.Timeout = setInterval((): void => {
-            updateBackground();
+            updateBg();
         }, 3600000);
 
-        //Unmount
         return (): void => clearInterval(timeUpdateInterval);
     }, []);
 
     return (
-        <div id="intro" className={`intro ${backgroundClass}`}>
+        <div id="intro" className={`intro ${bgClass}`}>
             <Logo />
             <Time />
             <Welcome topic="name" name={name} onChangeHandler={onChangeHandler} />

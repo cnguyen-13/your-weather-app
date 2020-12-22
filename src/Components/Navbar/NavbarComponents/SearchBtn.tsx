@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 interface Props {
     city: string,
-    clearInput(): void
+    clearInput: () => void
 }
 
 function SearchBtn(props: Props) {
@@ -11,7 +11,7 @@ function SearchBtn(props: Props) {
 
     return (
         <Link to={`/${city}`}>
-            <button onClick={clearInput} className="nav-bar-btn">
+            <button onClick={clearInput} className="nav-bar-btn" id="search-btn">
                 Search
             </button>
         </Link>

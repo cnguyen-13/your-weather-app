@@ -16,7 +16,7 @@ function Question(props: Props) {
             <TextInput
                 value={city}
                 topic={topic}
-                onChangeHandle={onChangeHandler} />
+                onChangeHandler={onChangeHandler} />
             's Weather?
         </p>
     );

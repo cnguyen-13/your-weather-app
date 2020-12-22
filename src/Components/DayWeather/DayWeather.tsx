@@ -17,7 +17,7 @@ function DayWeather(props: Props) {
     return (
         <section>
             <h2 className="section-title">
-                {city}: {`${month} / ${date}`}
+                {city} - {`${month} / ${date}`}
             </h2>
             <div className="date-info">
                 <DayColumn

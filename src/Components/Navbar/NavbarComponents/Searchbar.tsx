@@ -4,20 +4,20 @@ import SearchBtn from './SearchBtn';
 function Searchbar() {
     const [city, setCity] = useState<string>("");
 
-    const inputChange = (e: any): void => {
+    //Updates city state
+    const inputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = e.target;
         setCity(value);
     };
 
-    const clearInput = (): void => {
-        setCity('');
-    };
-
-    const onEnterPress = (e: any): void => {
+    //Simulates Clicking on the search button when hitting 'enter' in search box
+    const onEnterPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         if (e.key === 'Enter') {
-            const searchBtn = e.target.nextElementSibling;
-            searchBtn.click();
-            clearInput();
+            const searchBtn: HTMLButtonElement | null = document.querySelector('#search-btn');
+            if (searchBtn instanceof HTMLButtonElement) {
+                searchBtn.click();
+            }
+            setCity('');
         }
     }
 
@@ -31,7 +31,7 @@ function Searchbar() {
                 value={city}
                 placeholder="[city] or [city, country code]"
             />
-            <SearchBtn city={city} clearInput={clearInput} />
+            <SearchBtn city={city} clearInput={() => setCity('')} />
         </div>
     );
 }

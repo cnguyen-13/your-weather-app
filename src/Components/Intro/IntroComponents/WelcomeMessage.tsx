@@ -4,21 +4,19 @@ const { getMessage } = require("../../../HelperFunctions/getMessage");
 function WelcomeMessage() {
     const [message, setMessage] = useState<string>("");
 
-    useEffect(() => {
-        const updateMessage = (): void => {
-            const message: string = getMessage();
-            setMessage(message);
-        };
+    const updateMessage = (): void => {
+        const message: string = getMessage();
+        setMessage(message);
+    };
 
+    useEffect(() => {
         //First Moment
         updateMessage();
 
-        //Interval
         const updateMessageInterval: NodeJS.Timeout = setInterval(() => {
             updateMessage();
         }, 3600000);
 
-        //Unmount
         return (): void => clearInterval(updateMessageInterval);
     }, []);
     return (

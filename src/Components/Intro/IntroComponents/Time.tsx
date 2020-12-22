@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
 const {
-    getFormattedTime,
+    getFormattedTime
 } = require("../../../HelperFunctions/getFormattedTime");
 
 function Time() {
     const [formattedTime, setFormattedTime] = useState<string>("");
 
-    useEffect(() => {
-        const updateTime = (): void => {
-            const formattedTime: string = getFormattedTime();
-            setFormattedTime(formattedTime);
-        };
+    const updateTime = (): void => {
+        const formattedTime: string = getFormattedTime();
+        setFormattedTime(formattedTime);
+    };
 
+    useEffect(() => {
         //First Tick
         updateTime();
 
-        //Interval
         const updateTimeInterval: NodeJS.Timeout = setInterval(() => {
             updateTime();
         }, 1000);
 
-        //Unmount
         return (): void => clearInterval(updateTimeInterval);
     }, []);
 
