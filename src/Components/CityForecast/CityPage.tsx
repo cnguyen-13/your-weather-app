@@ -1,16 +1,50 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import { useParams } from "react-router-dom";
 import HeroBackground from "./HeroBackground";
 import FCards from "./Cards/FCards";
 import InvalidCityPage from "./InvalidCityPage";
+import BackgroundImagesContext from '../../BackgroundImagesContext';
+const { coordinatesUrl } = require("../../HelperFunctions/coordinatesUrl");
+const { generateRandomIndexs } = require('../../HelperFunctions/generateRandomIndexs');
+const { imageUrl } = require("../../HelperFunctions/imageUrl");
 
 function CityPage() {
     const { cityParam } = useParams();
+    const [countryName, setCountryName] = useState<string>('');
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
+    const [bgImages, setBgImages] = useState([]);
 
     //Resets so that the new cityParam has a chance of being valid
     useEffect(() => {
         setIsInvalidCity(false);
+        const getCountryName = async () => {
+            try {
+                const url: string = coordinatesUrl(cityParam);
+                const res = await axios.get(url);
+                const data = res.data;
+                const country: string = data.sys.country;
+                setCountryName(country);
+            } catch (err) {
+                setIsInvalidCity(true);
+            }
+        };
+
+        const getBgImages = async () => {
+            const url: string = imageUrl(cityParam);
+            const res = await axios.get(url)
+            const dataArr: [] = res.data.results;
+            const randomIndexs: number[] = generateRandomIndexs(dataArr.length)
+            const randomImages: any = randomIndexs.map(idx => {
+                const image: any = dataArr[idx];
+                const imageUrl: any = image.urls.full;
+                return imageUrl;
+            })
+            setBgImages(randomImages);
+        };
+
+        getBgImages();
+        getCountryName();
     }, [cityParam]);
 
     if (isInvalidCity) {
@@ -19,9 +53,11 @@ function CityPage() {
 
     return (
         <div className="info-page">
-            <HeroBackground setIsInvalidCity={setIsInvalidCity} />
-            <FCards />
-        </div>
+            <BackgroundImagesContext.Provider value={bgImages}>
+                <HeroBackground cityName={cityParam.toUpperCase()} countryName={countryName} />
+                <FCards />
+            </BackgroundImagesContext.Provider>
+        </div >
     );
 }
 
