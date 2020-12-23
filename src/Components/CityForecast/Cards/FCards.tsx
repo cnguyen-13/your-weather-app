@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 import MeasurementSystemContext from '../../../MeasurementSystemContext';
 import ForecastCard from "./ForecastCard/ForecastCard";
 import DayWeather from "../../DayWeather/DayWeather";
@@ -12,10 +11,13 @@ interface Coordinates {
     lon: number;
 }
 
-function FCards() {
-    const { cityParam } = useParams();
+interface Props {
+    city: string
+}
+
+function FCards(props: Props) {
+    const { city } = props;
     const { measurementSystem } = useContext(MeasurementSystemContext);
-    const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
     const [wasCardClicked, setWasCardClicked] = useState<boolean>(false);
     const [dailyArr, setDailyArr] = useState<[]>([]);
     const [dailyIdx, setDailyIdx] = useState<number>(0);
@@ -32,11 +34,9 @@ function FCards() {
 
     useEffect(() => {
         const getCityData = async () => {
-            //Reset cityData & invalidCity flag
-            setIsInvalidCity(false);
             try {
                 //Get Coordinates
-                const coordUrl: string = coordinatesUrl(cityParam);
+                const coordUrl: string = coordinatesUrl(city);
                 const res = await axios.get(coordUrl);
                 const data = res.data;
                 const { lat, lon }: Coordinates = data.coord;
@@ -48,16 +48,12 @@ function FCards() {
                 const forecastDailies: [] = forecastData.daily;
                 setDailyArr(forecastDailies);
             } catch (err) {
-                setIsInvalidCity(true);
+                console.log(err)
             }
         };
 
         getCityData();
-    }, [cityParam, measurementSystem]);
-
-    if (isInvalidCity) {
-        return null;
-    }
+    }, [city, measurementSystem]);
 
     const forcaseCardComponents = dailyArr.map((day: any, idx: number) => {
         return (
@@ -70,7 +66,6 @@ function FCards() {
         );
     })
 
-
     return (
         <>
             <div className="cards-switch-container">
@@ -80,7 +75,7 @@ function FCards() {
             </div>
             {wasCardClicked ? (
                 <DayWeather
-                    city={cityParam}
+                    city={city}
                     dailyData={dailyArr[dailyIdx]}
                     mSystem={measurementSystem}
                 />

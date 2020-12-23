@@ -12,14 +12,15 @@ const { imageUrl } = require("../../HelperFunctions/imageUrl");
 function CityPage() {
     const { cityParam } = useParams();
     const [countryName, setCountryName] = useState<string>('');
-    const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
     const [bgImages, setBgImages] = useState([]);
+    const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
 
     //Resets so that the new cityParam has a chance of being valid
     useEffect(() => {
-        setIsInvalidCity(false);
+        //Gets Country Name if valid
         const getCountryName = async () => {
             try {
+                setIsInvalidCity(false);
                 const url: string = coordinatesUrl(cityParam);
                 const res = await axios.get(url);
                 const data = res.data;
@@ -28,9 +29,12 @@ function CityPage() {
             } catch (err) {
                 setIsInvalidCity(true);
             }
+            return;
         };
 
+        //Gets background images
         const getBgImages = async () => {
+            setBgImages([]);
             const url: string = imageUrl(cityParam);
             const res = await axios.get(url)
             const dataArr: [] = res.data.results;
@@ -43,8 +47,8 @@ function CityPage() {
             setBgImages(randomImages);
         };
 
-        getBgImages();
         getCountryName();
+        getBgImages();
     }, [cityParam]);
 
     if (isInvalidCity) {
@@ -55,7 +59,7 @@ function CityPage() {
         <div className="info-page">
             <BackgroundImagesContext.Provider value={bgImages}>
                 <HeroBackground cityName={cityParam.toUpperCase()} countryName={countryName} />
-                <FCards />
+                <FCards city={cityParam} />
             </BackgroundImagesContext.Provider>
         </div >
     );

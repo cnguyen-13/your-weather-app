@@ -1,6 +1,4 @@
 import React from "react";
-import DayTitle from "./DayTitle";
-import DayGraphic from "./DayGraphic";
 const { getAllTemps } = require("../../../HelperFunctions/getAllTemps");
 const { getAllWeather } = require("../../../HelperFunctions/getAllWeather");
 const { getAllWind } = require("../../../HelperFunctions/getAllWind");
@@ -24,14 +22,12 @@ function DayColumn(props: Props) {
         title === "Temperatures"
             ? getAllTemps(cityData, mSystem)
             : title === "Winds"
-            ? getAllWind(cityData, mSystem)
-            : getAllWeather(cityData);
+                ? getAllWind(cityData, mSystem)
+                : getAllWeather(cityData);
 
     return (
         <section className="date-info-section">
             <div className="date-info-text">
-                <DayTitle title={title} />
-                <DayGraphic title={title} />
                 {dataArr.map((pair) => {
                     return (
                         <div key={pair.label}>

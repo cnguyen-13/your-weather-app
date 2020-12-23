@@ -7,7 +7,7 @@ interface Props {
 }
 
 function TextInput(props: Props) {
-    const { value, topic, onChangeHandler: onChangeHandler } = props;
+    const { value, topic, onChangeHandler } = props;
     const placeholder = topic === 'name' ? '[ Your Name ]' : '[ Your City ]';
     const styles = {
         border: 'none',
@@ -26,7 +26,7 @@ function TextInput(props: Props) {
         } else {
             style.width = `${(value.length * fontSize) / 2}px`;
         }
-    }, [value])
+    }, [value, topic])
 
     return (
         <input
