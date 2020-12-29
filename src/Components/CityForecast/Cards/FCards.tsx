@@ -77,7 +77,6 @@ function FCards(props: Props) {
                 <DayWeather
                     city={city}
                     dailyData={dailyArr[dailyIdx]}
-                    mSystem={measurementSystem}
                 />
             ) : null}
         </>

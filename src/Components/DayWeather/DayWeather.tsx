@@ -6,15 +6,14 @@ const { getDateTimes } = require("../../HelperFunctions/getDateTimes");
 interface Props {
     city: string | null;
     dailyData: { dt: number };
-    mSystem: string;
 }
 
 function DayWeather(props: Props) {
-    const { city, dailyData, mSystem } = props;
+    const { city, dailyData } = props;
     //Getting Date
     const time: number = dailyData.dt;
     const { date, month } = getDateTimes(time);
-    const bgImages = useContext(BackgroundImagesContext)
+    const bgImages = useContext(BackgroundImagesContext);
     const styles = {
         backgroundSize: "cover",
         backgroundPosition: "center center",
@@ -31,18 +30,15 @@ function DayWeather(props: Props) {
             <div className="date-info">
                 <DayColumn
                     cityData={dailyData}
-                    title="Temperatures"
-                    mSystem={mSystem}
+                    title="temp"
                 />
                 <DayColumn
                     cityData={dailyData}
-                    title="Weather"
-                    mSystem={mSystem}
+                    title="weather"
                 />
                 <DayColumn
                     cityData={dailyData}
-                    title="Winds"
-                    mSystem={mSystem}
+                    title="wind"
                 />
             </div>
         </section>

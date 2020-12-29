@@ -21,6 +21,17 @@
     font-size: 32px;
 }
 
+
+.section-title {
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    bottom: 100px;
+    font-size: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 @media (min-width: 768px) {
     .city-title {
         font-size: 64px;

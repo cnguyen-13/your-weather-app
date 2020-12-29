@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import DataCell from './DataCell';
+import MeasurementSystemContext from '../../../MeasurementSystemContext';
+import temp from '../../../images/misc/hot.png';
+import weather from '../../../images/misc/cloudy.png';
+import wind from '../../../images/misc/wind.png';
 const { getAllTemps } = require("../../../HelperFunctions/getAllTemps");
 const { getAllWeather } = require("../../../HelperFunctions/getAllWeather");
 const { getAllWind } = require("../../../HelperFunctions/getAllWind");
@@ -6,7 +11,6 @@ const { getAllWind } = require("../../../HelperFunctions/getAllWind");
 interface Props {
     cityData: any;
     title: string;
-    mSystem: string;
 }
 
 interface dataArrayObject {
@@ -15,27 +19,41 @@ interface dataArrayObject {
 }
 
 function DayColumn(props: Props) {
-    const { cityData, title, mSystem } = props;
+    const { cityData, title } = props;
+    const { measurementSystem } = useContext(MeasurementSystemContext);
+    const [image, setImage] = useState<any>();
+    const [data, setData] = useState<dataArrayObject[] | undefined>([])
 
-    //Obtain correct Data set
-    const dataArr: dataArrayObject[] =
-        title === "Temperatures"
-            ? getAllTemps(cityData, mSystem)
-            : title === "Winds"
-                ? getAllWind(cityData, mSystem)
-                : getAllWeather(cityData);
+    useEffect(() => {
+        //Obtain correct Data set
+        let dataArr: dataArrayObject[] | undefined;
+        if (title === "temp") {
+            dataArr = getAllTemps(cityData, measurementSystem);
+        } else if (title === 'wind ') {
+            dataArr = getAllWind(cityData, measurementSystem)
+        } else {
+            dataArr = getAllWeather(cityData);
+        }
+
+        setData(dataArr)
+    }, [cityData, measurementSystem])
+
+    useEffect(() => {
+        //Getting correct icon
+        if (title === 'temp') {
+            setImage(temp);
+        } else if (title === 'wind') {
+            setImage(wind);
+        } else {
+            setImage(weather);
+        }
+    }, [title])
 
     return (
         <section className="date-info-section">
+            <img src={image} className="date-info-icon" alt={title} />
             <div className="date-info-text">
-                {dataArr.map((pair) => {
-                    return (
-                        <div key={pair.label}>
-                            <h4 className="date-info-label">{pair.label}</h4>
-                            <p className="date-info-data">{pair.data}</p>
-                        </div>
-                    );
-                })}
+                {data ? data.map(pair => <DataCell key={pair.label} label={pair.label} data={pair.data} />) : null}
             </div>
         </section>
     );
