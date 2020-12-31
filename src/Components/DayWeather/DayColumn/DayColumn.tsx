@@ -13,7 +13,7 @@ interface Props {
     title: string;
 }
 
-interface dataArrayObject {
+interface dataObject {
     label: string;
     data: string;
 }
@@ -22,14 +22,14 @@ function DayColumn(props: Props) {
     const { cityData, title } = props;
     const { measurementSystem } = useContext(MeasurementSystemContext);
     const [image, setImage] = useState<any>();
-    const [data, setData] = useState<dataArrayObject[] | undefined>([])
+    const [data, setData] = useState<dataObject[] | undefined>([])
 
     useEffect(() => {
         //Obtain correct Data set
-        let dataArr: dataArrayObject[] | undefined;
+        let dataArr: dataObject[] | undefined;
         if (title === "temp") {
             dataArr = getAllTemps(cityData, measurementSystem);
-        } else if (title === 'wind ') {
+        } else if (title === 'wind') {
             dataArr = getAllWind(cityData, measurementSystem)
         } else {
             dataArr = getAllWeather(cityData);

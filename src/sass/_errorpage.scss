@@ -1,0 +1,21 @@
+.error-page {
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.error-title {
+    color: #333 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: center !important;
+}
+
+@media (min-width: 900px) {
+    .error-page {
+        flex-direction: row;
+    }
+}
