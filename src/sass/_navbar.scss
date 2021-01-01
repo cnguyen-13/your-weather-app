@@ -25,6 +25,11 @@
     transform: scale(0.75);
 }
 
+.measurement-toggle {
+    width: 48px;
+    cursor: pointer;
+}
+
 .search-settings {
     display: flex;
     flex-wrap: wrap;

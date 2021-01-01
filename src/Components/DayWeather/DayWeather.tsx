@@ -25,7 +25,7 @@ function DayWeather(props: Props) {
     return (
         <section style={styles} className="day-weather">
             <h2 className="section-title">
-                {city} - {month} / {date} Weather
+                {city?.toUpperCase()} - {month} / {date} Weather
             </h2>
             <div className="date-info">
                 <DayColumn
