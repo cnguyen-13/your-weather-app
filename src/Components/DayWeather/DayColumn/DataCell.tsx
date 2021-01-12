@@ -18,7 +18,7 @@ function DataCell(props: Props) {
         } else {
             setBgClass('data-cell-wind')
         }
-    }, [])
+    }, [category])
 
     return (
         <div className={`data-cell ${bgClass}`}>

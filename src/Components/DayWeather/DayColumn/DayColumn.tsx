@@ -33,7 +33,7 @@ function DayColumn(props: Props) {
         }
 
         setData(dataArr)
-    }, [cityData, measurementSystem])
+    }, [cityData, measurementSystem, category])
 
     return (
         <section className="date-info-section">
