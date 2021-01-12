@@ -8,9 +8,11 @@ import BackgroundImagesContext from '../../BackgroundImagesContext';
 const { coordinatesUrl } = require("../../HelperFunctions/coordinatesUrl");
 const { generateRandomIndexs } = require('../../HelperFunctions/generateRandomIndexs');
 const { imageUrl } = require("../../HelperFunctions/imageUrl");
-
+interface Params {
+    cityParam: string
+}
 function CityPage() {
-    const { cityParam } = useParams();
+    const { cityParam } = useParams<Params>();
     const [countryName, setCountryName] = useState<string>('');
     const [bgImages, setBgImages] = useState([]);
     const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false);
