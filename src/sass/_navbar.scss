@@ -2,7 +2,7 @@
     background-color: #333;
     color: $color-white;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
     min-height: 125px;
     display: flex;
     flex-direction: row;
@@ -23,6 +23,7 @@
 }
 
 .logo-img {
+    height: 100px;
     width: 100px;
 }
 
@@ -50,13 +51,12 @@
 
 @media (min-width: 700px) {
     .nav-bar {
-        flex-direction: row;
-        justify-content: space-between;
         height: 12vh;
         min-height: 100px;
     }
 
     .logo-img {
-        transform: scale(0.75);
+        width: 125px;
+        height: 125px;
     }
 }
