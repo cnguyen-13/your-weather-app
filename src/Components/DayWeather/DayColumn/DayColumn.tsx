@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import DataCell from './DataCell';
 import MeasurementSystemContext from '../../../MeasurementSystemContext';
-import temp from '../../../images/misc/hot.png';
-import weather from '../../../images/misc/cloudy.png';
-import wind from '../../../images/misc/wind.png';
+import { CATEGORIES } from '../DayWeather';
 const { getAllTemps } = require("../../../HelperFunctions/getAllTemps");
 const { getAllWeather } = require("../../../HelperFunctions/getAllWeather");
 const { getAllWind } = require("../../../HelperFunctions/getAllWind");
 
 interface Props {
     cityData: any;
-    title: string;
+    category: string;
 }
 
 interface dataObject {
@@ -19,17 +17,16 @@ interface dataObject {
 }
 
 function DayColumn(props: Props) {
-    const { cityData, title } = props;
+    const { cityData, category } = props;
     const { measurementSystem } = useContext(MeasurementSystemContext);
-    const [image, setImage] = useState<any>();
     const [data, setData] = useState<dataObject[] | undefined>([])
 
     useEffect(() => {
         //Obtain correct Data set
         let dataArr: dataObject[] | undefined;
-        if (title === "temp") {
+        if (category === CATEGORIES.TEMPERATURE) {
             dataArr = getAllTemps(cityData, measurementSystem);
-        } else if (title === 'wind') {
+        } else if (category === CATEGORIES.WIND) {
             dataArr = getAllWind(cityData, measurementSystem)
         } else {
             dataArr = getAllWeather(cityData);
@@ -38,22 +35,10 @@ function DayColumn(props: Props) {
         setData(dataArr)
     }, [cityData, measurementSystem])
 
-    useEffect(() => {
-        //Getting correct icon
-        if (title === 'temp') {
-            setImage(temp);
-        } else if (title === 'wind') {
-            setImage(wind);
-        } else {
-            setImage(weather);
-        }
-    }, [title])
-
     return (
         <section className="date-info-section">
-            <img src={image} className="date-info-icon" alt={title} />
             <div className="date-info-text">
-                {data ? data.map(pair => <DataCell key={pair.label} label={pair.label} data={pair.data} />) : null}
+                {data ? data.map(pair => <DataCell category={category} key={pair.label} label={pair.label} data={pair.data} />) : null}
             </div>
         </section>
     );

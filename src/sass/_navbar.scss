@@ -5,9 +5,10 @@
     padding: 20px;
     min-height: 125px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-bar-search {
@@ -22,7 +23,7 @@
 }
 
 .logo-img {
-    transform: scale(0.75);
+    width: 100px;
 }
 
 .measurement-toggle {
@@ -53,5 +54,9 @@
         justify-content: space-between;
         height: 12vh;
         min-height: 100px;
+    }
+
+    .logo-img {
+        transform: scale(0.75);
     }
 }

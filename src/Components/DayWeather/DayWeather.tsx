@@ -8,6 +8,12 @@ interface Props {
     dailyData: { dt: number };
 }
 
+export const CATEGORIES = {
+    TEMPERATURE: 'temp',
+    WEATHER: 'weather',
+    WIND: 'wind'
+}
+
 function DayWeather(props: Props) {
     const { city, dailyData } = props;
     //Getting Date
@@ -30,15 +36,15 @@ function DayWeather(props: Props) {
             <div className="date-info">
                 <DayColumn
                     cityData={dailyData}
-                    title="temp"
+                    category={CATEGORIES.TEMPERATURE}
                 />
                 <DayColumn
                     cityData={dailyData}
-                    title="weather"
+                    category={CATEGORIES.WEATHER}
                 />
                 <DayColumn
                     cityData={dailyData}
-                    title="wind"
+                    category={CATEGORIES.WIND}
                 />
             </div>
         </section>
