@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
-const { getMessage } = require("../../../HelperFunctions/getMessage");
+import React, { useState, useEffect } from "react"
+const { getMessage } = require("../../../HelperFunctions/getMessage")
 
 function WelcomeMessage() {
-    const [message, setMessage] = useState<string>("");
+	const [message, setMessage] = useState<string>("")
 
-    const updateMessage = (): void => {
-        const message: string = getMessage();
-        setMessage(message);
-    };
+	const updateMessage = (): void => {
+		const message: string = getMessage()
+		setMessage(message)
+	}
 
-    useEffect(() => {
-        //First Moment
-        updateMessage();
+	useEffect(() => {
+		//First Moment
+		updateMessage()
 
-        const updateMessageInterval: NodeJS.Timeout = setInterval(() => {
-            updateMessage();
-        }, 3600000);
+		const updateMessageInterval: NodeJS.Timeout = setInterval(() => {
+			updateMessage()
+		}, 3600000)
 
-        return (): void => clearInterval(updateMessageInterval);
-    }, []);
-    return (
-        <>
-            {message},{" "}
-        </>
-    )
+		return (): void => clearInterval(updateMessageInterval)
+	}, [])
+	return <>{message}, </>
 }
 
-export default WelcomeMessage;
+export default WelcomeMessage

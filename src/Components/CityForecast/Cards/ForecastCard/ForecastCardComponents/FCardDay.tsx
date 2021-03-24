@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
 interface Props {
-    day: string;
+	day: string
 }
 
 function FCardDay(props: Props) {
-    const { day } = props;
+	const { day } = props
 
-    return <p className="card-day">{day}</p>;
+	return <p className="card-day">{day}</p>
 }
 
-export default FCardDay;
+export default FCardDay

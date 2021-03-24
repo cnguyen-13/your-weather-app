@@ -1,39 +1,41 @@
-import React, { useState } from "react";
-import SearchBtn from './SearchBtn';
+import React, { useState } from "react"
+import SearchBtn from "./SearchBtn"
 
 function Searchbar() {
-    const [city, setCity] = useState<string>("");
+	const [city, setCity] = useState<string>("")
 
-    //Updates city state
-    const inputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value } = e.target;
-        setCity(value);
-    };
+	//Updates city state
+	const inputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+		const { value } = e.target
+		setCity(value)
+	}
 
-    //Simulates Clicking on the search button when hitting 'enter' in search box
-    const onEnterPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-        if (e.key === 'Enter') {
-            const searchBtn: HTMLButtonElement | null = document.querySelector('#search-btn');
-            if (searchBtn instanceof HTMLButtonElement) {
-                searchBtn.click();
-            }
-            setCity('');
-        }
-    }
+	//Simulates Clicking on the search button when hitting 'enter' in search box
+	const onEnterPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+		if (e.key === "Enter") {
+			const searchBtn: HTMLButtonElement | null = document.querySelector(
+				"#search-btn"
+			)
+			if (searchBtn instanceof HTMLButtonElement) {
+				searchBtn.click()
+			}
+			setCity("")
+		}
+	}
 
-    return (
-        <div className="nav-bar-search">
-            <input
-                onChange={inputChange}
-                onKeyPress={onEnterPress}
-                className="nav-bar-input"
-                type="text"
-                value={city}
-                placeholder="[city] or [city, country code]"
-            />
-            <SearchBtn city={city} clearInput={() => setCity('')} />
-        </div>
-    );
+	return (
+		<div className="nav-bar-search">
+			<input
+				onChange={inputChange}
+				onKeyPress={onEnterPress}
+				className="nav-bar-input"
+				type="text"
+				value={city}
+				placeholder="[city] or [city, country code]"
+			/>
+			<SearchBtn city={city} clearInput={() => setCity("")} />
+		</div>
+	)
 }
 
-export default Searchbar;
+export default Searchbar

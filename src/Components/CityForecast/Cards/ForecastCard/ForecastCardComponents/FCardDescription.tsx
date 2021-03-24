@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
 interface Props {
-    weatherDescription: string;
+	weatherDescription: string
 }
 
 function FCardDescription(props: Props) {
-    const { weatherDescription } = props;
+	const { weatherDescription } = props
 
-    return <p className="card-description">{weatherDescription}</p>;
+	return <p className="card-description">{weatherDescription}</p>
 }
 
-export default FCardDescription;
+export default FCardDescription

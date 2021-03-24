@@ -1,5 +1,5 @@
-import { createContext } from 'react';
+import { createContext } from "react"
 
-const MeasurementSystemContext: any = createContext('metric');
+const MeasurementSystemContext: any = createContext("metric")
 
-export default MeasurementSystemContext;
+export default MeasurementSystemContext

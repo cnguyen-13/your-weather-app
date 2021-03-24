@@ -1,18 +1,18 @@
-import React from "react";
+import React from "react"
 
 interface Props {
-    minTemp: string;
-    maxTemp: string;
+	minTemp: string
+	maxTemp: string
 }
 
 function FCardTemps(props: Props) {
-    const { minTemp, maxTemp } = props;
+	const { minTemp, maxTemp } = props
 
-    return (
-        <p className="card-temps">
-            {minTemp} | {maxTemp}
-        </p>
-    );
+	return (
+		<p className="card-temps">
+			{minTemp} | {maxTemp}
+		</p>
+	)
 }
 
-export default FCardTemps;
+export default FCardTemps

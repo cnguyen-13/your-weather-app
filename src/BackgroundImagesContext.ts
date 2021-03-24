@@ -1,6 +1,5 @@
-import { createContext } from 'react';
+import { createContext } from "react"
 
-const BackgroundImagesContext = createContext([]);
+const BackgroundImagesContext = createContext([])
 
-export default BackgroundImagesContext;
-
+export default BackgroundImagesContext
