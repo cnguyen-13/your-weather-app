@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-const { getMessage } = require("../../../HelperFunctions/getMessage")
+import { getMessage } from "../../../functions/get-message"
 
 function WelcomeMessage() {
 	const [message, setMessage] = useState<string>("")

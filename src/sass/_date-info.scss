@@ -1,86 +1,85 @@
 //General
 .date-info-section {
-    text-align: center;
-    color: #333;
+	text-align: center;
+	color: #333;
 }
 
-
 .date-info-section-title {
-    margin: 2rem;
-    font-size: 36px;
-    text-align: left;
+	margin: 2rem;
+	font-size: 36px;
+	text-align: left;
 }
 
 //Container
 .date-info {
-    background-color: transparent;
-    position: relative;
-    bottom: 50px;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: $date-info-gap;
+	background-color: transparent;
+	position: relative;
+	bottom: 50px;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: $date-info-gap;
 }
 
 .date-info-icon {
-    width: 90px;
+	width: 90px;
 }
 
 .date-info-text {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: $date-info-gap;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: $date-info-gap;
 }
 
 .data-cell {
-    color: white;
-    background-color: $color-primary;
-    padding: 1rem 2rem;
-    border-radius: 0.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $date-info-gap;
+	color: white;
+	background-color: $color-primary;
+	padding: 1rem 2rem;
+	border-radius: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: $date-info-gap;
 
-    .date-info-label {
-        font-weight: normal;
-        font-size: 1.75rem;
-    }
+	.date-info-label {
+		font-weight: normal;
+		font-size: 1.75rem;
+	}
 
-    hr {
-        width: 100%;
-    }
+	hr {
+		width: 100%;
+	}
 
-    .date-info-data {
-        font-size: 1.5rem;
-    }
+	.date-info-data {
+		font-size: 1.5rem;
+	}
 }
 
 .data-cell-temp {
-    background-color: $color-temp;
+	background-color: $color-temp;
 }
 
 .data-cell-weather {
-    background-color: $color-weather;
+	background-color: $color-weather;
 }
 
 .data-cell-wind {
-    background-color: $color-wind;
+	background-color: $color-wind;
 }
 
 @media (min-width: 800px) {
-    .date-info {
-        justify-content: space-around;
-    }
+	.date-info {
+		justify-content: space-around;
+	}
 
-    .date-info-text {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: $date-info-gap;
-    }
+	.date-info-text {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: $date-info-gap;
+	}
 }

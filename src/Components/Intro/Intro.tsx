@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import Logo from "./intro-components/IntroLogo"
-import Time from "./intro-components/IntroTime"
-import Welcome from "./intro-components/IntroWelcome"
-import Question from "./intro-components/IntroQuestion"
-import GetWeatherButton from "./intro-components/IntroForecastButton"
+import IntroLogo from "./intro-components/IntroLogo"
+import IntroTime from "./intro-components/IntroTime"
+import IntroWelcome from "./intro-components/IntroWelcome"
+import IntroQuestion from "./intro-components/IntroQuestion"
+import IntroForecastButton from "./intro-components/IntroForecastButton"
 import { getBackgroundClass } from "../../functions/get-background-class"
 
 function Intro() {
@@ -44,11 +44,19 @@ function Intro() {
 
 	return (
 		<div id="intro" className={`intro ${bgClass}`}>
-			<Logo />
-			<Time />
-			<Welcome topic="name" name={name} onChangeHandler={onChangeHandler} />
-			<Question topic="city" city={city} onChangeHandler={onChangeHandler} />
-			<GetWeatherButton city={city} />
+			<IntroLogo />
+			<IntroTime />
+			<IntroWelcome
+				topic="name"
+				name={name}
+				onChangeHandler={onChangeHandler}
+			/>
+			<IntroQuestion
+				topic="city"
+				city={city}
+				onChangeHandler={onChangeHandler}
+			/>
+			<IntroForecastButton city={city} />
 		</div>
 	)
 }

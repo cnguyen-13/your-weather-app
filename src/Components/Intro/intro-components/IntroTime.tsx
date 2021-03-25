@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
-const {
-	getFormattedTime,
-} = require("../../../HelperFunctions/getFormattedTime")
+import { getFormattedTime } from "../../../functions/get-formatted-time"
 
 function Time() {
 	const [formattedTime, setFormattedTime] = useState<string>("")

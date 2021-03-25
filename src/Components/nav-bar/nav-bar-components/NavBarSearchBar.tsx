@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import SearchBtn from "./NavBarSearchBtn"
+import NavBarSearchButton from "./NavBarSearchButton"
 
 function SearchBar() {
 	const [city, setCity] = useState<string>("")
@@ -33,7 +33,7 @@ function SearchBar() {
 				value={city}
 				placeholder="[city] or [city, country code]"
 			/>
-			<SearchBtn city={city} clearInput={() => setCity("")} />
+			<NavBarSearchButton city={city} clearInput={() => setCity("")} />
 		</div>
 	)
 }

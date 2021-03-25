@@ -1,4 +1,4 @@
-const { days } = require("../Data/days")
+import { days } from "../data/days"
 
 interface returnDateObject {
 	date: number

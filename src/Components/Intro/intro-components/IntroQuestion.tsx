@@ -1,5 +1,5 @@
 import React from "react"
-import TextInput from "./IntroTextInput"
+import IntroTextInput from "./IntroTextInput"
 
 interface Props {
 	city: string
@@ -13,7 +13,11 @@ function Question(props: Props) {
 	return (
 		<p className="intro-question">
 			Want to Check the City of{" "}
-			<TextInput value={city} topic={topic} onChangeHandler={onChangeHandler} />
+			<IntroTextInput
+				value={city}
+				topic={topic}
+				onChangeHandler={onChangeHandler}
+			/>
 			's Weather?
 		</p>
 	)

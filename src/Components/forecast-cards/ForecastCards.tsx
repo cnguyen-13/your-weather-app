@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react"
 import axios from "axios"
-import MeasurementSystemContext from "../../../MeasurementSystemContext"
+import MeasurementSystemContext from "../../context/MeasurementSystemContext"
 import ForecastCard from "./forecast-card/ForecastCard"
-import DayWeather from "../../day/DayWeather"
-const { coordinatesUrl } = require("../../../HelperFunctions/coordinatesUrl")
-const { forecastUrl } = require("../../../HelperFunctions/forecastUrl")
+import DayForecast from "../day-forecast/DayForecast"
+import { coordinatesUrl } from "../../functions/coordinates-url"
+import { forecastUrl } from "../../functions/forecast-url"
 
 interface Coordinates {
 	lat: number
@@ -73,7 +73,7 @@ function FCards(props: Props) {
 				<div className="cards-container">{forcaseCardComponents}</div>
 			</div>
 			{wasCardClicked ? (
-				<DayWeather city={city} dailyData={dailyArr[dailyIdx]} />
+				<DayForecast city={city} dailyData={dailyArr[dailyIdx]} />
 			) : null}
 		</>
 	)

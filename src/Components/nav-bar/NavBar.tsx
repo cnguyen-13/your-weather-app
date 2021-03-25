@@ -1,15 +1,15 @@
 import React from "react"
-import Logo from "./nav-bar-components/NavBarLogo"
-import SearchBar from "./nav-bar-components/NavBarSearchBar"
-import MeasurementSystemSwitch from "./nav-bar-components/NavBarMeasurementSwitch"
+import NavBarLogo from "./nav-bar-components/NavBarLogo"
+import NavBarSearchBar from "./nav-bar-components/NavBarSearchBar"
+import NavBarMeasurementSwitch from "./nav-bar-components/NavBarMeasurementSwitch"
 
 function NavBar() {
 	return (
 		<nav className="nav-bar">
-			<Logo />
+			<NavBarLogo />
 			<div className="search-settings">
-				<MeasurementSystemSwitch />
-				<SearchBar />
+				<NavBarMeasurementSwitch />
+				<NavBarSearchBar />
 			</div>
 		</nav>
 	)

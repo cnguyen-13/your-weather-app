@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from "react"
 import DataCell from "./DayForecastDataRow"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { CATEGORIES } from "../DayForecast"
-const { getAllTemps } = require("../../../HelperFunctions/getAllTemps")
-const { getAllWeather } = require("../../../HelperFunctions/getAllWeather")
-const { getAllWind } = require("../../../HelperFunctions/getAllWind")
+import { getAllTemps } from "../../../functions/get-all-temps"
+import { getAllWeather } from "../../../functions/get-all-weather"
+import { getAllWind } from "../../../functions/get-all-wind"
 
 interface Props {
 	cityData: any

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import HeroBackground from "./HeroBackground"
-import FCards from "../forecast-cards/ForecastCards"
+import ForecastCards from "../forecast-cards/ForecastCards"
 import InvalidCityPage from "../errors/InvalidCityPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
-const { coordinatesUrl } = require("../../HelperFunctions/coordinatesUrl")
-const {
-	generateRandomIndexs,
-} = require("../../HelperFunctions/generateRandomIndexs")
-const { imageUrl } = require("../../HelperFunctions/imageUrl")
+import { coordinatesUrl } from "../../functions/coordinates-url"
+import { generateRandomIndexs } from "../../functions/generate-random-indexs"
+import { imageUrl } from "../../functions/image-url"
+
 interface Params {
 	cityParam: string
 }
+
 function CityPage() {
 	const { cityParam } = useParams<Params>()
 	const [countryName, setCountryName] = useState<string>("")
@@ -66,7 +66,7 @@ function CityPage() {
 					cityName={cityParam.toUpperCase()}
 					countryName={countryName}
 				/>
-				<FCards city={cityParam} />
+				<ForecastCards city={cityParam} />
 			</BackgroundImagesContext.Provider>
 		</div>
 	)

@@ -1,62 +1,62 @@
 .nav-bar {
-    background-color: #333;
-    color: $color-white;
-    text-align: center;
-    padding: 0 20px;
-    min-height: 125px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+	background-color: #333;
+	color: $color-white;
+	text-align: center;
+	padding: 0 20px;
+	min-height: 125px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .nav-bar-search {
-    width: 300px;
-    text-align: center;
+	width: 300px;
+	text-align: center;
 }
 
 .nav-bar-input {
-    padding: 10px 20px;
-    border: none;
-    width: 70%;
+	padding: 10px 20px;
+	border: none;
+	width: 70%;
 }
 
 .logo-img {
-    height: 100px;
-    width: 100px;
+	height: 100px;
+	width: 100px;
 }
 
 .measurement-toggle {
-    width: 48px;
-    cursor: pointer;
+	width: 48px;
+	cursor: pointer;
 }
 
 .search-settings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 }
 
 .nav-bar-btn {
-    border: none;
-    color: $color-white;
-    background-color: $color-primary;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 30%;
+	border: none;
+	color: $color-white;
+	background-color: $color-primary;
+	padding: 10px 20px;
+	cursor: pointer;
+	width: 30%;
 }
 
 @media (min-width: 700px) {
-    .nav-bar {
-        height: 12vh;
-        min-height: 100px;
-    }
+	.nav-bar {
+		height: 12vh;
+		min-height: 100px;
+	}
 
-    .logo-img {
-        width: 125px;
-        height: 125px;
-    }
+	.logo-img {
+		width: 125px;
+		height: 125px;
+	}
 }

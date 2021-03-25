@@ -1,5 +1,5 @@
 import React from "react"
-import error from "../../images/misc/error.png"
+import logo from "../../images/logo/logo.png"
 
 interface Props {
 	invalidCityName: string
@@ -10,7 +10,7 @@ function InvalidCityPage(props: Props) {
 
 	return (
 		<div className="error-page">
-			<img src={error} alt="Sad face" />
+			<img src={logo} alt="Sad face" />
 			<h2 className="city-title error-title">
 				{invalidCityName} is an
 				<span className="error"> invalid City!</span>

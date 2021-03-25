@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
-import FCardDate from "./forecast-card-components/ForecastCardDate"
-import FCardDay from "./forecast-card-components/ForecastCardDay"
-import FCardIcon from "./forecast-card-components/ForecastCardIcon"
-import FCardDescription from "./forecast-card-components/ForecastCardDescription"
-import FCardTemps from "./forecast-card-components/ForecastCardTemps"
+import ForecastCardDate from "./forecast-card-components/ForecastCardDate"
+import ForecastCardDay from "./forecast-card-components/ForecastCardDay"
+import ForecastCardIcon from "./forecast-card-components/ForecastCardIcon"
+import ForecastCardDescription from "./forecast-card-components/ForecastCardDescription"
+import ForecastCardTemps from "./forecast-card-components/ForecastCardTemps"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
-const { getDateTimes } = require("../../../../HelperFunctions/getDateTimes")
-const { getWeatherInfo } = require("../../../../HelperFunctions/getWeatherInfo")
-const { getMinMaxTemps } = require("../../../../HelperFunctions/getMinMaxTemps")
+import { getDateTimes } from "../../../functions/get-date-times"
+import { getWeatherInfo } from "../../../functions/get-weather-info"
+import { getMinMaxTemps } from "../../../functions/get-min-max-temps"
 
 interface Props {
 	data: any
@@ -29,14 +29,14 @@ function ForecastCard(props: Props) {
 
 	return (
 		<div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
-			<FCardDate month={month} date={date} />
-			<FCardDay day={day} />
-			<FCardIcon
+			<ForecastCardDate month={month} date={date} />
+			<ForecastCardDay day={day} />
+			<ForecastCardIcon
 				weatherIcon={weatherIcon}
 				weatherDescription={weatherDescription}
 			/>
-			<FCardDescription weatherDescription={weatherDescription} />
-			<FCardTemps minTemp={minTemp} maxTemp={maxTemp} />
+			<ForecastCardDescription weatherDescription={weatherDescription} />
+			<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
 		</div>
 	)
 }

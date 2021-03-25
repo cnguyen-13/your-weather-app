@@ -1,90 +1,90 @@
 .intro {
-    width: 100vw;
-    height: 100vh;
-    color: #eee;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    gap: 15px;
+	width: 100vw;
+	height: 100vh;
+	color: #eee;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	gap: 15px;
 }
 
 //Backgrounds
 .morning {
-    background-image: $mask, url("../images/background/morning.jpg");
+	background-image: $mask, url("../images/intro-backgrounds/morning.jpg");
 }
 
 .afternoon {
-    background-image: $mask, url("../images/background/afternoon.jpg");
+	background-image: $mask, url("../images/intro-backgrounds/afternoon.jpg");
 }
 
 .evening {
-    background-image: $mask, url("../images/background/evening.jpg");
+	background-image: $mask, url("../images/intro-backgrounds/evening.jpg");
 }
 
 //Each component
 .intro-time {
-    font-size: 40px;
+	font-size: 40px;
 }
 
 .intro-welcome {
-    font-size: 25px;
+	font-size: 25px;
 }
 
 .intro-question {
-    font-size: 20px;
-    margin-bottom: 30px;
+	font-size: 20px;
+	margin-bottom: 30px;
 }
 
 .intro-btn {
-    cursor: pointer;
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    color: #eee;
-    background-color: $color-primary;
-    border: none;
+	cursor: pointer;
+	font-size: 18px;
+	margin-bottom: 15px;
+	padding: 10px 20px;
+	color: #eee;
+	background-color: $color-primary;
+	border: none;
 
-    &:hover {
-        transform: scale(1.1);
-        background-color: darken($color-primary, 5);
-        transition: 0.3s;
-    }
+	&:hover {
+		transform: scale(1.1);
+		background-color: darken($color-primary, 5);
+		transition: 0.3s;
+	}
 }
 
 @media (min-width: 760px) {
-    .intro-time {
-        font-size: 64px;
-    }
+	.intro-time {
+		font-size: 64px;
+	}
 
-    .intro-welcome {
-        font-size: 30px;
-    }
+	.intro-welcome {
+		font-size: 30px;
+	}
 
-    .intro-question {
-        font-size: 24px;
-    }
+	.intro-question {
+		font-size: 24px;
+	}
 
-    .intro-btn {
-        font-size: 20px;
-    }
+	.intro-btn {
+		font-size: 20px;
+	}
 }
 
 @media (min-width: 1200px) {
-    .intro-time {
-        font-size: 100px;
-    }
+	.intro-time {
+		font-size: 100px;
+	}
 
-    .intro-welcome {
-        font-size: 30px;
-    }
+	.intro-welcome {
+		font-size: 30px;
+	}
 
-    .intro-question {
-        font-size: 24px;
-    }
+	.intro-question {
+		font-size: 24px;
+	}
 
-    .intro-btn {
-        font-size: 20px;
-    }
+	.intro-btn {
+		font-size: 20px;
+	}
 }

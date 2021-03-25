@@ -1,4 +1,4 @@
-const { messages } = require("../Data/messages")
+import { messages } from "../data/messages"
 
 function getMessage(time?: number | undefined): string {
 	const today: Date = time ? new Date(time) : new Date()
