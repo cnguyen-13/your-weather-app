@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import DataCell from "./DayForecastDataRow"
+import DayForecastDataRow from "./DayForecastDataRow"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { CATEGORIES } from "../DayForecast"
 import { getAllTemps } from "../../../functions/get-all-temps"
@@ -16,7 +16,7 @@ interface dataObject {
 	data: string
 }
 
-function DayColumn(props: Props) {
+function DayForecastSection(props: Props) {
 	const { cityData, category } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [data, setData] = useState<dataObject[] | undefined>([])
@@ -40,7 +40,7 @@ function DayColumn(props: Props) {
 			<div className="date-info-text">
 				{data
 					? data.map(pair => (
-							<DataCell
+							<DayForecastDataRow
 								category={category}
 								key={pair.label}
 								label={pair.label}
@@ -53,4 +53,4 @@ function DayColumn(props: Props) {
 	)
 }
 
-export default DayColumn
+export default DayForecastSection

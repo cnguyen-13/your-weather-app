@@ -7,7 +7,7 @@ interface Props {
 	category: string
 }
 
-function DataCell(props: Props) {
+function DayForecastDataRow(props: Props) {
 	const { label, data, category } = props
 	const [bgClass, setBgClass] = useState<string>("")
 	useEffect(() => {
@@ -28,4 +28,4 @@ function DataCell(props: Props) {
 	)
 }
 
-export default DataCell
+export default DayForecastDataRow

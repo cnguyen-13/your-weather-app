@@ -10,7 +10,7 @@ function InvalidCityPage(props: Props) {
 
 	return (
 		<div className="error-page">
-			<img src={logo} alt="Sad face" />
+			<img src={logo} alt="" />
 			<h2 className="city-title error-title">
 				{invalidCityName} is an
 				<span className="error"> invalid City!</span>

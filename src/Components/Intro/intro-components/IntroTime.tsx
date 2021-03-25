@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { getFormattedTime } from "../../../functions/get-formatted-time"
 
-function Time() {
+function IntroTime() {
 	const [formattedTime, setFormattedTime] = useState<string>("")
 
 	const updateTime = (): void => {
@@ -23,4 +23,4 @@ function Time() {
 	return <h1 className="intro-time">{formattedTime}</h1>
 }
 
-export default Time
+export default IntroTime

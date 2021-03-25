@@ -6,7 +6,7 @@ interface Props {
 	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-function TextInput(props: Props) {
+function IntroTextInput(props: Props) {
 	const { value, topic, onChangeHandler } = props
 	const placeholder = topic === "name" ? "[ Your Name ]" : "[ Your City ]"
 	const styles = {
@@ -42,4 +42,4 @@ function TextInput(props: Props) {
 	)
 }
 
-export default TextInput
+export default IntroTextInput

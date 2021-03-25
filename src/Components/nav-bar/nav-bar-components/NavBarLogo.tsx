@@ -1,7 +1,7 @@
 import React from "react"
 import logo from "../../../images/logo/logo.png"
 
-function Logo() {
+function NavBarLogo() {
 	return (
 		<div className="nav-bar-logo">
 			<img src={logo} alt="Your Weather App Logo" className="logo-img" />
@@ -9,4 +9,4 @@ function Logo() {
 	)
 }
 
-export default Logo
+export default NavBarLogo

@@ -5,7 +5,7 @@ interface Props {
 	city: string | null
 }
 
-function GetWeatherButton(props: Props) {
+function IntroForecastButton(props: Props) {
 	const { city } = props
 
 	return (
@@ -15,4 +15,4 @@ function GetWeatherButton(props: Props) {
 	)
 }
 
-export default GetWeatherButton
+export default IntroForecastButton

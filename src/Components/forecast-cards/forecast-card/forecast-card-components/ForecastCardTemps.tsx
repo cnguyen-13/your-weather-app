@@ -5,7 +5,7 @@ interface Props {
 	maxTemp: string
 }
 
-function FCardTemps(props: Props) {
+function ForecastCardTemps(props: Props) {
 	const { minTemp, maxTemp } = props
 
 	return (
@@ -15,4 +15,4 @@ function FCardTemps(props: Props) {
 	)
 }
 
-export default FCardTemps
+export default ForecastCardTemps

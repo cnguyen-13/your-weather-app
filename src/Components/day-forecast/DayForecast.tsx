@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import DayColumn from "./day-forecast-components/DayForecastSection"
+import DayForecastSection from "./day-forecast-components/DayForecastSection"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 import { getDateTimes } from "../../functions/get-date-times"
 
@@ -14,7 +14,7 @@ export const CATEGORIES = {
 	WIND: "wind",
 }
 
-function DayWeather(props: Props) {
+function DayForecast(props: Props) {
 	const { city, dailyData } = props
 	//Getting Date
 	const time: number = dailyData.dt
@@ -34,12 +34,18 @@ function DayWeather(props: Props) {
 				{city?.toUpperCase()} - {month} / {date} Weather
 			</h2>
 			<div className="date-info">
-				<DayColumn cityData={dailyData} category={CATEGORIES.TEMPERATURE} />
-				<DayColumn cityData={dailyData} category={CATEGORIES.WEATHER} />
-				<DayColumn cityData={dailyData} category={CATEGORIES.WIND} />
+				<DayForecastSection
+					cityData={dailyData}
+					category={CATEGORIES.TEMPERATURE}
+				/>
+				<DayForecastSection
+					cityData={dailyData}
+					category={CATEGORIES.WEATHER}
+				/>
+				<DayForecastSection cityData={dailyData} category={CATEGORIES.WIND} />
 			</div>
 		</section>
 	)
 }
 
-export default DayWeather
+export default DayForecast

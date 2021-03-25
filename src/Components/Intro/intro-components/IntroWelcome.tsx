@@ -8,7 +8,7 @@ interface Props {
 	onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-function Welcome(props: Props) {
+function IntroWelcome(props: Props) {
 	const { name, topic, onChangeHandler } = props
 
 	return (
@@ -23,4 +23,4 @@ function Welcome(props: Props) {
 	)
 }
 
-export default Welcome
+export default IntroWelcome

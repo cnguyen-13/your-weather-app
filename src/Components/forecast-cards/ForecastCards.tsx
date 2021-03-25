@@ -15,7 +15,7 @@ interface Props {
 	city: string
 }
 
-function FCards(props: Props) {
+function ForecastCards(props: Props) {
 	const { city } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [wasCardClicked, setWasCardClicked] = useState<boolean>(false)
@@ -79,4 +79,4 @@ function FCards(props: Props) {
 	)
 }
 
-export default FCards
+export default ForecastCards

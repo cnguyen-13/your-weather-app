@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { getMessage } from "../../../functions/get-message"
 
-function WelcomeMessage() {
+function IntroWelcomeMessage() {
 	const [message, setMessage] = useState<string>("")
 
 	const updateMessage = (): void => {
@@ -22,4 +22,4 @@ function WelcomeMessage() {
 	return <>{message}, </>
 }
 
-export default WelcomeMessage
+export default IntroWelcomeMessage

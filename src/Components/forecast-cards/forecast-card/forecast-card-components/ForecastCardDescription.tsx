@@ -4,10 +4,10 @@ interface Props {
 	weatherDescription: string
 }
 
-function FCardDescription(props: Props) {
+function ForecastCardDescription(props: Props) {
 	const { weatherDescription } = props
 
 	return <p className="card-description">{weatherDescription}</p>
 }
 
-export default FCardDescription
+export default ForecastCardDescription

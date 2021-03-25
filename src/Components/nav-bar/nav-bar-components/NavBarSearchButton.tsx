@@ -6,7 +6,7 @@ interface Props {
 	clearInput: () => void
 }
 
-function SearchBtn(props: Props) {
+function NavBarSearchButton(props: Props) {
 	const { city, clearInput } = props
 
 	return (
@@ -18,4 +18,4 @@ function SearchBtn(props: Props) {
 	)
 }
 
-export default SearchBtn
+export default NavBarSearchButton

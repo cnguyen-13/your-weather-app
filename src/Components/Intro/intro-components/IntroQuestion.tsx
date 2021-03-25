@@ -7,7 +7,7 @@ interface Props {
 	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-function Question(props: Props) {
+function IntroQuestion(props: Props) {
 	const { city, topic, onChangeHandler } = props
 
 	return (
@@ -23,4 +23,4 @@ function Question(props: Props) {
 	)
 }
 
-export default Question
+export default IntroQuestion

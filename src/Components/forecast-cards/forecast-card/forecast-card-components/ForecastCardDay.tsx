@@ -4,10 +4,10 @@ interface Props {
 	day: string
 }
 
-function FCardDay(props: Props) {
+function ForecastCardDay(props: Props) {
 	const { day } = props
 
 	return <p className="card-day">{day}</p>
 }
 
-export default FCardDay
+export default ForecastCardDay

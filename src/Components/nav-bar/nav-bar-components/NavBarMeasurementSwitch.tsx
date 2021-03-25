@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 
-function MSystemSwitch() {
+function NavBarMeasurementSwitch() {
 	const { measurementSystem, toggleMeasurementSystem } = useContext(
 		MeasurementSystemContext
 	)
@@ -17,4 +17,4 @@ function MSystemSwitch() {
 	)
 }
 
-export default MSystemSwitch
+export default NavBarMeasurementSwitch
