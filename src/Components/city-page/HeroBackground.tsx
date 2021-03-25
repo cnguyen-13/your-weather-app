@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import BackgroundImagesContext from "../../BackgroundImagesContext"
+import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 
 interface Props {
 	cityName: string

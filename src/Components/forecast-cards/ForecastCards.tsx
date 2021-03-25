@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react"
 import axios from "axios"
 import MeasurementSystemContext from "../../../MeasurementSystemContext"
-import ForecastCard from "./ForecastCard/ForecastCard"
-import DayWeather from "../../DayWeather/DayWeather"
+import ForecastCard from "./forecast-card/ForecastCard"
+import DayWeather from "../../day/DayWeather"
 const { coordinatesUrl } = require("../../../HelperFunctions/coordinatesUrl")
 const { forecastUrl } = require("../../../HelperFunctions/forecastUrl")
 

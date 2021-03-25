@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
-import FCardDate from "./ForecastCardComponents/FCardDate"
-import FCardDay from "./ForecastCardComponents/FCardDay"
-import FCardIcon from "./ForecastCardComponents/FCardIcon"
-import FCardDescription from "./ForecastCardComponents/FCardDescription"
-import FCardTemps from "./ForecastCardComponents/FCardTemps"
-import MeasurementSystemContext from "../../../../MeasurementSystemContext"
+import FCardDate from "./forecast-card-components/ForecastCardDate"
+import FCardDay from "./forecast-card-components/ForecastCardDay"
+import FCardIcon from "./forecast-card-components/ForecastCardIcon"
+import FCardDescription from "./forecast-card-components/ForecastCardDescription"
+import FCardTemps from "./forecast-card-components/ForecastCardTemps"
+import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 const { getDateTimes } = require("../../../../HelperFunctions/getDateTimes")
 const { getWeatherInfo } = require("../../../../HelperFunctions/getWeatherInfo")
 const { getMinMaxTemps } = require("../../../../HelperFunctions/getMinMaxTemps")

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
-import DataCell from "./DataCell"
-import MeasurementSystemContext from "../../../MeasurementSystemContext"
-import { CATEGORIES } from "../DayWeather"
+import DataCell from "./DayForecastDataRow"
+import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
+import { CATEGORIES } from "../DayForecast"
 const { getAllTemps } = require("../../../HelperFunctions/getAllTemps")
 const { getAllWeather } = require("../../../HelperFunctions/getAllWeather")
 const { getAllWind } = require("../../../HelperFunctions/getAllWind")

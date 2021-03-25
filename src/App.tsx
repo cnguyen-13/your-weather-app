@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import Intro from "./Components/Intro/Intro"
-import Navbar from "./Components/Navbar/Navbar"
-import CityPage from "./Components/CityForecast/CityPage"
-import MeasurementSystemContext from "./MeasurementSystemContext"
+import Intro from "./components/intro/Intro"
+import NavBar from "./components/nav-bar/NavBar"
+import CityPage from "./components/city-page/CityPage"
+import MeasurementSystemContext from "./context/MeasurementSystemContext"
 import { Switch, Route } from "react-router-dom"
 import "./styles/styles.min.css"
 
@@ -22,7 +22,7 @@ function App() {
 					<MeasurementSystemContext.Provider
 						value={{ measurementSystem, toggleMeasurementSystem }}
 					>
-						<Navbar />
+						<NavBar />
 						<CityPage />
 					</MeasurementSystemContext.Provider>
 				</Route>

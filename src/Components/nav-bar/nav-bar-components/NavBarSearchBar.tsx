@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import SearchBtn from "./SearchBtn"
+import SearchBtn from "./NavBarSearchBtn"
 
-function Searchbar() {
+function SearchBar() {
 	const [city, setCity] = useState<string>("")
 
 	//Updates city state
@@ -38,4 +38,4 @@ function Searchbar() {
 	)
 }
 
-export default Searchbar
+export default SearchBar

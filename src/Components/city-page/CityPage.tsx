@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import HeroBackground from "./HeroBackground"
-import FCards from "./Cards/FCards"
-import InvalidCityPage from "./InvalidCityPage"
-import BackgroundImagesContext from "../../BackgroundImagesContext"
+import FCards from "../forecast-cards/ForecastCards"
+import InvalidCityPage from "../errors/InvalidCityPage"
+import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 const { coordinatesUrl } = require("../../HelperFunctions/coordinatesUrl")
 const {
 	generateRandomIndexs,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { CATEGORIES } from "../DayWeather"
+import { CATEGORIES } from "../DayForecast"
 
 interface Props {
 	label: string
@@ -23,7 +23,6 @@ function DataCell(props: Props) {
 	return (
 		<div className={`data-cell ${bgClass}`}>
 			<h4 className="date-info-label">{label}</h4>
-			<hr />
 			<p className="date-info-data">{data}</p>
 		</div>
 	)

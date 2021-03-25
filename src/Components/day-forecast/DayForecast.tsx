@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import DayColumn from "./DayColumn/DayColumn"
-import BackgroundImagesContext from "../../BackgroundImagesContext"
+import DayColumn from "./day-forecast-components/DayForecastSection"
+import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 const { getDateTimes } = require("../../HelperFunctions/getDateTimes")
 
 interface Props {

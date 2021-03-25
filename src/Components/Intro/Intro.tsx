@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
-import Logo from "./IntroComponents/Logo"
-import Time from "./IntroComponents/Time"
-import Welcome from "./IntroComponents/Welcome"
-import Question from "./IntroComponents/Question"
-import GetWeatherButton from "./IntroComponents/GetWeatherButton"
-import { getBackgroundClass } from "../../HelperFunctions/getBackgroundClass"
+import Logo from "./intro-components/IntroLogo"
+import Time from "./intro-components/IntroTime"
+import Welcome from "./intro-components/IntroWelcome"
+import Question from "./intro-components/IntroQuestion"
+import GetWeatherButton from "./intro-components/IntroForecastButton"
+import { getBackgroundClass } from "../../functions/get-background-class"
 
 function Intro() {
 	const [name, setName] = useState<string>(localStorage.getItem("name") || "")

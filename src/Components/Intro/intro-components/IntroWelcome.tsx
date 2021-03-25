@@ -1,6 +1,6 @@
 import React from "react"
-import WelcomeMessage from "./WelcomeMessage"
-import TextInput from "./TextInput"
+import WelcomeMessage from "./IntroWelcomeMessage"
+import TextInput from "./IntroTextInput"
 
 interface Props {
 	name: string
