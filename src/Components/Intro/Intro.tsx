@@ -4,7 +4,7 @@ import IntroTime from "./intro-components/IntroTime"
 import IntroWelcome from "./intro-components/IntroWelcome"
 import IntroQuestion from "./intro-components/IntroQuestion"
 import IntroForecastButton from "./intro-components/IntroForecastButton"
-import { getBackgroundClass } from "../../functions/get-background-class"
+import { getBackgroundClass } from "../../functions/intro/get-background-class"
 
 function Intro() {
 	const [name, setName] = useState<string>(localStorage.getItem("name") || "")

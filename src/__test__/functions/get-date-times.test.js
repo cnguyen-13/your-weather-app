@@ -5,7 +5,7 @@ const {
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultsTest1 = { date: 2, month: 8, day: "Sunday" }
 const expectedResultsTest2 = { date: 30, month: 7, day: "Thursday" }

@@ -4,7 +4,7 @@ const {
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultTest1 = { minTemp: `80 °F`, maxTemp: `88 °F` }
 const expectedResultTest2 = { minTemp: `77 °F`, maxTemp: `83 °F` }

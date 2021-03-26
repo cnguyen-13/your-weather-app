@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { getMessage } from "../../../functions/get-message"
+import { getGreeting } from "../../../functions/intro/get-greeting"
 
 function IntroWelcomeMessage() {
 	const [message, setMessage] = useState<string>("")
 
 	const updateMessage = (): void => {
-		const message: string = getMessage()
+		const message: string = getGreeting()
 		setMessage(message)
 	}
 

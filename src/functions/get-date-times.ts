@@ -1,13 +1,13 @@
-import { days } from "../data/days"
+import { days } from "../constants/days"
 
-interface returnDateObject {
+interface dateMonthDay {
 	date: number
 	month: number
 	day: string
 }
 
-function getDateTimes(dtFromData: number): returnDateObject {
-	const milliseconds: number = dtFromData * 1000
+function getDateTimes(dt: number): dateMonthDay {
+	const milliseconds: number = dt * 1000
 	const fullDate: Date = new Date(milliseconds)
 	const dayIdx: number = fullDate.getDay()
 	const date: number = fullDate.getDate()

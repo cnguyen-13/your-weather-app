@@ -1,10 +1,12 @@
-const { getAllTemps } = require("../../functions/get-all-temps")
+const {
+	getAllTemps,
+} = require("../../functions/get-day-forecast/get-all-temps")
 const {
 	testData1,
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultImperial1 = [
 	{ label: "Min", data: `80 °F` },

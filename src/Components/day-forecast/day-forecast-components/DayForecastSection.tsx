@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from "react"
 import DayForecastDataRow from "./DayForecastDataRow"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { CATEGORIES } from "../DayForecast"
-import { getAllTemps } from "../../../functions/get-all-temps"
-import { getAllWeather } from "../../../functions/get-all-weather"
-import { getAllWind } from "../../../functions/get-all-wind"
+import { getAllTemps } from "../../../functions/get-day-forecast/get-all-temps"
+import { getAllWeather } from "../../../functions/get-day-forecast/get-all-weather"
+import { getAllWind } from "../../../functions/get-day-forecast/get-all-wind"
 
 interface Props {
 	cityData: any

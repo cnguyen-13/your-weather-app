@@ -1,10 +1,10 @@
-const { getAllWind } = require("../../functions/get-all-wind")
+const { getAllWind } = require("../../functions/get-day-forecast/get-all-wind")
 const {
 	testData1,
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultsTest1Imperial = [
 	{ label: "Degree", data: "139 °" },

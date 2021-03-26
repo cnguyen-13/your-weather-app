@@ -4,13 +4,13 @@ interface DataWeather {
 }
 
 interface ReturnWeatherObject {
-	weatherDescription: string
-	weatherIcon: string
+	description: string
+	icon: string
 }
 
 function getWeatherInfo(dataWeather: DataWeather): ReturnWeatherObject {
-	const weatherDescription: string = dataWeather.description
-	const weatherIcon: string = dataWeather.icon
-	return { weatherDescription, weatherIcon }
+	const { description, icon } = dataWeather
+	return { description, icon }
 }
+
 export { getWeatherInfo }

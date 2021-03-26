@@ -1,10 +1,12 @@
-const { getAllWeather } = require("../../functions/get-all-weather")
+const {
+	getAllWeather,
+} = require("../../functions/get-day-forecast/get-all-weather")
 const {
 	testData1,
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultsTest1 = [
 	{ label: "Humidity", data: `51 %` },

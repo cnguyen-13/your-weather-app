@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { getFormattedTime } from "../../../functions/get-formatted-time"
+import { getFormattedTime } from "../../../functions/intro/get-formatted-time"
 
 function IntroTime() {
 	const [formattedTime, setFormattedTime] = useState<string>("")

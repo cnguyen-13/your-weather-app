@@ -5,9 +5,9 @@ import HeroBackground from "./HeroBackground"
 import ForecastCards from "../forecast-cards/ForecastCards"
 import InvalidCityPage from "../errors/InvalidCityPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
-import { coordinatesUrl } from "../../functions/coordinates-url"
+import { coordinatesUrl } from "../../functions/get-urls/coordinates-url"
 import { generateRandomIndexs } from "../../functions/generate-random-indexs"
-import { imageUrl } from "../../functions/image-url"
+import { imageUrl } from "../../functions/get-urls/image-url"
 
 interface Params {
 	cityParam: string

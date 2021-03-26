@@ -1,4 +1,4 @@
-const { getFormattedTime } = require("../../functions/get-formatted-time")
+const { getFormattedTime } = require("../../functions/intro/get-formatted-time")
 test("getFormattedTime Function Test #1", () => {
 	//1596219979713
 	const randomFormatted = `01:26:09 PM`

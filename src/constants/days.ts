@@ -1,4 +1,4 @@
-const days: string[] = [
+export const days: string[] = [
 	"Sunday",
 	"Monday",
 	"Tuesday",
@@ -7,5 +7,3 @@ const days: string[] = [
 	"Friday",
 	"Saturday",
 ]
-
-export { days }

@@ -1,4 +1,4 @@
-import { getBackgroundClass } from "../../functions/get-background-class"
+import { getBackgroundClass } from "../../functions/intro/get-background-class"
 
 test("getBackgroundClass Testing", () => {
 	expect(getBackgroundClass(0)).toBe("morning")

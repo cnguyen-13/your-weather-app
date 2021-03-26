@@ -3,8 +3,8 @@ import axios from "axios"
 import MeasurementSystemContext from "../../context/MeasurementSystemContext"
 import ForecastCard from "./forecast-card/ForecastCard"
 import DayForecast from "../day-forecast/DayForecast"
-import { coordinatesUrl } from "../../functions/coordinates-url"
-import { forecastUrl } from "../../functions/forecast-url"
+import { coordinatesUrl } from "../../functions/get-urls/coordinates-url"
+import { forecastUrl } from "../../functions/get-urls/forecast-url"
 
 interface Coordinates {
 	lat: number

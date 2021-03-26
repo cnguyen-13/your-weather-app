@@ -4,7 +4,7 @@ const {
 	testData2,
 	testData3,
 	testData4,
-} = require("../../data/test-data")
+} = require("../../test-data/test-data")
 
 const expectedResultTest1 = {
 	weatherDescription: "overcast clouds",
@@ -25,32 +25,32 @@ const expectedResultTest4 = {
 
 test("getWeatherInfo Test #1", () => {
 	const weather = testData1.weather[0]
-	const { weatherDescription, weatherIcon } = getWeatherInfo(weather)
+	const { description, icon } = getWeatherInfo(weather)
 	const expectedResult = expectedResultTest1
-	expect(weatherDescription).toBe(expectedResult.weatherDescription)
-	expect(weatherIcon).toBe(expectedResult.weatherIcon)
+	expect(description).toBe(expectedResult.weatherDescription)
+	expect(icon).toBe(expectedResult.weatherIcon)
 })
 
 test("getWeatherInfo Test #2", () => {
 	const weather = testData2.weather[0]
-	const { weatherDescription, weatherIcon } = getWeatherInfo(weather)
+	const { description, icon } = getWeatherInfo(weather)
 	const expectedResult = expectedResultTest2
-	expect(weatherDescription).toBe(expectedResult.weatherDescription)
-	expect(weatherIcon).toBe(expectedResult.weatherIcon)
+	expect(description).toBe(expectedResult.weatherDescription)
+	expect(icon).toBe(expectedResult.weatherIcon)
 })
 
 test("getWeatherInfo Test #3", () => {
 	const weather = testData3.weather[0]
-	const { weatherDescription, weatherIcon } = getWeatherInfo(weather)
+	const { description, icon } = getWeatherInfo(weather)
 	const expectedResult = expectedResultTest3
-	expect(weatherDescription).toBe(expectedResult.weatherDescription)
-	expect(weatherIcon).toBe(expectedResult.weatherIcon)
+	expect(description).toBe(expectedResult.weatherDescription)
+	expect(icon).toBe(expectedResult.weatherIcon)
 })
 
 test("getWeatherInfo Test #4", () => {
 	const weather = testData4.weather[0]
-	const { weatherDescription, weatherIcon } = getWeatherInfo(weather)
+	const { description, icon } = getWeatherInfo(weather)
 	const expectedResult = expectedResultTest4
-	expect(weatherDescription).toBe(expectedResult.weatherDescription)
-	expect(weatherIcon).toBe(expectedResult.weatherIcon)
+	expect(description).toBe(expectedResult.weatherDescription)
+	expect(icon).toBe(expectedResult.weatherIcon)
 })
