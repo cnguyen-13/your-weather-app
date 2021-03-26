@@ -1,4 +1,6 @@
-const { getDateTimes } = require("../../functions/get-date-times")
+const {
+	getDateTimes,
+} = require("../../functions/forecast-cards/get-date-times")
 
 const {
 	testData1,

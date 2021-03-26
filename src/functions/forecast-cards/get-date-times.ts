@@ -1,4 +1,4 @@
-import { days } from "../constants/days"
+import { days } from "../../constants/days"
 
 interface dateMonthDay {
 	date: number

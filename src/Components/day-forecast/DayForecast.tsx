@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import DayForecastSection from "./day-forecast-components/DayForecastSection"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
-import { getDateTimes } from "../../functions/get-date-times"
+import { getDateTimes } from "../../functions/forecast-cards/get-date-times"
 
 interface Props {
 	city: string | null

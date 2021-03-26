@@ -5,9 +5,9 @@ import ForecastCardIcon from "./forecast-card-components/ForecastCardIcon"
 import ForecastCardDescription from "./forecast-card-components/ForecastCardDescription"
 import ForecastCardTemps from "./forecast-card-components/ForecastCardTemps"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
-import { getDateTimes } from "../../../functions/get-date-times"
-import { getWeatherInfo } from "../../../functions/get-weather-info"
-import { getMinMaxTemps } from "../../../functions/get-min-max-temps"
+import { getDateTimes } from "../../../functions/forecast-cards/get-date-times"
+import { getWeatherInfo } from "../../../functions/forecast-cards/get-weather-info"
+import { getMinMaxTemps } from "../../../functions/forecast-cards/get-min-max-temps"
 
 interface Props {
 	data: any
@@ -24,18 +24,15 @@ function ForecastCard(props: Props) {
 
 	//Parse Data with Helper Functions
 	const { minTemp, maxTemp } = getMinMaxTemps(temps, measurementSystem)
-	const { weatherDescription, weatherIcon } = getWeatherInfo(weather)
+	const { description, icon } = getWeatherInfo(weather)
 	const { date, month, day } = getDateTimes(time)
 
 	return (
 		<div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
 			<ForecastCardDate month={month} date={date} />
 			<ForecastCardDay day={day} />
-			<ForecastCardIcon
-				weatherIcon={weatherIcon}
-				weatherDescription={weatherDescription}
-			/>
-			<ForecastCardDescription weatherDescription={weatherDescription} />
+			<ForecastCardIcon weatherIcon={icon} weatherDescription={description} />
+			<ForecastCardDescription weatherDescription={description} />
 			<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
 		</div>
 	)
