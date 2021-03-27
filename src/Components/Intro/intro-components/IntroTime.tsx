@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react"
 import { getFormattedTime } from "../../../functions/intro/get-formatted-time"
+import { MILLISECONDS_IN_SECOND } from "../../../constants/intro/intro-milliseconds-times"
 
 function IntroTime() {
-	const [formattedTime, setFormattedTime] = useState<string>("")
+	const [formattedTime, setFormattedTime] = useState<string>(getFormattedTime())
 
-	const updateTime = (): void => {
-		const formattedTime: string = getFormattedTime()
-		setFormattedTime(formattedTime)
-	}
-
+	//Updates time every second
 	useEffect(() => {
-		//First Tick
-		updateTime()
-
 		const updateTimeInterval: NodeJS.Timeout = setInterval(() => {
-			updateTime()
-		}, 1000)
+			setFormattedTime(getFormattedTime())
+		}, MILLISECONDS_IN_SECOND)
 
 		return (): void => clearInterval(updateTimeInterval)
 	}, [])

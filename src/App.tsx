@@ -3,16 +3,17 @@ import Intro from "./components/intro/Intro"
 import NavBar from "./components/nav-bar/NavBar"
 import CityPage from "./components/city-page/CityPage"
 import MeasurementSystemContext from "./context/MeasurementSystemContext"
+import { MS } from "./constants/measurement-system"
 import { Switch, Route } from "react-router-dom"
 import "./styles/styles.min.css"
 
 function App() {
-	const [measurementSystem, setMeasurementSystem] = useState<string>("metric")
+	const [measurementSystem, setMeasurementSystem] = useState<string>(MS.METRIC)
 
-	const toggleMeasurementSystem = (): void => {
-		measurementSystem === "metric"
-			? setMeasurementSystem("imperial")
-			: setMeasurementSystem("metric")
+	function toggleMeasurementSystem(): void {
+		measurementSystem === MS.METRIC
+			? setMeasurementSystem(MS.IMPERIAL)
+			: setMeasurementSystem(MS.METRIC)
 	}
 
 	return (

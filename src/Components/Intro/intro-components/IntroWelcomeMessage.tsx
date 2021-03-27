@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from "react"
 import { getGreeting } from "../../../functions/intro/get-greeting"
+import { MILLISECONDS_IN_HOUR } from "../../../constants/intro/intro-milliseconds-times"
 
 function IntroWelcomeMessage() {
-	const [message, setMessage] = useState<string>("")
-
-	const updateMessage = (): void => {
-		const message: string = getGreeting()
-		setMessage(message)
-	}
+	const [message, setMessage] = useState<string>(getGreeting())
 
 	useEffect(() => {
-		//First Moment
-		updateMessage()
-
 		const updateMessageInterval: NodeJS.Timeout = setInterval(() => {
-			updateMessage()
-		}, 3600000)
+			setMessage(getGreeting())
+		}, MILLISECONDS_IN_HOUR)
 
 		return (): void => clearInterval(updateMessageInterval)
 	}, [])
+
 	return <>{message}, </>
 }
 

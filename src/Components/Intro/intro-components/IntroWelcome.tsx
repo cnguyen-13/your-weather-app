@@ -1,23 +1,25 @@
 import React from "react"
 import IntroWelcomeMessage from "./IntroWelcomeMessage"
-import IntroTextInput from "./IntroTextInput"
+import IntroUserInput from "./IntroUserInput"
 
 interface Props {
 	name: string
 	topic: string
-	onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
+	placeholder: string
+	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
 function IntroWelcome(props: Props) {
-	const { name, topic, onChangeHandler } = props
+	const { name, topic, placeholder, onChangeHandler } = props
 
 	return (
 		<h2 className="intro-welcome">
 			<IntroWelcomeMessage />
-			<IntroTextInput
+			<IntroUserInput
 				value={name}
 				topic={topic}
 				onChangeHandler={onChangeHandler}
+				placeholder={placeholder}
 			/>
 		</h2>
 	)

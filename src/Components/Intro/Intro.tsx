@@ -5,56 +5,46 @@ import IntroWelcome from "./intro-components/IntroWelcome"
 import IntroQuestion from "./intro-components/IntroQuestion"
 import IntroForecastButton from "./intro-components/IntroForecastButton"
 import { getBackgroundClass } from "../../functions/intro/get-background-class"
+import { MILLISECONDS_IN_HOUR } from "../../constants/intro/intro-milliseconds-times"
+import { INTRO_PLACEHOLDERS } from "../../constants/intro/intro-input-placeholders"
+import { LS } from "../../constants/intro/intro-ls"
 
 function Intro() {
-	const [name, setName] = useState<string>(localStorage.getItem("name") || "")
-	const [city, setCity] = useState<string>(localStorage.getItem("city") || "")
-	const [bgClass, setBgClass] = useState<string>("")
-
-	//Gets background image to use
-	const updateBg = (): void => {
-		const today: Date = new Date()
-		const hours: number = today.getHours()
-		const className: string = getBackgroundClass(hours)
-		setBgClass(className)
-	}
+	const [name, setName] = useState<string>(localStorage.getItem(LS.NAME) || "")
+	const [city, setCity] = useState<string>(localStorage.getItem(LS.CITY) || "")
+	const [bgClass, setBgClass] = useState<string>(getBackgroundClass())
 
 	//Update local storage variables
-	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+	function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void {
 		const { id, value } = e.target
-		if (id === "name") {
-			localStorage.setItem("name", value)
-			setName(value)
-		} else {
-			localStorage.setItem("city", value)
-			setCity(value)
-		}
+		localStorage.setItem(id, value)
+		id === LS.NAME ? setName(value) : setCity(value)
 	}
 
+	//Changes Background class every hour
 	useEffect(() => {
-		//Initial Background image
-		updateBg()
+		const bgClassUpdateInterval: NodeJS.Timeout = setInterval((): void => {
+			setBgClass(getBackgroundClass())
+		}, MILLISECONDS_IN_HOUR)
 
-		const timeUpdateInterval: NodeJS.Timeout = setInterval((): void => {
-			updateBg()
-		}, 3600000)
-
-		return (): void => clearInterval(timeUpdateInterval)
+		return (): void => clearInterval(bgClassUpdateInterval)
 	}, [])
 
 	return (
-		<div id="intro" className={`intro ${bgClass}`}>
+		<div className={`intro ${bgClass}`}>
 			<IntroLogo />
 			<IntroTime />
 			<IntroWelcome
-				topic="name"
+				topic={LS.NAME}
 				name={name}
 				onChangeHandler={onChangeHandler}
+				placeholder={INTRO_PLACEHOLDERS.NAME}
 			/>
 			<IntroQuestion
-				topic="city"
+				topic={LS.CITY}
 				city={city}
 				onChangeHandler={onChangeHandler}
+				placeholder={INTRO_PLACEHOLDERS.CITY}
 			/>
 			<IntroForecastButton city={city} />
 		</div>

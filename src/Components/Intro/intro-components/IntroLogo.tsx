@@ -1,8 +1,8 @@
 import React from "react"
-import logo from "../../../images/logo/logo.png"
+import whiteLogo from "../../../images/logo/white-logo.png"
 
 function IntroLogo() {
-	return <img src={logo} alt="Logo" />
+	return <img className="intro-logo" src={whiteLogo} alt="Logo" />
 }
 
 export default IntroLogo

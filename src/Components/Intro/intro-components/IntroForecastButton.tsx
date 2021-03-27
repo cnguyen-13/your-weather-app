@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 interface Props {
-	city: string | null
+	city: string
 }
 
 function IntroForecastButton(props: Props) {
