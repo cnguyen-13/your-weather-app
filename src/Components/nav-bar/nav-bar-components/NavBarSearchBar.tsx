@@ -5,7 +5,7 @@ import NavBarSearchButton from "./NavBarSearchButton"
 function NavBarSearchBar() {
 	const [city, setCity] = useState<string>("")
 
-	function clearInput() {
+	function clearInput(): void {
 		setCity("")
 	}
 
