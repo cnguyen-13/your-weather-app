@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 interface Props {
 	city: string
-	clearInput: () => void
+	clearInput(): void
 }
 
 function NavBarSearchButton(props: Props) {

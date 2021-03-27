@@ -4,7 +4,7 @@ import logo from "../../../images/logo/logo.png"
 function NavBarLogo() {
 	return (
 		<div className="nav-bar-logo">
-			<img src={logo} alt="Your Weather App Logo" className="logo-img" />
+			<img src={logo} alt="" className="logo-img" />
 		</div>
 	)
 }
