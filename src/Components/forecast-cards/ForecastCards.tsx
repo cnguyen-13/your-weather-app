@@ -22,11 +22,8 @@ function ForecastCards(props: Props) {
 	const [dailyArr, setDailyArr] = useState<[]>([])
 	const [dailyIdx, setDailyIdx] = useState<number>(0)
 
-	const clickedOnCard = (e: any): void => {
-		let element = e.target
-		if (!element.id) {
-			element = element.parentElement
-		}
+	function clickedOnCard(e: any): void {
+		const element = e.target.id ? e.target : e.target.parentElement
 		const idx = parseInt(element.id, 10)
 		setDailyIdx(idx)
 		setWasCardClicked(true)
@@ -68,14 +65,14 @@ function ForecastCards(props: Props) {
 	})
 
 	return (
-		<>
+		<div>
 			<div className="cards-switch-container">
 				<div className="cards-container">{forcaseCardComponents}</div>
 			</div>
 			{wasCardClicked ? (
 				<DayForecast city={city} dailyData={dailyArr[dailyIdx]} />
 			) : null}
-		</>
+		</div>
 	)
 }
 

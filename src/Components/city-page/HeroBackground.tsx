@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
+import { getStylesWithBg } from "../../functions/city-background-images/get-styles-city-page"
 
 interface Props {
 	cityName: string
@@ -8,31 +9,14 @@ interface Props {
 
 function HeroBackground(props: Props) {
 	const { cityName, countryName } = props
-	const bgImage = useContext(BackgroundImagesContext)
-
-	//Styles
-	const styles = {
-		backgroundSize: "cover",
-		backgroundPosition: "center center",
-		backgroundRepeat: "no-repeat",
-		backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgImage[0]})`,
-		backgroundAttachment: "fixed",
-	}
-
-	if (bgImage) {
-		return (
-			<section className="city-bg" style={styles}>
-				<h2 className="city-title">
-					City of {cityName}
-					<span className="city-subtitle">, {countryName}</span>
-				</h2>
-			</section>
-		)
-	}
+	const [bgImage] = useContext(BackgroundImagesContext)
 
 	return (
-		<section className="city-bg">
-			<h2 className="city-title">Loading...</h2>
+		<section className="city-bg" style={getStylesWithBg(bgImage)}>
+			<h2 className="city-title">
+				City of {cityName}
+				<span className="city-subtitle">, {countryName}</span>
+			</h2>
 		</section>
 	)
 }
