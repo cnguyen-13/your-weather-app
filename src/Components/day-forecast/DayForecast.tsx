@@ -2,8 +2,8 @@ import React from "react"
 import DayForecastSection from "./day-forecast-components/DayForecastSection"
 import DayForecastCityImage from "./day-forecast-components/DayForecastCityImage"
 import { getDateTimes } from "../../functions/forecast-cards/get-date-times"
-import { CATEGORIES_ARR_VERSION } from "../../constants/categories"
-import { forecastDay } from "../../interface/forecast-cards-interfaces"
+import { CATEGORIES_ARR_VERSION } from "../../constants/day-forecast/categories"
+import { forecastDay } from "../../interface/interfaces"
 
 interface Props {
 	city: string
@@ -30,7 +30,7 @@ function DayForecast(props: Props) {
 	)
 
 	return (
-		<div>
+		<div className="day-forecast">
 			<section className="day-weather">
 				<h2 className="section-title">{sectionTitle}</h2>
 				<div className="date-info">{dayForecastSectionComponents}</div>

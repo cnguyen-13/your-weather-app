@@ -1,7 +1,7 @@
 import axios from "axios"
-import { coordinatesUrl } from "../../functions/get-urls/coordinates-url"
-import { forecastUrl } from "../../functions/get-urls/forecast-url"
-import { forecastDay } from "../../interface/forecast-cards-interfaces"
+import { coordinatesUrl } from "../urls/coordinates-url"
+import { forecastUrl } from "../urls/forecast-url"
+import { forecastDay } from "../../interface/interfaces"
 
 interface Coordinates {
 	lat: number

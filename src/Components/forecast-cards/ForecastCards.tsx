@@ -3,7 +3,7 @@ import MeasurementSystemContext from "../../context/MeasurementSystemContext"
 import ForecastCard from "./forecast-card/ForecastCard"
 import DayForecast from "../day-forecast/DayForecast"
 import { getCityForecastDays } from "../../functions/forecast-cards/get-city-daily-data"
-import { forecastDay } from "../../interface/forecast-cards-interfaces"
+import { forecastDay } from "../../interface/interfaces"
 
 interface Props {
 	city: string
@@ -18,6 +18,7 @@ function ForecastCards(props: Props) {
 
 	useEffect(() => {
 		getCityForecastDays(setForecastDays, city, measurementSystem)
+		setWasCardClicked(false)
 	}, [city, measurementSystem])
 
 	function onClickCardHandler(e: any): void {

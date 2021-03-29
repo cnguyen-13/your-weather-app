@@ -1,4 +1,4 @@
-const { forecastUrl } = require("../../functions/get-urls/forecast-url")
+const { forecastUrl } = require("../../functions/urls/forecast-url")
 
 test("forecastUrl Function Testing", () => {
 	expect(forecastUrl(50, 20, "imperial")).toBe(

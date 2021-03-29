@@ -8,7 +8,7 @@ import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { getDateTimes } from "../../../functions/forecast-cards/get-date-times"
 import { getWeatherInfo } from "../../../functions/forecast-cards/get-weather-info"
 import { getMinMaxTemps } from "../../../functions/forecast-cards/get-min-max-temps"
-import { forecastDay } from "../../../interface/forecast-cards-interfaces"
+import { forecastDay } from "../../../interface/interfaces"
 
 interface Props {
 	forecastDay: forecastDay

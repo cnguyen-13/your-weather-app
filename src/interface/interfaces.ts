@@ -31,3 +31,8 @@ export interface forecastDay {
 	wind_deg: number
 	wind_speed: number
 }
+
+export interface labelsAndData {
+	label: string
+	data: string
+}

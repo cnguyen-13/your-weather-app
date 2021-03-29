@@ -9,7 +9,7 @@ function DayForecastCityImage(props: Props) {
 	const cityImage = useContext(BackgroundImagesContext)[1]
 
 	return (
-		<section className="city-image">
+		<section className="day-forecast-city-image">
 			<img src={cityImage} alt={`City of ${city}`} />
 		</section>
 	)

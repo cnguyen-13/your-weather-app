@@ -1,4 +1,4 @@
-import { days } from "../../constants/days"
+import { DAYS } from "../../constants/forecast-cards/days"
 
 interface dateMonthDay {
 	date: number
@@ -12,7 +12,7 @@ function getDateTimes(dt: number): dateMonthDay {
 	const dayIdx: number = fullDate.getDay()
 	const date: number = fullDate.getDate()
 	const month: number = fullDate.getMonth() + 1
-	const day: string = days[dayIdx]
+	const day: string = DAYS[dayIdx]
 	return { date, month, day }
 }
 

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { imageUrl } from "../../functions/get-urls/image-url"
+import { imageUrl } from "../urls/image-url"
 import { generateRandomIndexs } from "../../functions/city-background-images/generate-random-indexs"
 
 export async function getBgImages(cityParam: string) {

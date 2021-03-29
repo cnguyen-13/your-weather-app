@@ -1,11 +1,11 @@
-import { WEATHER_LABELS } from "../../constants/weather-labels"
-import { labelsAndData, cityData } from "../../interface/city-data"
+import { WEATHER_LABELS } from "../../constants/day-forecast/weather-labels"
+import { labelsAndData, forecastDay } from "../../interface/interfaces"
 
 function dataString(data: number, isPercentageValue: boolean): string {
 	return isPercentageValue ? `${data} %` : `${data}`
 }
 
-function getAllWeather(cityData: cityData): labelsAndData[] {
+function getAllWeather(cityData: forecastDay): labelsAndData[] {
 	const { humidity, pop, clouds, uvi } = cityData
 	const weatherData: number[] = [humidity, pop * 100, clouds, uvi]
 	const labelsAndData: labelsAndData[] = weatherData.map((data, idx) => {

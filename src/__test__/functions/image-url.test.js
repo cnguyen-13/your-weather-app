@@ -1,4 +1,4 @@
-const { imageUrl } = require("../../functions/get-urls/image-url")
+const { imageUrl } = require("../../functions/urls/image-url")
 
 test("imageUrl Function Testing", () => {
 	expect(imageUrl("Austin")).toBe(

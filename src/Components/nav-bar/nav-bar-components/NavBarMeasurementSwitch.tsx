@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
-import { MS } from "../../../constants/measurement-system"
+import { MS } from "../../../constants/day-forecast/measurement-system"
 
 function NavBarMeasurementSwitch() {
 	const { measurementSystem, toggleMeasurementSystem } = useContext(

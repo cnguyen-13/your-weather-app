@@ -1,8 +1,8 @@
-import { MS, MS_UNITS } from "../../constants/measurement-system"
-import { WIND_LABELS } from "../../constants/wind-labels"
-import { cityData, labelsAndData } from "../../interface/city-data"
+import { MS, MS_UNITS } from "../../constants/day-forecast/measurement-system"
+import { WIND_LABELS } from "../../constants/day-forecast/wind-labels"
+import { forecastDay, labelsAndData } from "../../interface/interfaces"
 
-function getAllWind(cityData: cityData, mSystem: string): labelsAndData[] {
+function getAllWind(cityData: forecastDay, mSystem: string): labelsAndData[] {
 	const units: string =
 		mSystem === MS.IMPERIAL
 			? MS_UNITS.IMPERIAL.WIND_SPEED

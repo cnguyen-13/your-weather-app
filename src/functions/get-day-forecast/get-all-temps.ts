@@ -1,8 +1,8 @@
-import { MS, MS_UNITS } from "../../constants/measurement-system"
-import { TEMP_LABELS } from "../../constants/temp-labels"
-import { labelsAndData, cityData, cityTemps } from "../../interface/city-data"
+import { MS, MS_UNITS } from "../../constants/day-forecast/measurement-system"
+import { TEMP_LABELS } from "../../constants/day-forecast/temp-labels"
+import { labelsAndData, forecastDay, temps } from "../../interface/interfaces"
 
-function roundedTempsValues(cityTemps: cityTemps): number[] {
+function roundedTempsValues(cityTemps: temps): number[] {
 	const { min, max, morn, day, eve, night } = cityTemps
 	const temps: number[] = [min, max, morn, day, eve, night]
 	const roundedTemps: number[] = temps.map(temp => {
@@ -12,7 +12,7 @@ function roundedTempsValues(cityTemps: cityTemps): number[] {
 	return roundedTemps
 }
 
-function getAllTemps(cityData: cityData, mSystem: string): labelsAndData[] {
+function getAllTemps(cityData: forecastDay, mSystem: string): labelsAndData[] {
 	const units: string =
 		mSystem === MS.IMPERIAL ? MS_UNITS.IMPERIAL.TEMP : MS_UNITS.METRIC.TEMP
 

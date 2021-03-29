@@ -1,4 +1,4 @@
-import { MS, MS_UNITS } from "../../constants/measurement-system"
+import { MS, MS_UNITS } from "../../constants/day-forecast/measurement-system"
 
 interface Temps {
 	min: number

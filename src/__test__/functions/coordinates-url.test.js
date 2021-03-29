@@ -1,4 +1,4 @@
-const { coordinatesUrl } = require("../../functions/get-urls/coordinates-url")
+const { coordinatesUrl } = require("../../functions/urls/coordinates-url")
 
 test("Testing CoordinatesUrl Function", () => {
 	expect(coordinatesUrl("Paris")).toBe(

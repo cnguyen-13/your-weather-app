@@ -1,4 +1,4 @@
-import { TIME_OF_DAY_GREETING } from "../../constants/time-of-day-greeting"
+import { TIME_OF_DAY_GREETING } from "../../constants/intro/time-of-day-greeting"
 
 function messageTimeOfDay(hours: number): string {
 	if (hours >= 0 && hours <= 11) return TIME_OF_DAY_GREETING.MORNING
