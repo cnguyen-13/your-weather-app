@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useContext } from "react"
-import axios from "axios"
 import MeasurementSystemContext from "../../context/MeasurementSystemContext"
 import ForecastCard from "./forecast-card/ForecastCard"
 import DayForecast from "../day-forecast/DayForecast"
-import { coordinatesUrl } from "../../functions/get-urls/coordinates-url"
-import { forecastUrl } from "../../functions/get-urls/forecast-url"
-
-interface Coordinates {
-	lat: number
-	lon: number
-}
+import { getCityForecastDays } from "../../functions/forecast-cards/get-city-daily-data"
+import { forecastDay } from "../../interface/forecast-cards-interfaces"
 
 interface Props {
 	city: string
@@ -18,61 +12,43 @@ interface Props {
 function ForecastCards(props: Props) {
 	const { city } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
+	const [forecastDays, setForecastDays] = useState<forecastDay[]>([])
+	const [forecastDay, setForecastDay] = useState<forecastDay>(forecastDays[0])
 	const [wasCardClicked, setWasCardClicked] = useState<boolean>(false)
-	const [dailyArr, setDailyArr] = useState<[]>([])
-	const [dailyIdx, setDailyIdx] = useState<number>(0)
 
-	function clickedOnCard(e: any): void {
+	useEffect(() => {
+		getCityForecastDays(setForecastDays, city, measurementSystem)
+	}, [city, measurementSystem])
+
+	function onClickCardHandler(e: any): void {
 		const element = e.target.id ? e.target : e.target.parentElement
 		const idx = parseInt(element.id, 10)
-		setDailyIdx(idx)
+		setForecastDay(forecastDays[idx])
 		setWasCardClicked(true)
 	}
 
-	useEffect(() => {
-		const getCityData = async () => {
-			try {
-				//Get Coordinates
-				const coordUrl: string = coordinatesUrl(city)
-				const res = await axios.get(coordUrl)
-				const data = res.data
-				const { lat, lon }: Coordinates = data.coord
-
-				//Get Large Data Set for City
-				const fcastUrl: string = forecastUrl(lat, lon, measurementSystem)
-				const forecastRes = await axios.get(fcastUrl)
-				const forecastData = forecastRes.data
-				const forecastDailies: [] = forecastData.daily
-				console.log(forecastDailies)
-				setDailyArr(forecastDailies)
-			} catch (err) {
-				console.log(err)
-			}
+	const forcastCardComponents = forecastDays.map(
+		(forecastDay: forecastDay, idx: number) => {
+			return (
+				<ForecastCard
+					onClickCardHandler={onClickCardHandler}
+					forecastDay={forecastDay}
+					id={idx}
+					key={idx}
+				/>
+			)
 		}
+	)
 
-		getCityData()
-	}, [city, measurementSystem])
-
-	const forcaseCardComponents = dailyArr.map((day: any, idx: number) => {
-		return (
-			<ForecastCard
-				clickedOnCard={clickedOnCard}
-				data={day}
-				dataIdx={idx}
-				key={idx}
-			/>
-		)
-	})
+	const dayForecastComponent = wasCardClicked ? (
+		<DayForecast city={city} forecastDay={forecastDay} />
+	) : null
 
 	return (
-		<div>
-			<div className="cards-switch-container">
-				<div className="cards-container">{forcaseCardComponents}</div>
-			</div>
-			{wasCardClicked ? (
-				<DayForecast city={city} dailyData={dailyArr[dailyIdx]} />
-			) : null}
-		</div>
+		<>
+			<div className="cards-container">{forcastCardComponents}</div>
+			{dayForecastComponent}
+		</>
 	)
 }
 

@@ -1,54 +1,34 @@
 import React, { useState, useEffect, useContext } from "react"
+import DayForecastSectionIcon from "./DayForecastSectionIcon"
 import DayForecastDataRow from "./DayForecastDataRow"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
-import { CATEGORIES } from "../DayForecast"
-import { getAllTemps } from "../../../functions/get-day-forecast/get-all-temps"
-import { getAllWeather } from "../../../functions/get-day-forecast/get-all-weather"
-import { getAllWind } from "../../../functions/get-day-forecast/get-all-wind"
+import { labelsAndData } from "../../../interface/city-data"
+import { forecastDay } from "../../../interface/forecast-cards-interfaces"
+import { getData } from "../../../functions/forecast-cards/get-forecast-data"
 
 interface Props {
-	cityData: any
+	forecastDay: forecastDay
 	category: string
 }
 
-interface dataObject {
-	label: string
-	data: string
-}
-
 function DayForecastSection(props: Props) {
-	const { cityData, category } = props
+	const { forecastDay, category } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
-	const [data, setData] = useState<dataObject[] | undefined>([])
+	const [data, setData] = useState<labelsAndData[]>([])
 
 	useEffect(() => {
-		//Obtain correct Data set
-		let dataArr: dataObject[] | undefined
-		if (category === CATEGORIES.TEMPERATURE) {
-			dataArr = getAllTemps(cityData, measurementSystem)
-		} else if (category === CATEGORIES.WIND) {
-			dataArr = getAllWind(cityData, measurementSystem)
-		} else {
-			dataArr = getAllWeather(cityData)
-		}
+		setData(getData(category, forecastDay, measurementSystem))
+	}, [category, forecastDay, measurementSystem])
 
-		setData(dataArr)
-	}, [cityData, measurementSystem, category])
+	const dayForecastDataRowComponents = data.map(pair => {
+		const { label, data } = pair
+		return <DayForecastDataRow key={label} label={label} data={data} />
+	})
 
 	return (
 		<section className="date-info-section">
-			<div className="date-info-text">
-				{data
-					? data.map(pair => (
-							<DayForecastDataRow
-								category={category}
-								key={pair.label}
-								label={pair.label}
-								data={pair.data}
-							/>
-					  ))
-					: null}
-			</div>
+			<DayForecastSectionIcon category={category} />
+			{dayForecastDataRowComponents}
 		</section>
 	)
 }

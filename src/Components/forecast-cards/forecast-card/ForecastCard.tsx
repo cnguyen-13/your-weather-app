@@ -8,31 +8,30 @@ import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { getDateTimes } from "../../../functions/forecast-cards/get-date-times"
 import { getWeatherInfo } from "../../../functions/forecast-cards/get-weather-info"
 import { getMinMaxTemps } from "../../../functions/forecast-cards/get-min-max-temps"
+import { forecastDay } from "../../../interface/forecast-cards-interfaces"
 
 interface Props {
-	data: any
-	clickedOnCard: any
-	dataIdx: number
+	forecastDay: forecastDay
+	onClickCardHandler: (e: any) => void
+	id: number
 }
 
 function ForecastCard(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
-	const { data, clickedOnCard, dataIdx } = props
-	const temps = data.temp
-	const weather = data.weather[0]
-	const time = data.dt
+	const { forecastDay, onClickCardHandler, id } = props
+	const { dt, weather, temp } = forecastDay
 
 	//Parse Data with Helper Functions
-	const { minTemp, maxTemp } = getMinMaxTemps(temps, measurementSystem)
-	const { description, icon } = getWeatherInfo(weather)
-	const { date, month, day } = getDateTimes(time)
+	const { date, month, day } = getDateTimes(dt)
+	const { description, icon } = getWeatherInfo(weather[0])
+	const { minTemp, maxTemp } = getMinMaxTemps(temp, measurementSystem)
 
 	return (
-		<div className="card" onClick={clickedOnCard} id={dataIdx.toString()}>
+		<div className="card" onClick={onClickCardHandler} id={id.toString()}>
 			<ForecastCardDate month={month} date={date} />
 			<ForecastCardDay day={day} />
-			<ForecastCardIcon weatherIcon={icon} weatherDescription={description} />
-			<ForecastCardDescription weatherDescription={description} />
+			<ForecastCardIcon icon={icon} description={description} />
+			<ForecastCardDescription description={description} />
 			<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
 		</div>
 	)

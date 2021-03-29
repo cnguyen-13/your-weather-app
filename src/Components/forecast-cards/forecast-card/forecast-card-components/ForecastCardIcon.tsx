@@ -1,18 +1,18 @@
 import React from "react"
 
 interface Props {
-	weatherIcon: string
-	weatherDescription: string
+	icon: string
+	description: string
 }
 
 function ForecastCardIcon(props: Props) {
-	const { weatherIcon, weatherDescription } = props
+	const { icon, description } = props
 
 	return (
 		<img
 			className="card-icon"
-			src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-			alt={`${weatherDescription} Icon`}
+			src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+			alt={description}
 		/>
 	)
 }

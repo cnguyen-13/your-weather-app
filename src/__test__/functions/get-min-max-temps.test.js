@@ -1,4 +1,6 @@
-const { getMinMaxTemps } = require("../../functions/get-min-max-temps")
+const {
+	getMinMaxTemps,
+} = require("../../functions/forecast-cards/get-min-max-temps")
 const {
 	testData1,
 	testData2,

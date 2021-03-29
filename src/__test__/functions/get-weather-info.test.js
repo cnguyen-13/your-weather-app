@@ -1,4 +1,6 @@
-const { getWeatherInfo } = require("../../functions/get-weather-info")
+const {
+	getWeatherInfo,
+} = require("../../functions/forecast-cards/get-weather-info")
 const {
 	testData1,
 	testData2,

@@ -1,13 +1,13 @@
 import React from "react"
 
 interface Props {
-	weatherDescription: string
+	description: string
 }
 
 function ForecastCardDescription(props: Props) {
-	const { weatherDescription } = props
+	const { description } = props
 
-	return <p className="card-description">{weatherDescription}</p>
+	return <p className="card-description">{description}</p>
 }
 
 export default ForecastCardDescription
