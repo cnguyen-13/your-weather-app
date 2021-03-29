@@ -26,12 +26,8 @@
 	margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $breakpoint-mobile) {
 	.city-title {
 		font-size: 64px;
 	}
 }
-
-//COMMON
-// max-width: 1300px;
-// margin: 0 auto;

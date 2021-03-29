@@ -59,7 +59,7 @@
 	width: 30%;
 }
 
-@media (min-width: 700px) {
+@media (min-width: $breakpoint-mobile) {
 	.search-settings {
 		position: relative;
 		transform: translateX(0);
