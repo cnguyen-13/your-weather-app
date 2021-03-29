@@ -1,7 +1,7 @@
 //General
 .date-info-section {
 	text-align: center;
-	color: #333;
+	color: $color-off-black;
 }
 
 .date-info-section-title {
@@ -36,7 +36,7 @@
 }
 
 .data-cell {
-	color: white;
+	color: $color-white;
 	background-color: $color-primary;
 	padding: 1rem 2rem;
 	border-radius: 0.25rem;
@@ -57,18 +57,6 @@
 	.date-info-data {
 		font-size: 1.5rem;
 	}
-}
-
-.data-cell-temp {
-	background-color: $color-temp;
-}
-
-.data-cell-weather {
-	background-color: $color-weather;
-}
-
-.data-cell-wind {
-	background-color: $color-wind;
 }
 
 @media (min-width: 800px) {

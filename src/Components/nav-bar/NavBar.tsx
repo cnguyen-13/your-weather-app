@@ -1,18 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import NavBarLogo from "./nav-bar-components/NavBarLogo"
 import NavBarHamburgerMenu from "./nav-bar-components/NavBarHamburgerMenu"
-import NavBarSearchBar from "./nav-bar-components/NavBarSearchBar"
-import NavBarMeasurementSwitch from "./nav-bar-components/NavBarMeasurementSwitch"
+import NavBarSearchSettings from "./nav-bar-components/NavBarSearchSettings"
 
 function NavBar() {
+	const [isNavSettingsActive, setIsNavSettingsActive] = useState<boolean>(false)
+
+	function onClickHamburger(): void {
+		setIsNavSettingsActive(!isNavSettingsActive)
+	}
+
 	return (
 		<nav className="nav-bar">
 			<NavBarLogo />
-			<NavBarHamburgerMenu />
-			<div className="search-settings">
-				<NavBarMeasurementSwitch />
-				<NavBarSearchBar />
-			</div>
+			<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
+			<NavBarSearchSettings isActive={isNavSettingsActive} />
 		</nav>
 	)
 }

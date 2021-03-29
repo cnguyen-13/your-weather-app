@@ -11,8 +11,8 @@
 	min-height: 230px;
 	padding: 10px;
 	text-align: center;
-	background-color: #dcdcdc;
-	border-radius: 0.25rem;
+	background-color: $color-primary;
+	color: $color-white;
 
 	&:hover {
 		transform: scale(1.05);
@@ -28,8 +28,4 @@
 	bottom: 115px;
 	max-width: 1400px;
 	margin: 0 auto;
-}
-
-.error {
-	color: #c70039;
 }

@@ -10,7 +10,7 @@ function DayForecastDataRow(props: Props) {
 
 	return (
 		<p className="date-info-data">
-			<span className="bold">{label}:</span> {data}
+			<span className="bold primary-color">{label}:</span> {data}
 		</p>
 	)
 }

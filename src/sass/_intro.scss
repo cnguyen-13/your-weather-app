@@ -1,7 +1,7 @@
 .intro {
 	width: 100vw;
 	height: 100vh;
-	color: #eee;
+	color: $color-white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -42,7 +42,6 @@
 	font-size: 18px;
 	margin-bottom: 15px;
 	padding: 10px 20px;
-	color: #eee;
 	background-color: $color-primary;
 	border: none;
 

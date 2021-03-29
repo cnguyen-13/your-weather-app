@@ -11,7 +11,11 @@ function NavBarSearchButton(props: Props) {
 
 	return (
 		<Link to={`/${city}`}>
-			<button onClick={clearInput} className="nav-bar-btn" id="search-btn">
+			<button
+				onClick={clearInput}
+				className="nav-bar-search-btn clickable"
+				id="search-btn"
+			>
 				Search
 			</button>
 		</Link>

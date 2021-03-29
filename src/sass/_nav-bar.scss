@@ -1,62 +1,75 @@
 .nav-bar {
-	background-color: #333;
-	color: $color-white;
-	text-align: center;
-	padding: 0 20px;
-	min-height: 125px;
+	position: relative;
+	background-color: $color-white;
+	border-bottom: 1px solid $color-primary;
+	color: $color-off-black;
+	height: $height-nav-bar;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 }
 
 .nav-bar-search {
 	width: 300px;
-	text-align: center;
 }
 
 .nav-bar-input {
-	padding: 10px 20px;
+	padding: 0.75rem 1.25rem;
 	border: none;
+	border-bottom: 1px solid $color-primary;
 	width: 70%;
 }
 
 .logo-img {
-	height: 100px;
-	width: 100px;
+	width: 125px;
+	height: 125px;
+	margin-left: 1rem;
 }
 
-.measurement-toggle {
-	width: 48px;
-	cursor: pointer;
-}
-
+//Search Settings
 .search-settings {
+	position: absolute;
+	top: $height-nav-bar;
+	width: 100%;
+	height: $height-mobile-search-settings;
+	padding: 0 1rem;
+	transform: translateX(100%);
+	transition: transform 0.3s linear;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	gap: 1rem;
+	background-color: $color-white;
 }
 
-.nav-bar-btn {
+.search-settings-active {
+	transform: translateX(0);
+}
+
+//Hamburger
+.hamburger-menu {
+	margin-right: 1rem;
+	width: 30px;
+}
+
+.nav-bar-search-btn {
 	border: none;
 	color: $color-white;
 	background-color: $color-primary;
 	padding: 10px 20px;
-	cursor: pointer;
 	width: 30%;
 }
 
 @media (min-width: 700px) {
-	.nav-bar {
-		height: 12vh;
-		min-height: 100px;
+	.search-settings {
+		position: relative;
+		transform: translateX(0);
+		height: auto;
+		top: 0;
+		justify-content: flex-end;
+		gap: 1rem;
 	}
 
-	.logo-img {
-		width: 125px;
-		height: 125px;
+	.hamburger-menu {
+		display: none;
 	}
 }

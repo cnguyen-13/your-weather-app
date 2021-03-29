@@ -1,8 +1,10 @@
-$color-primary: #e78200;
+$color-primary: #5f2fff;
+$color-highlight: #fa1151;
 $color-white: white;
-$mask: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+$color-off-black: #1a1a1a;
+$color-error: #c70039;
+$mask: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 
 $date-info-gap: 0.75rem;
-$color-weather: #fcaf38;
-$color-temp: #f95335;
-$color-wind: #50a3a4;
+$height-nav-bar: 50px;
+$height-mobile-search-settings: 75px;
