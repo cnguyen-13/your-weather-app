@@ -1,9 +1,13 @@
-.nav-bar,
+.nav-bar-content,
 .nav-bar-search,
 .search-settings {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.nav-bar-content {
+	height: $height-nav-bar;
 }
 
 .nav-bar {
@@ -37,7 +41,7 @@
 	top: $height-nav-bar;
 	width: 100%;
 	height: $height-mobile-search-settings;
-	padding: 0 1rem;
+
 	transform: translateX(100%);
 	transition: transform 0.3s linear;
 	background-color: $color-white;

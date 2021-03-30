@@ -12,9 +12,11 @@ function NavBar() {
 
 	return (
 		<nav className="nav-bar">
-			<NavBarLogo />
-			<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
-			<NavBarSearchSettings isActive={isNavSettingsActive} />
+			<div className="nav-bar-content max-width-centered">
+				<NavBarLogo />
+				<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
+				<NavBarSearchSettings isActive={isNavSettingsActive} />
+			</div>
 		</nav>
 	)
 }
