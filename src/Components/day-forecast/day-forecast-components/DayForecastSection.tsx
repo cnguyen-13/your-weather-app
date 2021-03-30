@@ -19,13 +19,15 @@ function DayForecastSection(props: Props) {
 		setData(getData(category, forecastDay, measurementSystem))
 	}, [category, forecastDay, measurementSystem])
 
+	const categoryClass: string = `day-forecast-information-section-${category}`
+
 	const dayForecastDataRowComponents = data.map(pair => {
 		const { label, data } = pair
 		return <DayForecastDataRow key={label} label={label} data={data} />
 	})
 
 	return (
-		<section className="date-info-section">
+		<section className={`day-forecast-information-section ${categoryClass}`}>
 			<DayForecastSectionIcon category={category} />
 			{dayForecastDataRowComponents}
 		</section>

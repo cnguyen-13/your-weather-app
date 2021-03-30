@@ -52,7 +52,9 @@ function ForecastCards(props: Props) {
 	return (
 		<>
 			<div className="cards-container" id="forecast-cards-container">
-				{forcastCardComponents}
+				<div className="max-width-centered cards-container">
+					{forcastCardComponents}
+				</div>
 			</div>
 			{dayForecastComponent}
 		</>

@@ -13,7 +13,7 @@ function HeroBackground(props: Props) {
 
 	return (
 		<section className="city-bg" style={getStylesWithBg(bgImage)}>
-			<h2 className="city-title">
+			<h2 className="city-title max-width-centered">
 				City of {cityName}
 				<span className="city-subtitle">, {countryName}</span>
 			</h2>

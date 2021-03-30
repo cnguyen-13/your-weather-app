@@ -11,12 +11,12 @@
 	color: $color-white;
 	background-color: $color-primary;
 	min-height: 120px;
+	margin-bottom: 3rem;
 }
 
 .card {
-	width: 220px;
+	width: 200px;
 	height: 110px;
-	padding: 1rem;
 	font-size: 14px;
 	gap: 0.25rem;
 
@@ -34,4 +34,9 @@
 
 .card-item {
 	width: 200px;
+}
+@media (min-width: $breakpoint-1920px) {
+	.cards-container {
+		justify-content: space-between;
+	}
 }

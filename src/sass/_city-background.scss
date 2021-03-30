@@ -1,16 +1,13 @@
 .city-bg {
 	min-height: 600px;
 	height: 70vh;
-	padding: 3rem;
+	padding-top: 3rem;
 }
 
 //City Titles
 .city-title {
 	color: $color-white;
 	font-size: 50px;
-	max-width: 1300px;
-	margin: 0 auto;
-	// text-align: left;
 	font-weight: 100;
 }
 
@@ -18,15 +15,7 @@
 	font-size: 32px;
 }
 
-//Day Forecast Title
-.section-title {
-	padding: 20px;
-	font-size: 40px;
-	max-width: 1300px;
-	margin: 0 auto;
-}
-
-@media (min-width: $breakpoint-mobile) {
+@media (min-width: $breakpoint-tablet) {
 	.city-title {
 		font-size: 4rem;
 	}

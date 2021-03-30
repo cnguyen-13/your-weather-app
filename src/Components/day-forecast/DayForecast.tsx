@@ -31,11 +31,13 @@ function DayForecast(props: Props) {
 
 	return (
 		<div className="day-forecast">
-			<section className="day-weather">
-				<h2 className="section-title">{sectionTitle}</h2>
-				<div className="date-info">{dayForecastSectionComponents}</div>
+			<section className="day-forecast-text">
+				<h2 className="day-forecast-title">{sectionTitle}</h2>
+				<div className="day-forecast-information">
+					{dayForecastSectionComponents}
+				</div>
 			</section>
-			<DayForecastCityImage city={city} />
+			<DayForecastCityImage />
 		</div>
 	)
 }

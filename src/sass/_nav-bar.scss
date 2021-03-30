@@ -29,7 +29,6 @@
 .logo-img {
 	width: 125px;
 	height: 125px;
-	margin-left: 1rem;
 }
 
 //Search Settings
@@ -50,7 +49,6 @@
 
 //Hamburger
 .hamburger-menu {
-	margin-right: 1rem;
 	width: 30px;
 }
 
@@ -64,7 +62,7 @@
 	text-align: center;
 }
 
-@media (min-width: $breakpoint-mobile) {
+@media (min-width: $breakpoint-tablet) {
 	.search-settings {
 		position: relative;
 		transform: translateX(0);

@@ -9,7 +9,7 @@ function DayForecastSectionIcon(props: Props) {
 	const { category } = props
 	const icon: string = getIcon(category)
 
-	return <img className="day-forecast-icon" src={icon} alt="" />
+	return <img className="day-forecast-section-icon" src={icon} alt="" />
 }
 
 export default DayForecastSectionIcon
