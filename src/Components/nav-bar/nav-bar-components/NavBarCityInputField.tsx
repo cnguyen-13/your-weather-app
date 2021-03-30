@@ -10,10 +10,8 @@ function NavBarUserInputField(props: Props) {
 
 	//Simulates Clicking on the search button when hitting 'enter' in search box
 	function onEnterKeyPress(e: React.KeyboardEvent<HTMLInputElement>): void {
-		const searchButton: HTMLButtonElement | null = document.querySelector(
-			"#search-btn"
-		)
-		if (e.key === "Enter" && searchButton instanceof HTMLButtonElement) {
+		const searchButton: any = document.querySelector("#search-btn")
+		if (e.key === "Enter") {
 			searchButton.click()
 		}
 	}

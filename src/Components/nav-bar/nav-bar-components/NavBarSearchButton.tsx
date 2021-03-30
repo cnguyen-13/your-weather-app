@@ -8,16 +8,16 @@ interface Props {
 
 function NavBarSearchButton(props: Props) {
 	const { city, clearInput } = props
+	//Make sure this component has an actual input
 
 	return (
-		<Link to={`/${city}`}>
-			<button
-				onClick={clearInput}
-				className="nav-bar-search-btn clickable"
-				id="search-btn"
-			>
-				Search
-			</button>
+		<Link
+			to={`/${city}`}
+			className="nav-bar-search-btn clickable"
+			onClick={clearInput}
+			id="search-btn"
+		>
+			Search
 		</Link>
 	)
 }

@@ -27,12 +27,18 @@ function ForecastCard(props: Props) {
 	const { minTemp, maxTemp } = getMinMaxTemps(temp, measurementSystem)
 
 	return (
-		<div className="card" onClick={onClickCardHandler} id={id.toString()}>
-			<ForecastCardDate month={month} date={date} />
-			<ForecastCardDay day={day} />
+		<div
+			className="card clickable"
+			onClick={onClickCardHandler}
+			id={id.toString()}
+		>
 			<ForecastCardIcon icon={icon} description={description} />
-			<ForecastCardDescription description={description} />
-			<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
+			<div className="card-item">
+				<ForecastCardDate month={month} date={date} />
+				<ForecastCardDay day={day} />
+				<ForecastCardDescription description={description} />
+				<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
+			</div>
 		</div>
 	)
 }

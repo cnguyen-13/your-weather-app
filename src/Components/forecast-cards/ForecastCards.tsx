@@ -22,8 +22,12 @@ function ForecastCards(props: Props) {
 	}, [city, measurementSystem])
 
 	function onClickCardHandler(e: any): void {
-		const element = e.target.id ? e.target : e.target.parentElement
+		let element = e.target
+		while (element.id.length !== 1) {
+			element = element.parentElement
+		}
 		const idx = parseInt(element.id, 10)
+
 		setForecastDay(forecastDays[idx])
 		setWasCardClicked(true)
 	}
@@ -47,7 +51,9 @@ function ForecastCards(props: Props) {
 
 	return (
 		<>
-			<div className="cards-container">{forcastCardComponents}</div>
+			<div className="cards-container" id="forecast-cards-container">
+				{forcastCardComponents}
+			</div>
 			{dayForecastComponent}
 		</>
 	)
