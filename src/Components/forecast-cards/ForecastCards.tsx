@@ -14,6 +14,7 @@ function ForecastCards(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [forecastDays, setForecastDays] = useState<forecastDay[]>([])
 	const [forecastDay, setForecastDay] = useState<forecastDay>(forecastDays[0])
+	const [idxActive, setIdxActive] = useState<number | undefined>()
 	const [wasCardClicked, setWasCardClicked] = useState<boolean>(false)
 
 	useEffect(() => {
@@ -27,7 +28,7 @@ function ForecastCards(props: Props) {
 			element = element.parentElement
 		}
 		const idx = parseInt(element.id, 10)
-
+		setIdxActive(idx)
 		setForecastDay(forecastDays[idx])
 		setWasCardClicked(true)
 	}
@@ -36,6 +37,7 @@ function ForecastCards(props: Props) {
 		(forecastDay: forecastDay, idx: number) => {
 			return (
 				<ForecastCard
+					isActive={idx === idxActive}
 					onClickCardHandler={onClickCardHandler}
 					forecastDay={forecastDay}
 					id={idx}

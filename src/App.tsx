@@ -5,6 +5,7 @@ import CityPage from "./components/city-page/CityPage"
 import MeasurementSystemContext from "./context/MeasurementSystemContext"
 import { MS } from "./constants/day-forecast/measurement-system"
 import { Switch, Route } from "react-router-dom"
+import Mask from "./Mask"
 import "./styles/styles.min.css"
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 		<div className="app">
 			<Switch>
 				<Route path="/:cityParam">
+					<Mask />
 					<MeasurementSystemContext.Provider
 						value={{ measurementSystem, toggleMeasurementSystem }}
 					>

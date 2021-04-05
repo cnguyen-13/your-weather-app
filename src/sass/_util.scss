@@ -1,3 +1,18 @@
+.mask {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: $mask;
+	overflow-y: hidden;
+	z-index: 5;
+	transition: all 0.3s linear;
+	transform: translateY(-100vh);
+}
+
+.mask-active {
+	transform: translateY(0);
+}
+
 .bold {
 	font-weight: bold;
 }
@@ -10,11 +25,49 @@
 	cursor: pointer;
 }
 
-.error {
-	color: $color-error;
+.error-color {
+	color: $color-highlight;
 }
 
 .max-width-centered {
 	width: 90%;
 	margin: 0 auto;
+}
+
+.scroll-lock {
+	overflow-y: hidden;
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.mask {
+		display: none;
+	}
+
+	.scroll-lock {
+		overflow-y: visible;
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.after-tablet {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.before-tablet {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-desktop) {
+	.after-desktop {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-desktop) {
+	.before-desktop {
+		display: none;
+	}
 }

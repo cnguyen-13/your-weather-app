@@ -11,6 +11,7 @@ import { getMinMaxTemps } from "../../../functions/forecast-cards/get-min-max-te
 import { forecastDay } from "../../../interface/interfaces"
 
 interface Props {
+	isActive: boolean
 	forecastDay: forecastDay
 	onClickCardHandler: (e: any) => void
 	id: number
@@ -18,7 +19,7 @@ interface Props {
 
 function ForecastCard(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
-	const { forecastDay, onClickCardHandler, id } = props
+	const { isActive, forecastDay, onClickCardHandler, id } = props
 	const { dt, weather, temp } = forecastDay
 
 	//Parse Data with Helper Functions
@@ -28,7 +29,7 @@ function ForecastCard(props: Props) {
 
 	return (
 		<div
-			className="card clickable"
+			className={`card clickable ${isActive ? "card-active" : null}`}
 			onClick={onClickCardHandler}
 			id={id.toString()}
 		>

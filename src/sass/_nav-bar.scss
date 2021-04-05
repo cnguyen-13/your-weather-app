@@ -1,6 +1,7 @@
 .nav-bar-content,
 .nav-bar-search,
-.search-settings {
+.search-settings,
+.search-settings-content {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -16,10 +17,11 @@
 	border-bottom: 1px solid $color-primary;
 	color: $color-off-black;
 	height: $height-nav-bar;
+	z-index: 6;
 }
 
 .nav-bar-search {
-	width: 300px;
+	max-width: 300px;
 	height: 100%;
 }
 
@@ -39,10 +41,10 @@
 .search-settings {
 	position: absolute;
 	top: $height-nav-bar;
-	width: 100%;
+	width: 100vw !important;
 	height: $height-mobile-search-settings;
 
-	transform: translateX(100%);
+	transform: translateX(100vw);
 	transition: transform 0.3s linear;
 	background-color: $color-white;
 }
@@ -66,6 +68,12 @@
 	text-align: center;
 }
 
+@media (max-width: $breakpoint-mobile) {
+	.search-settings-content {
+		flex-direction: column;
+	}
+}
+
 @media (min-width: $breakpoint-tablet) {
 	.search-settings {
 		position: relative;
@@ -74,6 +82,10 @@
 		top: 0;
 		justify-content: flex-end;
 		gap: 1rem;
+	}
+
+	.search-settings-content {
+		flex-direction: row;
 	}
 
 	.hamburger-menu {

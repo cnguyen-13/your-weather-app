@@ -1,5 +1,6 @@
 import React from "react"
 import DayForecastSection from "./day-forecast-components/DayForecastSection"
+import DayForecastText from "./day-forecast-components/DayForecastText"
 import DayForecastCityImage from "./day-forecast-components/DayForecastCityImage"
 import { getDateTimes } from "../../functions/forecast-cards/get-date-times"
 import { CATEGORIES_ARR_VERSION } from "../../constants/day-forecast/categories"
@@ -15,7 +16,7 @@ function DayForecast(props: Props) {
 	const { dt } = forecastDay
 	const { date, month } = getDateTimes(dt)
 
-	const sectionTitle: string = `${city.toUpperCase()} - ${month} / ${date} Weather`
+	const title: string = `${city.toUpperCase()} - ${month} / ${date} Weather`
 
 	const dayForecastSectionComponents = CATEGORIES_ARR_VERSION.map(
 		(category: string, idx: number) => {
@@ -30,15 +31,16 @@ function DayForecast(props: Props) {
 	)
 
 	return (
-		<div className="day-forecast">
-			<section className="day-forecast-text">
-				<h2 className="day-forecast-title">{sectionTitle}</h2>
-				<div className="day-forecast-information">
-					{dayForecastSectionComponents}
-				</div>
-			</section>
-			<DayForecastCityImage />
-		</div>
+		<>
+			<div className="day-forecast max-width-centered">
+				<DayForecastText
+					title={title}
+					dayForecastSections={dayForecastSectionComponents}
+				/>
+				<DayForecastCityImage breakpointClass="after-desktop" />
+			</div>
+			<DayForecastCityImage breakpointClass="before-desktop" />
+		</>
 	)
 }
 

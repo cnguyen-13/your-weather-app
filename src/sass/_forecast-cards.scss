@@ -15,15 +15,27 @@
 }
 
 .card {
+	position: relative;
 	width: 200px;
 	height: 110px;
 	font-size: 14px;
 	gap: 0.25rem;
+	transition: 0.3s;
+
+	&-active,
+	&:hover {
+		transform: scale(1.25);
+	}
+
+	&-active {
+		background-color: $color-highlight;
+		z-index: 2;
+	}
 
 	&:hover {
-		background-color: $color-highlight;
-		transform: scale(1.25);
-		transition: 0.3s;
+		color: $color-off-black;
+		background-color: $color-hover;
+		z-index: 3;
 	}
 }
 

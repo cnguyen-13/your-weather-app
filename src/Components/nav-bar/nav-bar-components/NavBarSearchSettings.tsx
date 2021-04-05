@@ -3,16 +3,20 @@ import NavBarSearchBar from "./NavBarSearchBar"
 import NavBarMeasurementSwitch from "./NavBarMeasurementSwitch"
 
 interface Props {
-	isActive: boolean
+	breakpointClass: string
 }
 
 function NavBarSearchSettings(props: Props) {
-	const { isActive } = props
-	const activeClass = isActive ? "search-settings-active" : null
+	const { breakpointClass } = props
+	const maxWidthCentered =
+		breakpointClass === "before-tablet" ? "max-width-centered" : null
+
 	return (
-		<div className={`search-settings ${activeClass}`}>
-			<NavBarMeasurementSwitch />
-			<NavBarSearchBar />
+		<div className={`search-settings ${breakpointClass}`}>
+			<div className={`search-settings-content ${maxWidthCentered}`}>
+				<NavBarMeasurementSwitch />
+				<NavBarSearchBar />
+			</div>
 		</div>
 	)
 }

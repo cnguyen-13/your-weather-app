@@ -1,13 +1,24 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import NavBarLogo from "./nav-bar-components/NavBarLogo"
 import NavBarHamburgerMenu from "./nav-bar-components/NavBarHamburgerMenu"
 import NavBarSearchSettings from "./nav-bar-components/NavBarSearchSettings"
+import {
+	toggleNavActive,
+	removeNavActive,
+} from "../../functions/nav-bar/nav-active-toggles"
 
 function NavBar() {
-	const [isNavSettingsActive, setIsNavSettingsActive] = useState<boolean>(false)
+	useEffect(() => {
+		//On resize
+		window.addEventListener("resize", removeNavActive)
+
+		return () => {
+			window.removeEventListener("resize", removeNavActive)
+		}
+	}, [])
 
 	function onClickHamburger(): void {
-		setIsNavSettingsActive(!isNavSettingsActive)
+		toggleNavActive()
 	}
 
 	return (
@@ -15,8 +26,9 @@ function NavBar() {
 			<div className="nav-bar-content max-width-centered">
 				<NavBarLogo />
 				<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
-				<NavBarSearchSettings isActive={isNavSettingsActive} />
+				<NavBarSearchSettings breakpointClass="after-tablet" />
 			</div>
+			<NavBarSearchSettings breakpointClass="before-tablet" />
 		</nav>
 	)
 }

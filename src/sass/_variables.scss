@@ -2,13 +2,14 @@ $color-primary: #5f2fff;
 $color-highlight: #fa1151;
 $color-white: white;
 $color-off-black: #1a1a1a;
-$color-error: #c70039;
+$color-hover: #ffda29;
 $mask: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 
 $date-info-gap: 0.75rem;
 $height-nav-bar: 50px;
-$height-mobile-search-settings: 75px;
+$height-mobile-search-settings: 100px;
 
+$breakpoint-mobile: 500px;
 $breakpoint-tablet: 800px;
 $breakpoint-desktop: 1440px;
 $breakpoint-1920px: 1920px;
