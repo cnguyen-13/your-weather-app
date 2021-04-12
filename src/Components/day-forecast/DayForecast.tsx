@@ -32,7 +32,7 @@ function DayForecast(props: Props) {
 
 	return (
 		<>
-			<div className="day-forecast max-width-centered">
+			<div className="day-forecast max-width-centered pb-3-desktop df-flex-container">
 				<DayForecastText
 					title={title}
 					dayForecastSections={dayForecastSectionComponents}

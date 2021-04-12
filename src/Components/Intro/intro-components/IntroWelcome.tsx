@@ -13,7 +13,7 @@ function IntroWelcome(props: Props) {
 	const { name, topic, placeholder, onChangeHandler } = props
 
 	return (
-		<h2 className="intro-welcome">
+		<h2 className="fs-welcome">
 			<IntroWelcomeMessage />
 			<IntroUserInput
 				value={name}

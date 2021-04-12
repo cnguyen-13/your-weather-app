@@ -14,7 +14,7 @@ function IntroTime() {
 		return (): void => clearInterval(updateTimeInterval)
 	}, [])
 
-	return <h1 className="intro-time">{formattedTime}</h1>
+	return <h1 className="fs-time">{formattedTime}</h1>
 }
 
 export default IntroTime

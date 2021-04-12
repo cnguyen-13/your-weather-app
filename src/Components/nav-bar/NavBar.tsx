@@ -22,8 +22,8 @@ function NavBar() {
 	}
 
 	return (
-		<nav className="nav-bar">
-			<div className="nav-bar-content max-width-centered">
+		<nav className="nav-bar dimen-nav-bar b-bottom-primary p-relative highest-z-index bg-color-white text-color-off-black">
+			<div className="nav-bar-content dimen-nav-bar max-width-centered">
 				<NavBarLogo />
 				<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
 				<NavBarSearchSettings breakpointClass="after-tablet" />

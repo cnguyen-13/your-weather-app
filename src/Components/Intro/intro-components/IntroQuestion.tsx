@@ -12,7 +12,7 @@ function IntroQuestion(props: Props) {
 	const { city, topic, placeholder, onChangeHandler } = props
 
 	return (
-		<p className="intro-question">
+		<p className="fs-question">
 			Want to Check the City of{" "}
 			<IntroUserInput
 				value={city}

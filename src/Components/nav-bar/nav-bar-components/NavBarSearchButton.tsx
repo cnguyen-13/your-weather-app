@@ -13,7 +13,7 @@ function NavBarSearchButton(props: Props) {
 	return (
 		<Link
 			to={`/${city}`}
-			className="nav-bar-search-btn clickable"
+			className="nav-bar-search-btn dimen-search-btn p-search-btn text-centered txt-color-white bg-color-primary clickable"
 			onClick={clearInput}
 		>
 			Search

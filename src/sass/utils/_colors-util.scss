@@ -1,0 +1,25 @@
+//Color text
+.txt-color-primary {
+	color: $color-primary;
+}
+
+.txt-color-error {
+	color: $color-highlight;
+}
+
+.txt-color-white {
+	color: $color-white;
+}
+
+.txt-color-black {
+	color: $color-off-black;
+}
+
+//Background color
+.bg-color-white {
+	background-color: $color-white;
+}
+
+.bg-color-primary {
+	background-color: $color-primary;
+}

@@ -1,0 +1,22 @@
+//Forecast Card Hovers & Active
+.card-active,
+.card-hover:hover {
+	transform: scale(1.25);
+}
+
+.card-active {
+	background-color: $color-highlight;
+	z-index: 2;
+}
+
+.card-hover:hover {
+	color: $color-off-black;
+	background-color: $color-hover;
+	z-index: 3;
+}
+
+//Intro CTA
+.cta:hover {
+	transform: scale(1.1);
+	background-color: darken($color-primary, 5);
+}

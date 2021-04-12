@@ -5,7 +5,7 @@ import logo from "../../../images/logo/logo.png"
 function NavBarLogo() {
 	return (
 		<Link to="/">
-			<img src={logo} alt="" className="logo-img clickable" />
+			<img src={logo} alt="" className="dimen-logo clickable" />
 		</Link>
 	)
 }

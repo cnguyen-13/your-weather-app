@@ -14,7 +14,7 @@ function NavBarSearchBar() {
 	}
 
 	return (
-		<div className="nav-bar-search">
+		<div className="nav-bar-search dimen-search full-height-percent">
 			<NavBarCityInputField inputChange={inputChange} city={city} />
 			<NavBarSearchButton city={city} clearInput={clearInput} />
 		</div>

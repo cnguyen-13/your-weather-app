@@ -1,0 +1,55 @@
+.clickable {
+	cursor: pointer;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.p-absolute {
+	position: absolute;
+}
+
+.transition-time {
+	transition: all 0.3s;
+}
+
+.highest-z-index {
+	z-index: 6;
+}
+
+.second-highest-z-index {
+	z-index: 5;
+}
+
+.hamburger-menu {
+	width: $width-hamburger;
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.after-tablet {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.hamburger-menu {
+		display: none;
+	}
+
+	.before-tablet {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-desktop) {
+	.after-desktop {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-desktop) {
+	.before-desktop {
+		display: none;
+	}
+}

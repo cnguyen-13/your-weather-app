@@ -29,12 +29,14 @@ function ForecastCard(props: Props) {
 
 	return (
 		<div
-			className={`card clickable ${isActive ? "card-active" : null}`}
+			className={`card p-relative dimen-card fs-sm card-hover gap-sm transition-time flex-centered clickable ${
+				isActive ? "card-active" : null
+			}`}
 			onClick={onClickCardHandler}
 			id={id.toString()}
 		>
 			<ForecastCardIcon icon={icon} description={description} />
-			<div className="card-item">
+			<div className="card-item full-width">
 				<ForecastCardDate month={month} date={date} />
 				<ForecastCardDay day={day} />
 				<ForecastCardDescription description={description} />

@@ -10,7 +10,7 @@ function ForecastCardIcon(props: Props) {
 
 	return (
 		<img
-			className="card-icon"
+			className="dimen-card-icon"
 			src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
 			alt={description}
 		/>

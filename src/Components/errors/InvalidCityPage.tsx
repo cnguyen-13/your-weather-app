@@ -10,11 +10,11 @@ function InvalidCityPage(props: Props) {
 	const { invalidCityName } = props
 	const styles = getStylesWithBg(backgroundImage)
 	return (
-		<div className="error-page" style={styles}>
-			<div className="max-width-centered error-page-content">
-				<h2 className="city-title error-title">
+		<div className="txt-color-white height-error-page pt-3" style={styles}>
+			<div className="max-width-centered flex-centered text-centered">
+				<h2 className="fs-lg fw-normal">
 					"{invalidCityName}" is an
-					<span className="error-color"> invalid City!</span>
+					<span className="txt-color-error"> invalid City!</span>
 				</h2>
 			</div>
 		</div>

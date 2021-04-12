@@ -7,67 +7,6 @@
 	align-items: center;
 }
 
-.nav-bar-content {
-	height: $height-nav-bar;
-}
-
-.nav-bar {
-	position: relative;
-	background-color: $color-white;
-	border-bottom: 1px solid $color-primary;
-	color: $color-off-black;
-	height: $height-nav-bar;
-	z-index: 6;
-}
-
-.nav-bar-search {
-	max-width: 300px;
-	height: 100%;
-}
-
-.nav-bar-input {
-	width: 70%;
-	height: 36px;
-	padding: 0.5rem 1.25rem;
-	border: 1px solid $color-primary;
-}
-
-.logo-img {
-	width: 125px;
-	height: 125px;
-}
-
-//Search Settings
-.search-settings {
-	position: absolute;
-	top: $height-nav-bar;
-	width: 100vw !important;
-	height: $height-mobile-search-settings;
-
-	transform: translateX(100vw);
-	transition: transform 0.3s linear;
-	background-color: $color-white;
-}
-
-.search-settings-active {
-	transform: translateX(0);
-}
-
-//Hamburger
-.hamburger-menu {
-	width: 30px;
-}
-
-.nav-bar-search-btn {
-	border: none;
-	color: $color-white;
-	background-color: $color-primary;
-	padding: 8.5px 16px;
-	width: 30%;
-	height: 36px;
-	text-align: center;
-}
-
 @media (max-width: $breakpoint-mobile) {
 	.search-settings-content {
 		flex-direction: column;
@@ -75,20 +14,7 @@
 }
 
 @media (min-width: $breakpoint-tablet) {
-	.search-settings {
-		position: relative;
-		transform: translateX(0);
-		height: auto;
-		top: 0;
-		justify-content: flex-end;
-		gap: 1rem;
-	}
-
 	.search-settings-content {
 		flex-direction: row;
-	}
-
-	.hamburger-menu {
-		display: none;
 	}
 }

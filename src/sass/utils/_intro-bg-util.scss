@@ -1,0 +1,17 @@
+.morning,
+.afternoon,
+.evening {
+	background-size: cover;
+}
+
+.morning {
+	background-image: $mask, url("../images/intro-backgrounds/morning.jpg");
+}
+
+.afternoon {
+	background-image: $mask, url("../images/intro-backgrounds/afternoon.jpg");
+}
+
+.evening {
+	background-image: $mask, url("../images/intro-backgrounds/evening.jpg");
+}

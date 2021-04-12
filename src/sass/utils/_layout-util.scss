@@ -1,0 +1,58 @@
+.intro-layout {
+	flex-direction: column;
+}
+
+.flex-centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+//Gaps
+.gap-sm {
+	gap: $gap-sm;
+}
+
+.gap-med {
+	gap: $gap-med;
+}
+
+.gap-lg {
+	gap: $gap-lg;
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (min-width: $breakpoint-desktop) {
+	.df-flex-container {
+		display: flex;
+	}
+
+	.df-flex-item-40 {
+		flex: 2;
+	}
+
+	.df-flex-item-60 {
+		flex: 3;
+	}
+
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: $breakpoint-1920px) {
+	.flex-jc-space-between-1920 {
+		justify-content: space-between;
+	}
+}

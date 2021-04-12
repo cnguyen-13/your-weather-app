@@ -20,6 +20,7 @@ function ForecastCards(props: Props) {
 	useEffect(() => {
 		getCityForecastDays(setForecastDays, city, measurementSystem)
 		setWasCardClicked(false)
+		setIdxActive(undefined)
 	}, [city, measurementSystem])
 
 	function onClickCardHandler(e: any): void {
@@ -53,8 +54,11 @@ function ForecastCards(props: Props) {
 
 	return (
 		<>
-			<div className="cards-container" id="forecast-cards-container">
-				<div className="max-width-centered cards-container">
+			<div
+				className="cards-container dimen-cards-container flex-wrap mb-3 gap-med flex-centered txt-color-white bg-color-primary flex-jc-space-between-1920"
+				id="forecast-cards-container"
+			>
+				<div className="flex-centered max-width-centered dimen-cards-container cards-container flex-wrap mb-3 gap-med flex-jc-space-between-1920">
 					{forcastCardComponents}
 				</div>
 			</div>

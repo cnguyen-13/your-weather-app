@@ -12,10 +12,10 @@ function HeroBackground(props: Props) {
 	const [bgImage] = useContext(BackgroundImagesContext)
 
 	return (
-		<section className="city-bg" style={getStylesWithBg(bgImage)}>
-			<h2 className="city-title max-width-centered">
+		<section className="dimen-city-bg pt-3" style={getStylesWithBg(bgImage)}>
+			<h2 className="fs-lg txt-color-white fw-thin max-width-centered">
 				City of {cityName}
-				<span className="city-subtitle">, {countryName}</span>
+				<span className="fs-med">, {countryName}</span>
 			</h2>
 		</section>
 	)

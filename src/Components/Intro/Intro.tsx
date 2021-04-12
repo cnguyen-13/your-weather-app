@@ -31,7 +31,9 @@ function Intro() {
 	}, [])
 
 	return (
-		<div className={`intro ${bgClass}`}>
+		<div
+			className={`intro-layout gap-lg text-centered flex-centered full-width full-height txt-color-white ${bgClass}`}
+		>
 			<IntroLogo />
 			<IntroTime />
 			<IntroWelcome

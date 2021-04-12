@@ -12,7 +12,9 @@ function NavBarSearchSettings(props: Props) {
 		breakpointClass === "before-tablet" ? "max-width-centered" : null
 
 	return (
-		<div className={`search-settings ${breakpointClass}`}>
+		<div
+			className={`search-settings full-width transition-time bg-color-white ${breakpointClass}`}
+		>
 			<div className={`search-settings-content ${maxWidthCentered}`}>
 				<NavBarMeasurementSwitch />
 				<NavBarSearchBar />
