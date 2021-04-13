@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Hero from "./Hero"
+import Hero from "./hero/Hero"
 import ForecastCardContainer from "../forecast-cards/ForecastCardContainer"
 import ErrorPage from "../errors/ErrorPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
@@ -18,6 +18,7 @@ function CityPage() {
 	const [countryName, setCountryName] = useState<string>("")
 	const [bgImages, setBgImages] = useState([])
 	const [isInvalidCity, setIsInvalidCity] = useState<boolean>(false)
+	const cityParamUpperCased = cityParam.toUpperCase()
 
 	useEffect(() => {
 		//Resets so that the new cityParam has a chance of being valid
@@ -27,12 +28,12 @@ function CityPage() {
 	}, [cityParam])
 
 	if (isInvalidCity) {
-		return <ErrorPage invalidCityName={cityParam.toUpperCase()} />
+		return <ErrorPage invalidCityName={cityParamUpperCased} />
 	}
 
 	return (
 		<BackgroundImagesContext.Provider value={bgImages}>
-			<Hero cityName={cityParam.toUpperCase()} countryName={countryName} />
+			<Hero cityName={cityParamUpperCased} countryName={countryName} />
 			<ForecastCardContainer city={cityParam} />
 		</BackgroundImagesContext.Provider>
 	)
