@@ -9,7 +9,7 @@ interface Props {
 	city: string
 }
 
-function ForecastCards(props: Props) {
+function ForecastCardContainer(props: Props) {
 	const { city } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [forecastDays, setForecastDays] = useState<forecastDay[]>([])
@@ -64,4 +64,4 @@ function ForecastCards(props: Props) {
 	)
 }
 
-export default ForecastCards
+export default ForecastCardContainer

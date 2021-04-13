@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import logo from "../../../images/logo/logo.png"
 
-function NavBarLogo() {
+function Logo() {
 	return (
 		<Link to="/">
 			<img src={logo} alt="" className="dimen-logo clickable" />
@@ -10,4 +10,4 @@ function NavBarLogo() {
 	)
 }
 
-export default NavBarLogo
+export default Logo

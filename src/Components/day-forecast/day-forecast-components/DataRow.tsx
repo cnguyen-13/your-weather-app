@@ -5,7 +5,7 @@ interface Props {
 	data: string
 }
 
-function DayForecastDataRow(props: Props) {
+function DataRow(props: Props) {
 	const { label, data } = props
 
 	return (
@@ -15,4 +15,4 @@ function DayForecastDataRow(props: Props) {
 	)
 }
 
-export default DayForecastDataRow
+export default DataRow

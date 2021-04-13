@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
-import NavBarLogo from "./nav-bar-components/NavBarLogo"
-import NavBarHamburgerMenu from "./nav-bar-components/NavBarHamburgerMenu"
-import NavBarSearchSettings from "./nav-bar-components/NavBarSearchSettings"
+import Logo from "./nav-bar-components/Logo"
+import HamburgerMenu from "./nav-bar-components/HamburgerMenu"
+import SearchSettings from "./nav-bar-components/SearchSettings"
 import {
 	toggleNavActive,
 	removeNavActive,
@@ -24,11 +24,11 @@ function NavBar() {
 	return (
 		<nav className="dimen-nav-bar b-bottom-primary p-relative highest-z-index bg-color-white text-color-off-black">
 			<div className="nav-flex-layout dimen-nav-bar max-width-centered">
-				<NavBarLogo />
-				<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
-				<NavBarSearchSettings />
+				<Logo />
+				<HamburgerMenu onClickHamburger={onClickHamburger} />
+				<SearchSettings />
 			</div>
-			<NavBarSearchSettings breakpointClass="before-tablet" />
+			<SearchSettings breakpointClass="before-tablet" />
 		</nav>
 	)
 }

@@ -5,7 +5,7 @@ interface Props {
 	description: string
 }
 
-function ForecastCardIcon(props: Props) {
+function Icon(props: Props) {
 	const { icon, description } = props
 
 	return (
@@ -17,4 +17,4 @@ function ForecastCardIcon(props: Props) {
 	)
 }
 
-export default ForecastCardIcon
+export default Icon

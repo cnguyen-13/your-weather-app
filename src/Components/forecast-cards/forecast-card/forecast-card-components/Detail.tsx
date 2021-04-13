@@ -4,10 +4,10 @@ interface Props {
 	content: string
 }
 
-function ForecastCardDetail(props: Props) {
+function Detail(props: Props) {
 	const { content } = props
 
 	return <p>{content}</p>
 }
 
-export default ForecastCardDetail
+export default Detail

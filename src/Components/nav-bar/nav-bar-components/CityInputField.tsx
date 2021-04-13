@@ -5,7 +5,7 @@ interface Props {
 	city: string
 }
 
-function NavBarUserInputField(props: Props) {
+function CityInputField(props: Props) {
 	const { inputChange, city } = props
 
 	//Simulates Clicking on the search button when hitting 'enter' in search box
@@ -28,4 +28,4 @@ function NavBarUserInputField(props: Props) {
 	)
 }
 
-export default NavBarUserInputField
+export default CityInputField

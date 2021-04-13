@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
-import DayForecastSectionIcon from "./DayForecastSectionIcon"
-import DayForecastDataRow from "./DayForecastDataRow"
+import Icon from "./Icon"
+import DataRow from "./DataRow"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { labelsAndData, forecastDay } from "../../../interface/interfaces"
 import { getData } from "../../../functions/forecast-cards/get-forecast-data"
@@ -10,7 +10,7 @@ interface Props {
 	category: string
 }
 
-function DayForecastSection(props: Props) {
+function InfoSection(props: Props) {
 	const { forecastDay, category } = props
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [data, setData] = useState<labelsAndData[]>([])
@@ -21,15 +21,15 @@ function DayForecastSection(props: Props) {
 
 	const dayForecastDataRowComponents = data.map(pair => {
 		const { label, data } = pair
-		return <DayForecastDataRow key={label} label={label} data={data} />
+		return <DataRow key={label} label={label} data={data} />
 	})
 
 	return (
 		<section className="mb-2">
-			<DayForecastSectionIcon category={category} />
+			<Icon category={category} />
 			{dayForecastDataRowComponents}
 		</section>
 	)
 }
 
-export default DayForecastSection
+export default InfoSection

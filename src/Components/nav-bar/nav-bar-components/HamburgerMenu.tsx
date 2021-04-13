@@ -3,7 +3,7 @@ import hamburgerMenu from "../../../images/nav-bar/hamburger-menu.svg"
 interface Props {
 	onClickHamburger: () => void
 }
-function NavBarHamburgerMenu(props: Props) {
+function HamburgerMenu(props: Props) {
 	const { onClickHamburger } = props
 
 	return (
@@ -16,4 +16,4 @@ function NavBarHamburgerMenu(props: Props) {
 	)
 }
 
-export default NavBarHamburgerMenu
+export default HamburgerMenu

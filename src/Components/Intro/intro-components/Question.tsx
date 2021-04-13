@@ -1,5 +1,5 @@
 import React from "react"
-import IntroUserInput from "./IntroUserInput"
+import UserInput from "./UserInput"
 
 interface Props {
 	city: string
@@ -8,13 +8,13 @@ interface Props {
 	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-function IntroQuestion(props: Props) {
+function Question(props: Props) {
 	const { city, topic, placeholder, onChangeHandler } = props
 
 	return (
 		<p className="fs-question">
 			Want to Check the City of{" "}
-			<IntroUserInput
+			<UserInput
 				value={city}
 				topic={topic}
 				onChangeHandler={onChangeHandler}
@@ -25,4 +25,4 @@ function IntroQuestion(props: Props) {
 	)
 }
 
-export default IntroQuestion
+export default Question

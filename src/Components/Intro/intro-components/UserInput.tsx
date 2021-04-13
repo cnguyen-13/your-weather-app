@@ -9,7 +9,7 @@ interface Props {
 	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-function IntroUserInput(props: Props) {
+function UserInput(props: Props) {
 	const { value, topic, placeholder, onChangeHandler } = props
 
 	useEffect(() => {
@@ -19,6 +19,7 @@ function IntroUserInput(props: Props) {
 	return (
 		<input
 			id={topic}
+			className="txt-color-error"
 			style={INTRO_TEXT_INPUT_STYLES}
 			type="text"
 			onChange={onChangeHandler}
@@ -28,4 +29,4 @@ function IntroUserInput(props: Props) {
 	)
 }
 
-export default IntroUserInput
+export default UserInput

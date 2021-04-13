@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react"
-import IntroLogo from "./intro-components/IntroLogo"
-import IntroTime from "./intro-components/IntroTime"
-import IntroWelcome from "./intro-components/IntroWelcome"
-import IntroQuestion from "./intro-components/IntroQuestion"
-import IntroForecastButton from "./intro-components/IntroForecastButton"
+import IntroContent from "./intro-components/IntroContent"
 import { getBackgroundClass } from "../../functions/intro/get-background-class"
 import { MILLISECONDS_IN_HOUR } from "../../constants/intro/intro-milliseconds-times"
 import { INTRO_PLACEHOLDERS } from "../../constants/intro/intro-input-placeholders"
@@ -34,21 +30,15 @@ function Intro() {
 		<div
 			className={`intro-layout gap-lg text-centered flex-centered full-width full-height txt-color-white ${bgClass}`}
 		>
-			<IntroLogo />
-			<IntroTime />
-			<IntroWelcome
-				topic={LS.NAME}
+			<IntroContent
+				nameTopic={LS.NAME}
 				name={name}
-				onChangeHandler={onChangeHandler}
-				placeholder={INTRO_PLACEHOLDERS.NAME}
-			/>
-			<IntroQuestion
-				topic={LS.CITY}
+				namePlaceHolder={INTRO_PLACEHOLDERS.NAME}
+				cityTopic={LS.CITY}
 				city={city}
+				cityPlaceHolder={INTRO_PLACEHOLDERS.CITY}
 				onChangeHandler={onChangeHandler}
-				placeholder={INTRO_PLACEHOLDERS.CITY}
 			/>
-			<IntroForecastButton city={city} />
 		</div>
 	)
 }

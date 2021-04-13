@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { getFormattedTime } from "../../../functions/intro/get-formatted-time"
 import { MILLISECONDS_IN_SECOND } from "../../../constants/intro/intro-milliseconds-times"
 
-function IntroTime() {
+function Time() {
 	const [formattedTime, setFormattedTime] = useState<string>(getFormattedTime())
 
 	//Updates time every second
@@ -17,4 +17,4 @@ function IntroTime() {
 	return <h1 className="fs-time">{formattedTime}</h1>
 }
 
-export default IntroTime
+export default Time

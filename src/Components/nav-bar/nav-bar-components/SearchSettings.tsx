@@ -1,12 +1,12 @@
 import React from "react"
-import NavBarSearchBar from "./NavBarSearchBar"
-import NavBarMeasurementSwitch from "./NavBarMeasurementSwitch"
+import SearchBar from "./SearchBar"
+import MeasurementSwitch from "./MeasurementSwitch"
 
 interface Props {
 	breakpointClass?: string
 }
 
-function NavBarSearchSettings(props: Props) {
+function SearchSettings(props: Props) {
 	const { breakpointClass } = props
 	const maxWidthCentered = breakpointClass ? "max-width-centered" : null
 
@@ -17,11 +17,11 @@ function NavBarSearchSettings(props: Props) {
 			<div
 				className={`nav-flex-layout flex-d-col-mobile flex-d-row-tablet ${maxWidthCentered}`}
 			>
-				<NavBarMeasurementSwitch />
-				<NavBarSearchBar />
+				<MeasurementSwitch />
+				<SearchBar />
 			</div>
 		</div>
 	)
 }
 
-export default NavBarSearchSettings
+export default SearchSettings

@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import NavBarCityInputField from "./NavBarCityInputField"
-import NavBarSearchButton from "./NavBarSearchButton"
+import NavBarCityInputField from "./CityInputField"
+import SearchButton from "./SearchButton"
 
-function NavBarSearchBar() {
+function SearchBar() {
 	const [city, setCity] = useState<string>("")
 
 	function clearInput(): void {
@@ -16,9 +16,9 @@ function NavBarSearchBar() {
 	return (
 		<div className="nav-flex-layout dimen-search full-height-percent">
 			<NavBarCityInputField inputChange={inputChange} city={city} />
-			<NavBarSearchButton city={city} clearInput={clearInput} />
+			<SearchButton city={city} clearInput={clearInput} />
 		</div>
 	)
 }
 
-export default NavBarSearchBar
+export default SearchBar

@@ -1,6 +1,6 @@
 import React from "react"
-import IntroWelcomeMessage from "./IntroWelcomeMessage"
-import IntroUserInput from "./IntroUserInput"
+import WelcomeMessage from "./WelcomeMessage"
+import UserInput from "./UserInput"
 
 interface Props {
 	name: string
@@ -9,13 +9,13 @@ interface Props {
 	onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-function IntroWelcome(props: Props) {
+function Welcome(props: Props) {
 	const { name, topic, placeholder, onChangeHandler } = props
 
 	return (
 		<h2 className="fs-welcome">
-			<IntroWelcomeMessage />
-			<IntroUserInput
+			<WelcomeMessage />
+			<UserInput
 				value={name}
 				topic={topic}
 				onChangeHandler={onChangeHandler}
@@ -25,4 +25,4 @@ function IntroWelcome(props: Props) {
 	)
 }
 
-export default IntroWelcome
+export default Welcome

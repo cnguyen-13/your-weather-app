@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import ForecastCardIcon from "./forecast-card-components/ForecastCardIcon"
-import ForecastCardTextInfo from "./forecast-card-components/ForecastCardTextInfo"
+import Icon from "./forecast-card-components/Icon"
+import TextInfo from "./forecast-card-components/TextInfo"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { getDateTimes } from "../../../functions/forecast-cards/get-date-times"
 import { getWeatherInfo } from "../../../functions/forecast-cards/get-weather-info"
@@ -32,8 +32,8 @@ function ForecastCard(props: Props) {
 			onClick={onClickCardHandler}
 			id={id.toString()}
 		>
-			<ForecastCardIcon icon={icon} description={description} />
-			<ForecastCardTextInfo
+			<Icon icon={icon} description={description} />
+			<TextInfo
 				month={month}
 				date={date}
 				day={day}

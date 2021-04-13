@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Hero from "./Hero"
-import ForecastCards from "../forecast-cards/ForecastCards"
+import ForecastCardContainer from "../forecast-cards/ForecastCardContainer"
 import ErrorPage from "../errors/ErrorPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 import {
@@ -33,7 +33,7 @@ function CityPage() {
 	return (
 		<BackgroundImagesContext.Provider value={bgImages}>
 			<Hero cityName={cityParam.toUpperCase()} countryName={countryName} />
-			<ForecastCards city={cityParam} />
+			<ForecastCardContainer city={cityParam} />
 		</BackgroundImagesContext.Provider>
 	)
 }

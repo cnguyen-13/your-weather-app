@@ -4,7 +4,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
 import { MS } from "../../../constants/day-forecast/measurement-system"
 
-function NavBarMeasurementSwitch() {
+function MeasurementSwitch() {
 	const { measurementSystem, toggleMeasurementSystem } = useContext(
 		MeasurementSystemContext
 	)
@@ -24,4 +24,4 @@ function NavBarMeasurementSwitch() {
 	)
 }
 
-export default NavBarMeasurementSwitch
+export default MeasurementSwitch

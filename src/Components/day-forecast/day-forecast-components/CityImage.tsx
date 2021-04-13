@@ -6,7 +6,7 @@ interface Props {
 	breakpointClass: string
 }
 
-function DayForecastCityImage(props: Props) {
+function CityImage(props: Props) {
 	const { breakpointClass } = props
 	const cityImage = useContext(BackgroundImagesContext)[1]
 	const styles = getStylesWithBg(cityImage)
@@ -19,4 +19,4 @@ function DayForecastCityImage(props: Props) {
 	)
 }
 
-export default DayForecastCityImage
+export default CityImage

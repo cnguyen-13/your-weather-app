@@ -5,11 +5,11 @@ interface Props {
 	category: string
 }
 
-function DayForecastSectionIcon(props: Props) {
+function Icon(props: Props) {
 	const { category } = props
 	const icon: string = getIcon(category)
 
 	return <img className="dimen-df-icon mb-1-and-a-half" src={icon} alt="" />
 }
 
-export default DayForecastSectionIcon
+export default Icon
