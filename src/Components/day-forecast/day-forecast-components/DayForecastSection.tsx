@@ -25,7 +25,7 @@ function DayForecastSection(props: Props) {
 	})
 
 	return (
-		<section className="day-forecast-information-section mb-2">
+		<section className="mb-2">
 			<DayForecastSectionIcon category={category} />
 			{dayForecastDataRowComponents}
 		</section>

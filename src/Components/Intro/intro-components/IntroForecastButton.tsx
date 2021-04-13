@@ -10,7 +10,7 @@ function IntroForecastButton(props: Props) {
 
 	return (
 		<Link to={`/${city}`}>
-			<button className="fs-btn cta m-cta p-cta b-none transition-time clickable txt-color-white bg-color-primary">
+			<button className="fs-btn cta-hover m-cta p-cta b-none transition-time clickable txt-color-white bg-color-primary">
 				CHECK WEATHER
 			</button>
 		</Link>

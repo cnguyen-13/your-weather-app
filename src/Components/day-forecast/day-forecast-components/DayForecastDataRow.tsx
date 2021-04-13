@@ -9,7 +9,7 @@ function DayForecastDataRow(props: Props) {
 	const { label, data } = props
 
 	return (
-		<p className="day-forecast-data-row m-data-row">
+		<p className="m-data-row">
 			<span className="fw-bold txt-color-primary">{label}:</span> {data}
 		</p>
 	)

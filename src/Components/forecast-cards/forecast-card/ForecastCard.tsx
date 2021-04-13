@@ -18,8 +18,8 @@ interface Props {
 function ForecastCard(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const { id, isActive, forecastDay, onClickCardHandler } = props
-	const activeClass = isActive ? "card-active" : null
 	const { dt, weather, temp } = forecastDay
+	const activeClass = isActive ? "card-active" : null
 
 	//Parse Data with Helper Functions
 	const { date, month, day } = getDateTimes(dt)

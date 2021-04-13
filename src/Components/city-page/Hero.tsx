@@ -7,7 +7,7 @@ interface Props {
 	countryName: string
 }
 
-function HeroBackground(props: Props) {
+function Hero(props: Props) {
 	const { cityName, countryName } = props
 	const [bgImage] = useContext(BackgroundImagesContext)
 
@@ -21,4 +21,4 @@ function HeroBackground(props: Props) {
 	)
 }
 
-export default HeroBackground
+export default Hero
