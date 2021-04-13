@@ -12,10 +12,10 @@ function CityImage(props: Props) {
 	const styles = getStylesWithBg(cityImage)
 
 	return (
-		<section
+		<div
 			className={`dimen-df-city-img df-flex-item-60 ${breakpointClass}`}
 			style={styles}
-		></section>
+		></div>
 	)
 }
 

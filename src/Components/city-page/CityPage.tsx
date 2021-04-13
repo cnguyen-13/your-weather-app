@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Hero from "./hero/Hero"
 import ForecastCardContainer from "../forecast-cards/ForecastCardContainer"
-import ErrorPage from "../errors/ErrorPage"
+import ErrorPage from "../error-page/ErrorPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 import {
 	getCountryName,

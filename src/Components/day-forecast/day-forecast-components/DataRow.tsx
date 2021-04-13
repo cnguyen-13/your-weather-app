@@ -10,7 +10,7 @@ function DataRow(props: Props) {
 
 	return (
 		<p className="m-data-row">
-			<span className="fw-bold txt-color-primary">{label}:</span> {data}
+			<strong className="fw-bold txt-color-primary">{label}:</strong> {data}
 		</p>
 	)
 }
