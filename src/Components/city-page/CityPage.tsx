@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import HeroBackground from "./HeroBackground"
 import ForecastCards from "../forecast-cards/ForecastCards"
-import InvalidCityPage from "../errors/InvalidCityPage"
+import ErrorPage from "../errors/ErrorPage"
 import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 import {
 	getCountryName,
@@ -27,7 +27,7 @@ function CityPage() {
 	}, [cityParam])
 
 	if (isInvalidCity) {
-		return <InvalidCityPage invalidCityName={cityParam.toUpperCase()} />
+		return <ErrorPage invalidCityName={cityParam.toUpperCase()} />
 	}
 
 	return (

@@ -3,11 +3,11 @@
 }
 
 .p-relative {
-	position: relative;
+	position: relative !important ;
 }
 
 .p-absolute {
-	position: absolute;
+	position: absolute !important;
 }
 
 .transition-time {
@@ -38,7 +38,7 @@
 	}
 
 	.before-tablet {
-		display: none;
+		display: none !important;
 	}
 }
 

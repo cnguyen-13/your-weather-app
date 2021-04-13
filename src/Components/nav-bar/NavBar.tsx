@@ -22,11 +22,11 @@ function NavBar() {
 	}
 
 	return (
-		<nav className="nav-bar dimen-nav-bar b-bottom-primary p-relative highest-z-index bg-color-white text-color-off-black">
-			<div className="nav-bar-content dimen-nav-bar max-width-centered">
+		<nav className="dimen-nav-bar b-bottom-primary p-relative highest-z-index bg-color-white text-color-off-black">
+			<div className="nav-flex-layout dimen-nav-bar max-width-centered">
 				<NavBarLogo />
 				<NavBarHamburgerMenu onClickHamburger={onClickHamburger} />
-				<NavBarSearchSettings breakpointClass="after-tablet" />
+				<NavBarSearchSettings />
 			</div>
 			<NavBarSearchSettings breakpointClass="before-tablet" />
 		</nav>

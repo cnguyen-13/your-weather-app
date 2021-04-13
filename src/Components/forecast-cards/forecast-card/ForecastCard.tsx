@@ -1,25 +1,24 @@
 import React, { useContext } from "react"
-import ForecastCardDate from "./forecast-card-components/ForecastCardDate"
-import ForecastCardDay from "./forecast-card-components/ForecastCardDay"
 import ForecastCardIcon from "./forecast-card-components/ForecastCardIcon"
-import ForecastCardDescription from "./forecast-card-components/ForecastCardDescription"
-import ForecastCardTemps from "./forecast-card-components/ForecastCardTemps"
+import ForecastCardTextInfo from "./forecast-card-components/ForecastCardTextInfo"
 import MeasurementSystemContext from "../../../context/MeasurementSystemContext"
 import { getDateTimes } from "../../../functions/forecast-cards/get-date-times"
 import { getWeatherInfo } from "../../../functions/forecast-cards/get-weather-info"
 import { getMinMaxTemps } from "../../../functions/forecast-cards/get-min-max-temps"
+import { minMaxTempCardFormat } from "../../../functions/forecast-cards/get-temp-card-format"
 import { forecastDay } from "../../../interface/interfaces"
 
 interface Props {
+	id: number
 	isActive: boolean
 	forecastDay: forecastDay
 	onClickCardHandler: (e: any) => void
-	id: number
 }
 
 function ForecastCard(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
-	const { isActive, forecastDay, onClickCardHandler, id } = props
+	const { id, isActive, forecastDay, onClickCardHandler } = props
+	const activeClass = isActive ? "card-active" : null
 	const { dt, weather, temp } = forecastDay
 
 	//Parse Data with Helper Functions
@@ -29,19 +28,18 @@ function ForecastCard(props: Props) {
 
 	return (
 		<div
-			className={`card p-relative dimen-card fs-sm card-hover gap-sm transition-time flex-centered clickable ${
-				isActive ? "card-active" : null
-			}`}
+			className={`p-relative dimen-card fs-sm card-hover gap-sm transition-time flex-centered clickable ${activeClass}`}
 			onClick={onClickCardHandler}
 			id={id.toString()}
 		>
 			<ForecastCardIcon icon={icon} description={description} />
-			<div className="card-item full-width">
-				<ForecastCardDate month={month} date={date} />
-				<ForecastCardDay day={day} />
-				<ForecastCardDescription description={description} />
-				<ForecastCardTemps minTemp={minTemp} maxTemp={maxTemp} />
-			</div>
+			<ForecastCardTextInfo
+				month={month}
+				date={date}
+				day={day}
+				description={description}
+				formattedTemps={minMaxTempCardFormat(minTemp, maxTemp)}
+			/>
 		</div>
 	)
 }

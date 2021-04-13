@@ -54,11 +54,8 @@ function ForecastCards(props: Props) {
 
 	return (
 		<>
-			<div
-				className="cards-container dimen-cards-container flex-wrap mb-3 gap-med flex-centered txt-color-white bg-color-primary flex-jc-space-between-1920"
-				id="forecast-cards-container"
-			>
-				<div className="flex-centered max-width-centered dimen-cards-container cards-container flex-wrap mb-3 gap-med flex-jc-space-between-1920">
+			<div className="dimen-cards-container flex-centered flex-wrap gap-med mb-3 flex-jc-space-between-1920 txt-color-white bg-color-primary">
+				<div className="dimen-cards-container max-width-centered flex-centered flex-wrap gap-med mb-3 flex-jc-space-between-1920">
 					{forcastCardComponents}
 				</div>
 			</div>

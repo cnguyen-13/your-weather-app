@@ -9,7 +9,7 @@ function ForecastCardDate(props: Props) {
 	const { month, date } = props
 
 	return (
-		<h3 className="card-date">
+		<h3>
 			{month} / {date}
 		</h3>
 	)

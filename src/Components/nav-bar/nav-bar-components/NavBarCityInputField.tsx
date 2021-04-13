@@ -20,7 +20,7 @@ function NavBarUserInputField(props: Props) {
 		<input
 			onChange={inputChange}
 			onKeyPress={onEnterKeyPress}
-			className="nav-bar-input dimen-input b-full-primary p-search-input"
+			className="dimen-input b-full-primary p-search-input"
 			type="text"
 			value={city}
 			placeholder="[city] or [city, country code]"

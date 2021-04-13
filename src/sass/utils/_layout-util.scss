@@ -25,6 +25,27 @@
 	gap: $gap-lg;
 }
 
+.nav-flex-layout {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.flex-d-col-mobile {
+		flex-direction: column;
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.d-flex-jc-end {
+		justify-content: flex-end;
+	}
+	.flex-d-row-tablet {
+		flex-direction: row;
+	}
+}
+
 @media (min-width: $breakpoint-tablet) {
 	.grid {
 		display: grid;
