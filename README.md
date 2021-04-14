@@ -1,6 +1,6 @@
 # Your Weather App V2
 
-* Restyled * Refactored
+* Restyled & Refactored
 * Added mobile nav bar functionality
 * SASS more like Bootstrap approach
 * Components Refactored
