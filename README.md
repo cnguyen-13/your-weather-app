@@ -1,44 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Your Weather App V2
 
-## Available Scripts
+* Restyled * Refactored
+* Added mobile nav bar functionality
+* SASS more like Bootstrap approach
+* Components Refactored
+* Folder/File hierarchy changed and renamed
+* Functions refactored
 
-In the project directory, you can run:
+# About 
 
-### `npm start`
+The focus of the project is simply a basic weather app with a focus on a clean web design. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users are first come to a personalized screen in which they can default their city to be searched. Then users can type in a city to get a 8 day forecast and select any day to get a temperature, wind, and weather rundown for that day.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# To Run Locally on Your Computer
+1. Get API Key from Open Weather Map ( https://openweathermap.org/api )
+2. Get API Key from Unsplash ( https://unsplash.com/developers )
+3. Download project folder
+4. In the project folder, create a ".env" file (will keep your API Keys from steps #1 & #2 )
+5. Inside of the ".env" file, type REACT_APP_WEATHER_API_KEY=${OPEN WEATHER MAP API KEY} & REACT_APP_UNSPLASH_API_KEY=${UNSPLASH API KEY}
+6. Using your terminal, change directory to project
+7. While in your terminal, 'npm install' to install all dependencies
+8. While in your terminal, 'npm start' to load the project
+9. Enjoy!
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Tech Used
+* HTML
+* CSS/SASS
+* TypeScript
+* ReactJS (React Router Dom, Hooks)
+* Figma (For Redesign)
