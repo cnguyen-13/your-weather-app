@@ -9,7 +9,7 @@ function NavBar() {
 		//On resize
 		window.addEventListener("resize", removeNavActive)
 
-		return () => {
+		return (): void => {
 			window.removeEventListener("resize", removeNavActive)
 		}
 	}, [])
