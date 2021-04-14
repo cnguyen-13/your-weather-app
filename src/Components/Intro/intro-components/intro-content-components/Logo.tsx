@@ -1,5 +1,5 @@
 import React from "react"
-import whiteLogo from "../../../images/logo/white-logo.png"
+import whiteLogo from "../../../../images/logo/white-logo.png"
 
 function Logo() {
 	return <img src={whiteLogo} alt="" />

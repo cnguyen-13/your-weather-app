@@ -7,7 +7,7 @@ import BackgroundImagesContext from "../../context/BackgroundImagesContext"
 import {
 	getCountryName,
 	getBgImages,
-} from "../../functions/get-country-name-and-images"
+} from "../../functions/city-background-images/get-country-name-and-images"
 
 interface Params {
 	cityParam: string

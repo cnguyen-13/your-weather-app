@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { getFormattedTime } from "../../../functions/intro/get-formatted-time"
-import { MILLISECONDS_IN_SECOND } from "../../../constants/intro/intro-milliseconds-times"
+import { getFormattedTime } from "../../../../functions/intro/get-formatted-time"
+import { MILLISECONDS_IN_SECOND } from "../../../../constants/intro/intro-milliseconds-times"
 
 function Time() {
 	const [formattedTime, setFormattedTime] = useState<string>(getFormattedTime())

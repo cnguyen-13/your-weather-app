@@ -1,6 +1,6 @@
 import React from "react"
-import SearchBar from "./SearchBar"
-import MeasurementSwitch from "./MeasurementSwitch"
+import SearchBar from "./search-settings-components/SearchBar"
+import MeasurementSwitch from "./search-settings-components/MeasurementSwitch"
 
 interface Props {
 	breakpointClass?: string

@@ -8,7 +8,6 @@ interface Props {
 
 function SearchButton(props: Props) {
 	const { city, clearInput } = props
-	//Make sure this component has an actual input
 
 	return (
 		<Link

@@ -1,9 +1,9 @@
 import React from "react"
-import Logo from "./Logo"
-import Time from "./Time"
-import Welcome from "./Welcome"
-import Question from "./Question"
-import ForecastButton from "./ForecastButton"
+import Logo from "./intro-content-components/Logo"
+import Time from "./intro-content-components/Time"
+import Welcome from "./intro-content-components/Welcome"
+import Question from "./intro-content-components/Question"
+import ForecastButton from "./intro-content-components/ForecastButton"
 
 interface Props {
 	nameTopic: string

@@ -5,7 +5,7 @@ interface Props {
 	city: string
 }
 
-function CityInputField(props: Props) {
+function InputField(props: Props) {
 	const { inputChange, city } = props
 
 	//Simulates Clicking on the search button when hitting 'enter' in search box
@@ -28,4 +28,4 @@ function CityInputField(props: Props) {
 	)
 }
 
-export default CityInputField
+export default InputField

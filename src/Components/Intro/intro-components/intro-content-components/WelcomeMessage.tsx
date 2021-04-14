@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { getGreeting } from "../../../functions/intro/get-greeting"
-import { MILLISECONDS_IN_HOUR } from "../../../constants/intro/intro-milliseconds-times"
+import { getGreeting } from "../../../../functions/intro/get-greeting"
+import { MILLISECONDS_IN_HOUR } from "../../../../constants/intro/intro-milliseconds-times"
 
 function WelcomeMessage() {
 	const [message, setMessage] = useState<string>(getGreeting())

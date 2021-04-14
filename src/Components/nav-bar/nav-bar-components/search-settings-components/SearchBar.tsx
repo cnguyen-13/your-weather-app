@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import NavBarCityInputField from "./CityInputField"
-import SearchButton from "./SearchButton"
+import InputField from "./search-bar-components/InputField"
+import SearchButton from "./search-bar-components/SearchButton"
 
 function SearchBar() {
 	const [city, setCity] = useState<string>("")
@@ -15,7 +15,7 @@ function SearchBar() {
 
 	return (
 		<div className="nav-flex-layout dimen-search full-height-percent">
-			<NavBarCityInputField inputChange={inputChange} city={city} />
+			<InputField inputChange={inputChange} city={city} />
 			<SearchButton city={city} clearInput={clearInput} />
 		</div>
 	)

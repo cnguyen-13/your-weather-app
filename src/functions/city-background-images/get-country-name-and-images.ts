@@ -1,7 +1,7 @@
 import axios from "axios"
-import { coordinatesUrl } from "./urls/coordinates-url"
-import { imageUrl } from "./urls/image-url"
-import { generateRandomIndexs } from "../functions/city-background-images/generate-random-indexs"
+import { coordinatesUrl } from "../urls/coordinates-url"
+import { imageUrl } from "../urls/image-url"
+import { generateRandomIndexs } from "./generate-random-indexs"
 
 export async function getCountryName(
 	countrySetterFunc: any,

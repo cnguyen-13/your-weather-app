@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
-import { changeInputFieldWidth } from "../../../functions/intro/change-input-field-width"
-import { INTRO_TEXT_INPUT_STYLES } from "../../../constants/intro/intro-text-input-styles"
+import { changeInputFieldWidth } from "../../../../functions/intro/change-input-field-width"
+import { INTRO_TEXT_INPUT_STYLES } from "../../../../constants/intro/intro-text-input-styles"
 
 interface Props {
 	value: string
