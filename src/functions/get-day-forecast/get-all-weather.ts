@@ -1,5 +1,10 @@
 import { WEATHER_LABELS } from "../../constants/day-forecast/weather-labels"
-import { labelsAndData, forecastDay } from "../../interface/interfaces"
+import { forecastDay } from "../../interface/interfaces"
+
+interface labelsAndData {
+	label: string
+	data: string
+}
 
 function dataString(data: number, isPercentageValue: boolean): string {
 	return isPercentageValue ? `${data} %` : `${data}`
