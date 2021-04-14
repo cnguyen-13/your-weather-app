@@ -1,15 +1,12 @@
 import React from "react"
+import { toggleNavActive } from "../../../functions/nav-bar/nav-active-toggles"
 import hamburgerMenu from "../../../images/nav-bar/hamburger-menu.svg"
-interface Props {
-	onClickHamburger: () => void
-}
-function HamburgerMenu(props: Props) {
-	const { onClickHamburger } = props
 
+function HamburgerMenu() {
 	return (
 		<img
 			className="hamburger-menu clickable"
-			onClick={onClickHamburger}
+			onClick={toggleNavActive}
 			src={hamburgerMenu}
 			alt=""
 		/>

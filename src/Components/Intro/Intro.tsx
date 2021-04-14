@@ -19,11 +19,11 @@ function Intro() {
 
 	//Changes Background class every hour
 	useEffect(() => {
-		const bgClassUpdateInterval: NodeJS.Timeout = setInterval((): void => {
+		const bgClassUpdate: NodeJS.Timeout = setInterval((): void => {
 			setBgClass(getBackgroundClass())
 		}, MILLISECONDS_IN_HOUR)
 
-		return (): void => clearInterval(bgClassUpdateInterval)
+		return (): void => clearInterval(bgClassUpdate)
 	}, [])
 
 	return (

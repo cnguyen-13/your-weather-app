@@ -14,13 +14,13 @@ function ForecastCardContainer(props: Props) {
 	const { measurementSystem } = useContext(MeasurementSystemContext)
 	const [forecastDays, setForecastDays] = useState<forecastDay[]>([])
 	const [forecastDay, setForecastDay] = useState<forecastDay>(forecastDays[0])
-	const [idxActive, setIdxActive] = useState<number | undefined>()
+	const [idxActive, setIdxActive] = useState<number | null>(null)
 	const [wasCardClicked, setWasCardClicked] = useState<boolean>(false)
 
 	useEffect(() => {
 		getCityForecastDays(setForecastDays, city, measurementSystem)
 		setWasCardClicked(false)
-		setIdxActive(undefined)
+		setIdxActive(null)
 	}, [city, measurementSystem])
 
 	function onClickCardHandler(e: any): void {

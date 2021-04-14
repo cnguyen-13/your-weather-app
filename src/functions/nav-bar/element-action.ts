@@ -13,10 +13,10 @@ export function elementAction(
 	if (element && type === TYPES.BODY && action === ACTIONS.TOGGLE)
 		return element.classList.toggle("scroll-lock")
 	if (element && type === TYPES.BODY && action === ACTIONS.REMOVE)
-		return element.classList.toggle("scroll-lock")
+		return element.classList.remove("scroll-lock")
 
 	if (element && type === TYPES.SETTINGS && action === ACTIONS.TOGGLE)
 		return element.classList.toggle("search-settings-active")
 	if (element && type === TYPES.SETTINGS && action === ACTIONS.REMOVE)
-		return element.classList.toggle("search-settings-active")
+		return element.classList.remove("search-settings-active")
 }
