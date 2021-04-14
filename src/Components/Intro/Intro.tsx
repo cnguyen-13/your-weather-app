@@ -1,68 +1,46 @@
-import React, { useState, useEffect } from "react";
-import IntroTime from "./IntroTime";
-import IntroWelcome from "./IntroWelcome";
-import IntroQuestion from "./IntroQuestion";
-import IntroButton from "./IntroButton";
+import React, { useState, useEffect } from "react"
+import IntroContent from "./intro-components/IntroContent"
+import { getBackgroundClass } from "../../functions/intro/get-background-class"
+import { MILLISECONDS_IN_HOUR } from "../../constants/intro/intro-milliseconds-times"
+import { INTRO_PLACEHOLDERS } from "../../constants/intro/intro-input-placeholders"
+import { LS } from "../../constants/intro/intro-ls"
 
-interface Props {}
+function Intro() {
+	const [name, setName] = useState<string>(localStorage.getItem(LS.NAME) || "")
+	const [city, setCity] = useState<string>(localStorage.getItem(LS.CITY) || "")
+	const [bgClass, setBgClass] = useState<string>(getBackgroundClass())
 
-function Intro(props: Props) {
-    const [city, setCity] = useState<string | null>(null);
-    const [backgroundClass, setBackgroundClass] = useState<string>("");
+	//Update local storage variables
+	function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>): void {
+		const { id, value } = e.target
+		localStorage.setItem(id, value)
+		id === LS.NAME ? setName(value) : setCity(value)
+	}
 
-    //Local Storage CITY
-    function setLocalCity(e: React.FormEvent) {
-        console.log("hello");
-    }
+	//Changes Background class every hour
+	useEffect(() => {
+		const bgClassUpdate: NodeJS.Timeout = setInterval((): void => {
+			setBgClass(getBackgroundClass())
+		}, MILLISECONDS_IN_HOUR)
 
-    useEffect(() => {
-        //Local Storage setup
+		return (): void => clearInterval(bgClassUpdate)
+	}, [])
 
-        function getLocalCity() {
-            if (localStorage.getItem("city")) {
-                setCity(localStorage.getItem("city"));
-            } else {
-                setCity("[ Your City ]");
-            }
-        }
-
-        getLocalCity();
-    }, []);
-
-    //Background
-    useEffect(() => {
-        function updateBackground(): void {
-            const today = new Date();
-            const hours = today.getHours();
-            if (hours >= 0 && hours <= 11) {
-                setBackgroundClass("morning");
-            } else if (hours >= 12 && hours <= 18) {
-                setBackgroundClass("afternoon");
-            } else {
-                setBackgroundClass("evening");
-            }
-        }
-
-        //First Time
-        updateBackground();
-
-        //Interval
-        const timeUpdateInterval = setInterval(() => {
-            updateBackground();
-        }, 3600000);
-
-        //Unmount
-        return () => clearInterval(timeUpdateInterval);
-    }, []);
-
-    return (
-        <div id="intro" className={`intro ${backgroundClass}`}>
-            <IntroTime />
-            <IntroWelcome />
-            <IntroQuestion city={city} setLocalCity={setLocalCity} />
-            <IntroButton />
-        </div>
-    );
+	return (
+		<div
+			className={`intro-layout gap-lg text-centered flex-centered full-width full-height txt-color-white ${bgClass}`}
+		>
+			<IntroContent
+				nameTopic={LS.NAME}
+				name={name}
+				namePlaceHolder={INTRO_PLACEHOLDERS.NAME}
+				cityTopic={LS.CITY}
+				city={city}
+				cityPlaceHolder={INTRO_PLACEHOLDERS.CITY}
+				onChangeHandler={onChangeHandler}
+			/>
+		</div>
+	)
 }
 
-export default Intro;
+export default Intro

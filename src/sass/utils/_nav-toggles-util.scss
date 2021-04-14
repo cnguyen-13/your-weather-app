@@ -1,0 +1,42 @@
+.mask {
+	background: $mask;
+	overflow-y: hidden;
+	transition: all 0.3s linear;
+	transform: translateY(-100vh);
+	&-active {
+		transform: translateY(0);
+	}
+}
+
+.search-settings {
+	position: absolute;
+	top: $height-nav-bar;
+	height: $height-mobile-search-settings;
+	transform: translateX(100vw);
+	&-active {
+		transform: translateX(0);
+	}
+}
+
+.scroll-lock {
+	overflow-y: hidden;
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.mask {
+		display: none;
+	}
+
+	.search-settings {
+		position: relative;
+		transform: translateX(0);
+		height: auto;
+		top: 0;
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+
+	.scroll-lock {
+		overflow-y: visible;
+	}
+}

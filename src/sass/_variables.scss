@@ -1,0 +1,58 @@
+//Colors
+$color-primary: #5f2fff;
+$color-highlight: #fa1151;
+$color-white: white;
+$color-off-black: #1a1a1a;
+$color-hover: #ffda29;
+
+//Mask
+$mask: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+
+//Heights of elements
+$height-nav-bar: 50px;
+$height-mobile-search-settings: 100px;
+$height-nav-bar-settings: 36px;
+$height-logo: 125px;
+$height-min-cards-container: 120px;
+$height-card-icon: 80px;
+$height-card: 110px;
+$height-min-day-forcast-city-image: 500px;
+$height-min-city-hero: 600px;
+$height-city-hero: 70vh;
+
+//Widths of elements
+$width-hamburger: 30px;
+$width-day-forecast-section-icon: 75px;
+$width-max-search-bar: 300px;
+$width-search-input: 70%;
+$width-search-button: 30%;
+$width-logo: 125px;
+$width-card-icon: 80px;
+$width-card: 200px;
+
+//Breakpoints
+$breakpoint-mobile: 500px;
+$breakpoint-tablet: 800px;
+$breakpoint-desktop: 1440px;
+$breakpoint-1920px: 1920px;
+$breakpoint-intro-tablet: 760px;
+$breakpoint-intro-desktop: 1200px;
+
+//Gaps (flexbox & grid)
+$gap-sm: 0.25rem;
+$gap-med: 0.5rem;
+$gap-lg: 1rem;
+
+//Font Sizes
+$font-size-lg: 3rem;
+$font-size-med: 2rem;
+$font-size-card: 0.875rem;
+$font-size-intro-time-mobile: 2.5rem;
+$font-size-intro-time-tablet: 4rem;
+$font-size-intro-time-desktop: 6.25rem;
+$font-size-intro-welcome-mobile: 1.5rem;
+$font-size-intro-welcome-tablet: 1.875rem;
+$font-size-intro-question-mobile: 1.25rem;
+$font-size-intro-question-tablet: 1.5rem;
+$font-size-intro-button-mobile: 1.125rem;
+$font-size-intro-button-tablet: 1.25rem;

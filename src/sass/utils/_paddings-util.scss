@@ -1,0 +1,25 @@
+.pt-3 {
+	padding-top: 3rem;
+}
+
+.pb-3 {
+	padding-bottom: 3rem;
+}
+
+.p-cta {
+	padding: 0.75rem 1.5rem;
+}
+
+.p-search-input {
+	padding: 0.5rem 1.25rem;
+}
+
+.p-search-btn {
+	padding: 0.55rem 1rem;
+}
+
+@media (min-width: $breakpoint-desktop) {
+	.pb-3-desktop {
+		padding-bottom: 3rem;
+	}
+}

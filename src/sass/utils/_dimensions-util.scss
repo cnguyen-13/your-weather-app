@@ -1,0 +1,77 @@
+//General
+.full-width {
+	width: 100%;
+}
+
+.full-height {
+	height: 100vh;
+}
+
+.full-height-percent {
+	height: 100%;
+}
+
+.height-error-page {
+	height: calc(100vh - 50px);
+}
+
+.max-width-centered {
+	width: 90%;
+	margin: 0 auto;
+}
+
+//Dimensions of elements
+.dimen-city-bg {
+	min-height: $height-min-city-hero;
+	height: $height-city-hero;
+}
+
+.dimen-df-icon {
+	width: $width-day-forecast-section-icon;
+}
+
+.dimen-df-city-img {
+	min-height: $height-min-day-forcast-city-image;
+}
+
+.dimen-cards-container {
+	min-height: $height-min-cards-container;
+}
+
+.dimen-card {
+	width: $width-card;
+	height: $height-card;
+}
+
+.dimen-card-icon {
+	width: $width-card-icon;
+	height: $height-card-icon;
+}
+
+.dimen-nav-bar {
+	height: $height-nav-bar;
+}
+
+.dimen-search {
+	max-width: $width-max-search-bar;
+}
+
+.dimen-input {
+	width: $width-search-input;
+	height: $height-nav-bar-settings;
+}
+
+.dimen-logo {
+	width: $width-logo;
+	height: $height-logo;
+}
+
+.dimen-search-btn {
+	width: $width-search-button;
+	height: $height-nav-bar-settings;
+}
+
+//?
+.dimen-search-settings {
+	height: $height-mobile-search-settings;
+}
